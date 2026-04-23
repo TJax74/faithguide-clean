@@ -297,8 +297,17 @@ function showDailyVerse() {
 
   const box = document.createElement("div");
   box.style = "max-width:600px; margin:30px auto; padding:20px; background:white; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); text-align:center;";
-  box.innerHTML = `<strong style="color:#c9a94d;">Daily Verse</strong><p style="margin-top:10px;">${verse}</p>`;
-
+  box.innerHTML = `
+  <div style="font-size:12px; color:#c9a94d; margin-bottom:8px; letter-spacing:1px;">
+    DAILY VERSE
+  </div>
+  <div style="display:flex; gap:12px; align-items:flex-start; justify-content:center;">
+    <div style="width:3px; background:#c9a94d;"></div>
+    <div style="font-size:18px; line-height:1.6;">
+      "${verse}"
+    </div>
+  </div>
+`;
   document.body.insertBefore(box, document.body.children[2]);
 }
 
