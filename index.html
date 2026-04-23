@@ -211,6 +211,11 @@ function goBack() {
   document.getElementById("cardsSection").style.display = "block";
 }
 </script>
-
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('main.js')
+      .then(() => console.log('Service Worker Registered'));
+  }
+</script>
 </body>
 </html>
