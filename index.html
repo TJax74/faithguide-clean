@@ -178,8 +178,21 @@
 
       verses[emotion].forEach(v => {
         const div = document.createElement("div");
-        div.className = "verse-card";
-        div.innerText = v;
+        const [ref, text] = v.split("—");
+
+div.innerHTML = `
+  <div style="font-size:12px; letter-spacing:1px; color:#c9a94d; margin-bottom:10px;">
+    ${ref.toUpperCase()}
+  </div>
+
+  <div style="display:flex; gap:15px;">
+    <div style="width:3px; background:#c9a94d;"></div>
+
+    <div style="font-size:20px; line-height:1.6; color:#222;">
+      "${text}"
+    </div>
+  </div>
+`;
         container.appendChild(div);
       });
     }
