@@ -20,6 +20,32 @@
     .card:hover {
       transform: translateY(-5px);
     }
+
+    .verse-card {
+      background: white;
+      padding: 25px;
+      margin: 20px 0;
+      border-radius: 10px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .btn-gold {
+      background: #c9a94d;
+      color: white;
+    }
+
+    .btn-outline {
+      background: white;
+      border: 1px solid #ccc;
+    }
   </style>
 </head>
 
@@ -55,14 +81,12 @@
 
     <div style="margin-top:20px;">
       <input placeholder="Search..." style="padding:12px; width:260px; border:1px solid #ccc;">
-      <button style="padding:12px 18px; background:#c9a94d; color:white; border:none;">
-        Find Verses
-      </button>
+      <button class="btn btn-gold">Find Verses</button>
     </div>
   </div>
 
   <!-- CARDS -->
-  <div style="padding:40px 20px;">
+  <div id="cardsSection" style="padding:40px 20px;">
     <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:25px;">
 
       <div class="card" onclick="showVerses('Anxiety')" style="background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
@@ -95,86 +119,76 @@
         <p style="color:#555;">Remember you are never truly alone</p>
       </div>
 
-      <div id="versesSection" style="display:none; padding:40px 20px; max-width:900px; margin:0 auto;">
-
-  <h2 id="emotionTitle" style="color:#c9a94d; text-align:center;"></h2>
-
-  <div id="versesContainer"></div>
-
-</div>
     </div>
   </div>
 
-  <!-- VERSE DISPLAY -->
-  <div id="verseBox" style="
-    max-width:700px;
-    margin:20px auto 60px;
-    padding:20px;
-    background:white;
-    border-radius:10px;
-    text-align:center;
-    box-shadow:0 6px 15px rgba(0,0,0,0.1);
-    color:#333;
-  ">
-    Select an emotion to see a verse
+  <!-- VERSES SECTION -->
+  <div id="versesSection" style="display:none; padding:40px 20px; max-width:900px; margin:0 auto;">
+
+    <h2 id="emotionTitle" style="color:#c9a94d; text-align:center;"></h2>
+
+    <div id="versesContainer"></div>
+
+    <div style="text-align:center; margin-top:40px;">
+      <button class="btn btn-outline" onclick="goBack()">← Back</button>
+    </div>
+
   </div>
 
   <!-- SCRIPT -->
- <script>
-function showVerses(emotion) {
+  <script>
+    function showVerses(emotion) {
 
-  // hide cards
-  document.querySelector('[style*="grid-template-columns"]').style.display = "none";
+      document.getElementById("cardsSection").style.display = "none";
+      document.getElementById("versesSection").style.display = "block";
 
-  // show verses section
-  document.getElementById("versesSection").style.display = "block";
+      document.getElementById("emotionTitle").innerText = emotion;
 
-  document.getElementById("emotionTitle").innerText = emotion;
+      const verses = {
+        Anxiety: [
+          "Matthew 6:34 — Take no thought for tomorrow...",
+          "John 14:27 — Peace I leave with you...",
+          "Psalm 91:1 — He that dwelleth in the secret place...",
+          "Psalm 55:22 — Cast thy burden upon the Lord..."
+        ],
+        Stress: [
+          "Matthew 11:28 — Come to me, all who are weary...",
+          "Psalm 46:1 — God is our refuge and strength..."
+        ],
+        Fear: [
+          "Isaiah 41:10 — Do not fear, for I am with you...",
+          "2 Timothy 1:7 — God has not given us a spirit of fear..."
+        ],
+        Grief: [
+          "Psalm 34:18 — The Lord is close to the brokenhearted...",
+          "Revelation 21:4 — He will wipe every tear..."
+        ],
+        Anger: [
+          "Proverbs 15:1 — A gentle answer turns away wrath...",
+          "Ephesians 4:26 — Be angry and do not sin..."
+        ],
+        Loneliness: [
+          "Deuteronomy 31:6 — He will never leave you...",
+          "Psalm 23:4 — I will fear no evil..."
+        ]
+      };
 
-  const verses = {
-    Anxiety: [
-      "Matthew 6:34 — Take no thought for tomorrow...",
-      "John 14:27 — Peace I leave with you...",
-      "Psalm 91:1 — He that dwelleth in the secret place...",
-      "Psalm 55:22 — Cast thy burden upon the Lord..."
-    ],
-    Stress: [
-      "Matthew 11:28 — Come to me, all who are weary...",
-      "Psalm 46:1 — God is our refuge and strength..."
-    ],
-    Fear: [
-      "Isaiah 41:10 — Do not fear, for I am with you...",
-      "2 Timothy 1:7 — God has not given us a spirit of fear..."
-    ],
-    Grief: [
-      "Psalm 34:18 — The Lord is close to the brokenhearted...",
-      "Revelation 21:4 — He will wipe every tear..."
-    ],
-    Anger: [
-      "Proverbs 15:1 — A gentle answer turns away wrath...",
-      "Ephesians 4:26 — Be angry and do not sin..."
-    ],
-    Loneliness: [
-      "Deuteronomy 31:6 — He will never leave you...",
-      "Psalm 23:4 — I will fear no evil..."
-    ]
-  };
+      const container = document.getElementById("versesContainer");
+      container.innerHTML = "";
 
-  const container = document.getElementById("versesContainer");
-  container.innerHTML = "";
+      verses[emotion].forEach(v => {
+        const div = document.createElement("div");
+        div.className = "verse-card";
+        div.innerText = v;
+        container.appendChild(div);
+      });
+    }
 
-  verses[emotion].forEach(v => {
-    container.innerHTML += `
-      <div style="
-        background:white;
-        padding:25px;
-        margin:20px 0;
-        border-radius:10px;
-        box-shadow:0 6px 15px rgba(0,0,0,0.1);
-      ">
-        ${v}
-      </div>
-    `;
-  });
-}
-</script>
+    function goBack() {
+      document.getElementById("versesSection").style.display = "none";
+      document.getElementById("cardsSection").style.display = "block";
+    }
+  </script>
+
+</body>
+</html>
