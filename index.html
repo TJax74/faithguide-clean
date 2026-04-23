@@ -130,3 +130,17 @@
 
 </body>
 </html>
+<script>
+function showVerses(emotion) {
+  const verses = {
+    Anxiety: "Philippians 4:6-7 — Do not be anxious about anything...",
+    Stress: "Matthew 11:28 — Come to me, all who are weary...",
+    Fear: "Isaiah 41:10 — Do not fear, for I am with you...",
+    Grief: "Psalm 34:18 — The Lord is close to the brokenhearted...",
+    Anger: "Proverbs 15:1 — A gentle answer turns away wrath...",
+    Loneliness: "Deuteronomy 31:6 — He will never leave you nor forsake you..."
+  };
+
+  document.getElementById("verseBox").innerText = verses[emotion];
+}
+</script>
