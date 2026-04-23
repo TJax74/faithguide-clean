@@ -280,5 +280,29 @@ function goBack() {
 }
 </script>
 
+  <script>
+const dailyVerses = [
+  "Psalm 23:1 — The Lord is my shepherd; I shall not want.",
+  "Isaiah 41:10 — Fear not, for I am with you.",
+  "Philippians 4:13 — I can do all things through Christ.",
+  "Matthew 11:28 — Come to me, all who are weary.",
+  "Romans 8:28 — All things work together for good.",
+  "Joshua 1:9 — Be strong and courageous.",
+  "Psalm 46:1 — God is our refuge and strength."
+];
+
+function showDailyVerse() {
+  const today = new Date().getDate();
+  const verse = dailyVerses[today % dailyVerses.length];
+
+  const box = document.createElement("div");
+  box.style = "max-width:600px; margin:30px auto; padding:20px; background:white; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); text-align:center;";
+  box.innerHTML = `<strong style="color:#c9a94d;">Daily Verse</strong><p style="margin-top:10px;">${verse}</p>`;
+
+  document.body.insertBefore(box, document.body.children[2]);
+}
+
+showDailyVerse();
+</script>
 </body>
 </html>
