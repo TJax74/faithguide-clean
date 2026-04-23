@@ -15,7 +15,6 @@ body {
   background: linear-gradient(to bottom, #f5f5f5, #e6e6e6);
 }
 
-/* NAV */
 .nav {
   background:#16263d;
   color:white;
@@ -25,23 +24,6 @@ body {
   align-items:center;
 }
 
-.nav-links {
-  display:flex;
-  gap:25px;
-  font-size:14px;
-}
-
-.nav-links span {
-  cursor:pointer;
-  opacity:0.9;
-}
-
-.nav-links span:hover {
-  opacity:1;
-  text-decoration:underline;
-}
-
-/* CARDS */
 .card {
   background:white;
   padding:30px;
@@ -68,16 +50,9 @@ body {
   justify-content:center;
 }
 
-.card h3 {
-  color:#c9a94d;
-}
+.card h3 { color:#c9a94d; }
+.card p { color:#666; font-size:14px; }
 
-.card p {
-  color:#666;
-  font-size:14px;
-}
-
-/* VERSES */
 .verse-card {
   background:white;
   padding:30px;
@@ -85,33 +60,6 @@ body {
   box-shadow:0 6px 15px rgba(0,0,0,0.08);
   margin:25px auto;
   max-width:700px;
-}
-
-.verse-ref {
-  font-size:12px;
-  color:#c9a94d;
-  margin-bottom:10px;
-}
-
-.verse-text {
-  display:flex;
-  gap:15px;
-  font-size:20px;
-}
-
-.verse-line {
-  width:3px;
-  background:#c9a94d;
-}
-
-.save-btn {
-  margin-top:15px;
-  padding:8px 14px;
-  border:none;
-  border-radius:6px;
-  background:#c9a94d;
-  color:white;
-  cursor:pointer;
 }
 </style>
 </head>
@@ -121,8 +69,7 @@ body {
 <!-- NAV -->
 <div class="nav">
   <div style="color:#d4af37; font-weight:bold;">FaithGuide</div>
-
-  <div style="display:flex; gap:25px; font-size:14px; align-items:center;">
+  <div style="display:flex; gap:25px;">
     <span onclick="goHome()">Home</span>
     <span onclick="showSaved()">Saved</span>
     <span>Devotionals</span>
@@ -141,57 +88,46 @@ body {
 <!-- DAILY VERSE -->
 <script>
 const dailyVerses = [
-  "Psalm 23:1 — The Lord is my shepherd; I shall not want.",
-  "Isaiah 41:10 — Fear not, for I am with you.",
-  "Philippians 4:13 — I can do all things through Christ.",
-  "Matthew 11:28 — Come to me, all who are weary.",
-  "Romans 8:28 — All things work together for good."
+  "Matthew 11:28 — Come to me, all who are weary."
 ];
 
 function showDailyVerse() {
-  const today = new Date().getDate();
-  const verse = dailyVerses[today % dailyVerses.length];
-
   const box = document.createElement("div");
-  box.style = "max-width:600px; margin:30px auto; padding:20px; background:white; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08); text-align:center;";
-  box.innerHTML = `
-    <div style="font-size:12px; color:#c9a94d;">DAILY VERSE</div>
-    <div style="display:flex; gap:12px; justify-content:center;">
-      <div style="width:3px; background:#c9a94d;"></div>
-      <div>"${verse}"</div>
-    </div>
-  `;
+  box.style = "max-width:600px; margin:30px auto; padding:20px; background:white; border-radius:12px; text-align:center;";
+  box.innerHTML = `<div style="color:#c9a94d;">DAILY VERSE</div><div>"${dailyVerses[0]}"</div>`;
   document.body.appendChild(box);
 }
 showDailyVerse();
 </script>
 
-<!-- SEARCH (FIXED LOCATION) -->
-<div style="text-align:center; padding:40px 20px 20px;">
-  <h2 style="color:#c9a94d; font-size:36px; margin-bottom:10px;">
-    How are you feeling today?
-  </h2>
+<!-- SEARCH -->
+<div style="text-align:center; padding:40px 20px;">
+  <h2 style="color:#c9a94d;">How are you feeling today?</h2>
+  <p>Select an emotion below or search for what's on your heart.</p>
 
-  <p style="color:#555; margin-bottom:20px;">
-    Select an emotion below or search for what's on your heart.
-  </p>
-
-  <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap;">
-    
-    <input 
-      type="text" 
-      placeholder="Search for verses, topics, or emotions..."
-      style="padding:12px 15px; width:300px; border-radius:8px; border:1px solid #ddd;"
-    />
-
-    <button 
-      style="padding:12px 20px; border:none; border-radius:8px; background:#c9a94d; color:white; cursor:pointer;">
-      🔍 Find Verses
-    </button>
-
-  </div>
+  <input placeholder="Search..." style="padding:10px; width:250px;">
+  <button style="padding:10px; background:#c9a94d; color:white;">Find Verses</button>
 </div>
 
 <!-- CARDS -->
-<div id="homeSection" style="padding:40px 20px;">
-  <!-- (your cards stay exactly the same here — unchanged) -->
+<div style="max-width:1100px; margin:40px auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;">
+
+  <div class="card"><h3>Anxiety</h3><p>Find peace when worry overwhelms you</p></div>
+  <div class="card"><h3>Stress</h3><p>Discover rest in pressure</p></div>
+  <div class="card"><h3>Fear</h3><p>Build courage through God's promises</p></div>
+  <div class="card"><h3>Grief</h3><p>Comfort in times of loss</p></div>
+  <div class="card"><h3>Anger</h3><p>Respond with grace</p></div>
+  <div class="card"><h3>Loneliness</h3><p>You are not alone</p></div>
+  <div class="card"><h3>Confusion</h3><p>Seek clarity</p></div>
+  <div class="card"><h3>Joy</h3><p>Celebrate goodness</p></div>
+  <div class="card"><h3>Gratitude</h3><p>Give thanks</p></div>
+
+</div>
+
+<script>
+function goHome(){}
+function showSaved(){}
+</script>
+
+</body>
+</html>
