@@ -12,9 +12,9 @@
       background: linear-gradient(to bottom, #f5f5f5, #e6e6e6);
     }
 
-    /* Hover ONLY on cards (not everything) */
     .card {
       transition: all 0.2s ease;
+      cursor: pointer;
     }
 
     .card:hover {
@@ -26,132 +26,107 @@
 <body>
 
   <!-- NAVBAR -->
-  <div style="
-    background:#16263d;
-    color:white;
-    padding:15px 40px;
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-  ">
-
-    <div style="
-      color:#d4af37;
-      font-weight:bold;
-      font-size:18px;
-    ">
+  <div style="background:#16263d; color:white; padding:15px 40px; display:flex; justify-content:space-between;">
+    <div style="color:#d4af37; font-weight:bold; font-size:18px;">
       FaithGuide
     </div>
 
-    <div style="
-      display:flex;
-      gap:25px;
-      color:#ddd;
-      font-size:14px;
-    ">
+    <div style="display:flex; gap:25px; color:#ddd; font-size:14px;">
       <span>Home</span>
       <span>Devotionals</span>
       <span>Reading Plans</span>
       <span>Verse of the Day</span>
       <span>Bible</span>
     </div>
-
   </div>
 
   <!-- HERO -->
-  <div style="
-    background:#1b2f4b;
-    color:white;
-    padding:60px 20px;
-    text-align:center;
-  ">
-    <h1 style="margin-bottom:10px;">FaithGuide</h1>
-
-    <p style="
-      max-width:600px;
-      margin:0 auto;
-      font-size:18px;
-    ">
+  <div style="background:#1b2f4b; color:white; padding:60px 20px; text-align:center;">
+    <h1>FaithGuide</h1>
+    <p style="max-width:600px; margin:0 auto; font-size:18px;">
       "Come to me, all who are weary and burdened, and I will give you rest."
     </p>
-
-    <p style="color:#d4af37; margin-top:10px;">
-      — Matthew 11:28
-    </p>
+    <p style="color:#d4af37;">— Matthew 11:28</p>
   </div>
 
   <!-- SEARCH -->
-  <div style="
-    background:#f5f5f5;
-    padding:50px 20px;
-    text-align:center;
-  ">
-
+  <div style="background:#f5f5f5; padding:50px 20px; text-align:center;">
     <h2 style="color:#c9a94d;">How are you feeling today?</h2>
 
     <div style="margin-top:20px;">
-      <input
-        placeholder="Search..."
-        style="padding:12px; width:260px; border:1px solid #ccc;"
-      >
-
-      <button style="
-        padding:12px 18px;
-        background:#c9a94d;
-        color:white;
-        border:none;
-        margin-left:8px;
-      ">
+      <input placeholder="Search..." style="padding:12px; width:260px; border:1px solid #ccc;">
+      <button style="padding:12px 18px; background:#c9a94d; color:white; border:none;">
         Find Verses
       </button>
     </div>
-
   </div>
 
   <!-- CARDS -->
   <div style="padding:40px 20px;">
+    <div style="max-width:1100px; margin:0 auto; display:grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap:25px;">
 
-    <div style="
-      max-width:1100px;
-      margin:0 auto;
-      display:grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap:25px;
-    ">
-
-      <div class="card" onclick="showMessage('Anxiety')" style="cursor:pointer; background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+      <div class="card" onclick="showVerses('Anxiety')" style="background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
         <h3 style="color:#c9a94d;">Anxiety</h3>
         <p style="color:#555;">Find peace when worry overwhelms you</p>
       </div>
 
-      <div class="card" style="background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+      <div class="card" onclick="showVerses('Stress')" style="background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
         <h3 style="color:#c9a94d;">Stress</h3>
         <p style="color:#555;">Discover rest in the midst of pressure</p>
       </div>
 
-      <div class="card" style="background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+      <div class="card" onclick="showVerses('Fear')" style="background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
         <h3 style="color:#c9a94d;">Fear</h3>
         <p style="color:#555;">Build courage through God's promises</p>
       </div>
 
-      <div class="card" style="background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+      <div class="card" onclick="showVerses('Grief')" style="background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
         <h3 style="color:#c9a94d;">Grief</h3>
         <p style="color:#555;">Experience comfort in times of loss</p>
       </div>
 
-      <div class="card" style="background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+      <div class="card" onclick="showVerses('Anger')" style="background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
         <h3 style="color:#c9a94d;">Anger</h3>
         <p style="color:#555;">Learn to respond with grace and patience</p>
       </div>
 
-      <div class="card" style="background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
+      <div class="card" onclick="showVerses('Loneliness')" style="background:white; padding:35px; border-radius:12px; text-align:center; box-shadow:0 8px 20px rgba(0,0,0,0.08);">
         <h3 style="color:#c9a94d;">Loneliness</h3>
         <p style="color:#555;">Remember you are never truly alone</p>
       </div>
 
     </div>
-
   </div>
+
+  <!-- VERSE DISPLAY -->
+  <div id="verseBox" style="
+    max-width:700px;
+    margin:20px auto 60px;
+    padding:20px;
+    background:white;
+    border-radius:10px;
+    text-align:center;
+    box-shadow:0 6px 15px rgba(0,0,0,0.1);
+    color:#333;
+  ">
+    Select an emotion to see a verse
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    function showVerses(emotion) {
+      const verses = {
+        Anxiety: "Philippians 4:6-7 — Do not be anxious about anything...",
+        Stress: "Matthew 11:28 — Come to me, all who are weary...",
+        Fear: "Isaiah 41:10 — Do not fear, for I am with you...",
+        Grief: "Psalm 34:18 — The Lord is close to the brokenhearted...",
+        Anger: "Proverbs 15:1 — A gentle answer turns away wrath...",
+        Loneliness: "Deuteronomy 31:6 — He will never leave you nor forsake you..."
+      };
+
+      document.getElementById("verseBox").innerText = verses[emotion];
+    }
+  </script>
 
 </body>
 </html>
