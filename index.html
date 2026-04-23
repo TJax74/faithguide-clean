@@ -166,15 +166,40 @@ function showVerses(emotion) {
     const div = document.createElement("div");
 
     div.innerHTML = `
-      <div style="background:white; padding:30px; border-radius:12px; box-shadow:0 8px 20px rgba(0,0,0,0.08); margin:20px 0;">
-        <div style="font-size:12px; color:#c9a94d; margin-bottom:10px;">
-          ${ref.toUpperCase()}
-        </div>
-        <div style="font-size:18px;">
-          "${text}"
-        </div>
+  <div style="
+    background:white;
+    padding:30px;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,0.08);
+    margin:25px 0;
+    max-width:800px;
+  ">
+
+    <div style="
+      font-size:12px;
+      letter-spacing:1px;
+      color:#c9a94d;
+      margin-bottom:15px;
+    ">
+      ${ref.toUpperCase()}
+    </div>
+
+    <div style="display:flex; gap:15px;">
+      
+      <div style="width:3px; background:#c9a94d;"></div>
+
+      <div style="
+        font-size:20px;
+        line-height:1.7;
+        color:#222;
+      ">
+        "${text}"
       </div>
-    `;
+
+    </div>
+
+  </div>
+`;
 
     container.appendChild(div);
   });
