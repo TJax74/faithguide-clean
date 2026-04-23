@@ -3,7 +3,7 @@ import ReactDOM from "react-dom/client";
 
 function App() {
   return (
-    <div style={{ fontFamily: "Georgia, serif", background: "#f4f4f4" }}>
+    <div style={{ fontFamily: "Georgia, serif", background: "#0f1c2e" }}>
 
       {/* NAVBAR */}
       <nav style={{
