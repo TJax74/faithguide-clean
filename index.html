@@ -4,10 +4,62 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FaithGuide</title>
+
+    <style>
+      body {
+        margin: 0;
+        font-family: Arial, sans-serif;
+        background: #0f172a;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+      }
+
+      .app {
+        background: #1e293b;
+        padding: 30px;
+        border-radius: 20px;
+        width: 90%;
+        max-width: 400px;
+        text-align: center;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+      }
+
+      h1 {
+        margin-bottom: 10px;
+      }
+
+      button {
+        background: #6366f1;
+        border: none;
+        padding: 12px 20px;
+        color: white;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
+        margin-top: 15px;
+      }
+
+      button:hover {
+        background: #4f46e5;
+      }
+
+      #verse {
+        margin-top: 20px;
+        font-style: italic;
+      }
+    </style>
   </head>
+
   <body>
-    <h1>FaithGuide is live 🙌</h1>
-    <div id="root"></div>
+    <div class="app">
+      <h1>FaithGuide 🙏</h1>
+      <p>Start your day with a verse</p>
+      <div id="root"></div>
+    </div>
+
     <script type="module" src="/main.js"></script>
   </body>
 </html>
