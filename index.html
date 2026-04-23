@@ -171,8 +171,8 @@ function showVerses(emotion) {
     padding:30px;
     border-radius:12px;
     box-shadow:0 8px 20px rgba(0,0,0,0.08);
-    margin:25px 0;
-    max-width:800px;
+    margin:25px auto;
+    max-width:700px;
   ">
 
     <div style="
@@ -185,7 +185,6 @@ function showVerses(emotion) {
     </div>
 
     <div style="display:flex; gap:15px;">
-      
       <div style="width:3px; background:#c9a94d;"></div>
 
       <div style="
@@ -193,9 +192,8 @@ function showVerses(emotion) {
         line-height:1.7;
         color:#222;
       ">
-        "${text}"
+        "${text.trim()}"
       </div>
-
     </div>
 
   </div>
