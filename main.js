@@ -1,24 +1,27 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 
-function App() {
+const App = () => {
   return (
     <div style={{
-  fontFamily: "Georgia, serif",
-  background: "#0f1c2e",
-  minHeight: "100vh"
-}}>
+      fontFamily: "Georgia, serif",
+      background: "#0f1c2e",
+      color: "#fff",
+      minHeight: "100vh"
+    }}>
 
       {/* NAVBAR */}
-      <nav style={{
-        background: "#1f2f3f",
-        color: "white",
-        padding: "15px 40px",
+      <div style={{
+        background: "#16263d",
+        padding: "15px 30px",
         display: "flex",
         justifyContent: "space-between",
         alignItems: "center"
       }}>
-        <h2 style={{ margin: 0 }}>FaithGuide</h2>
+        <div style={{ fontWeight: "bold", fontSize: "20px", color: "#d4af37" }}>
+          FaithGuide
+        </div>
+
         <div style={{ display: "flex", gap: "20px", fontSize: "14px" }}>
           <span>Home</span>
           <span>Devotionals</span>
@@ -26,48 +29,40 @@ function App() {
           <span>Verse of the Day</span>
           <span>Bible</span>
         </div>
-      </nav>
+      </div>
 
       {/* HERO */}
-      <section style={{
-        background: "#243447",
-        color: "white",
+      <div style={{
+        padding: "100px 20px",
         textAlign: "center",
-        padding: "80px 20px"
+        background: "#1b2f4b"
       }}>
         <h1 style={{ fontSize: "48px", marginBottom: "20px" }}>
           FaithGuide
         </h1>
 
-        <p style={{
-          fontStyle: "italic",
-          maxWidth: "600px",
-          margin: "0 auto"
-        }}>
+        <p style={{ fontSize: "20px", maxWidth: "700px", margin: "0 auto" }}>
           "Come to me, all who are weary and burdened, and I will give you rest."
         </p>
 
-        <p style={{ color: "#d4af37", marginTop: "10px" }}>
+        <p style={{ marginTop: "10px", color: "#d4af37" }}>
           — Matthew 11:28
         </p>
-      </section>
+      </div>
 
       {/* SEARCH SECTION */}
-      <section style={{
+      <div style={{
+        background: "#f5f5f5",
+        color: "#000",
         padding: "60px 20px",
-        textAlign: "center",
-        background: "#f4f4f4"
+        textAlign: "center"
       }}>
-        <h2 style={{
-          color: "#b8964d",
-          fontSize: "36px",
-          marginBottom: "10px"
-        }}>
+        <h2 style={{ color: "#c9a94d", marginBottom: "10px" }}>
           How are you feeling today?
         </h2>
 
         <p style={{ marginBottom: "20px" }}>
-          Select an emotion below or search for what’s on your heart.
+          Select an emotion below or search for what's on your heart.
         </p>
 
         <input
@@ -75,62 +70,45 @@ function App() {
           style={{
             padding: "12px",
             width: "300px",
-            marginRight: "10px",
-            borderRadius: "5px",
-            border: "1px solid #ccc"
+            marginRight: "10px"
           }}
         />
 
         <button style={{
           padding: "12px 20px",
-          background: "#b8964d",
-          color: "white",
+          background: "#c9a94d",
           border: "none",
-          borderRadius: "5px"
+          color: "#fff"
         }}>
           Find Verses
         </button>
-      </section>
+      </div>
 
-      {/* EMOTION CARDS */}
-      <section style={{
+      {/* CARDS */}
+      <div style={{
+        background: "#eaeaea",
+        padding: "40px",
         display: "grid",
-        gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-        gap: "20px",
-        padding: "40px"
+        gridTemplateColumns: "repeat(auto-fit, minmax(200px, 1fr))",
+        gap: "20px"
       }}>
-        {[
-          "Anxiety", "Stress", "Fear",
-          "Grief", "Anger", "Loneliness",
-          "Confusion", "Joy", "Gratitude"
-        ].map(item => (
+        {["Anxiety", "Stress", "Fear", "Grief", "Anger", "Loneliness"].map((item) => (
           <div key={item} style={{
-            background: "white",
-            padding: "30px",
-            borderRadius: "10px",
+            background: "#fff",
+            padding: "20px",
             textAlign: "center",
-            boxShadow: "0 2px 8px rgba(0,0,0,0.1)"
+            borderRadius: "8px"
           }}>
-            <h3 style={{ color: "#b8964d" }}>{item}</h3>
+            <h3 style={{ color: "#c9a94d" }}>{item}</h3>
             <p style={{ fontSize: "14px" }}>
-              Find encouragement for {item.toLowerCase()}
+              Find peace and encouragement
             </p>
           </div>
         ))}
-      </section>
-
-      {/* FOOTER */}
-      <footer style={{
-        background: "#1f2f3f",
-        color: "white",
-        padding: "40px"
-      }}>
-        <h3>FaithGuide</h3>
-        <p>A quiet place to find Scripture and peace.</p>
-      </footer>
+      </div>
 
     </div>
   );
-}
+};
 
 ReactDOM.createRoot(document.getElementById("root")).render(<App />);
