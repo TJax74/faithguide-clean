@@ -409,6 +409,22 @@ function removeVerse(index) {
   loadSaved();
 }
 
+  const dailyVerses = [
+"The Lord is my shepherd; I shall not want. — Psalm 23:1",
+"Fear thou not; for I am with thee. — Isaiah 41:10",
+"Come unto me, all ye that labour and are heavy laden. — Matthew 11:28",
+"Be still, and know that I am God. — Psalm 46:10",
+"I can do all things through Christ which strengtheneth me. — Philippians 4:13",
+"Trust in the Lord with all thine heart. — Proverbs 3:5"
+];
+
+function loadDailyVerse() {
+  const index = new Date().getDate() % dailyVerses.length;
+  document.getElementById("dailyVerseText").innerText = dailyVerses[index];
+}
+
+loadDailyVerse();
+  
 </script>
 
 </body>
