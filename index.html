@@ -230,9 +230,83 @@ showDailyVerse();
 </div>
 
 <script>
-function goHome(){}
-function showSaved(){}
-</script>
 
+const verses = {
+
+Anxiety: [
+"Matthew 6:34 — Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself.",
+"Philippians 4:6 — Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God."
+],
+
+Stress: [
+"Matthew 11:28 — Come unto me, all ye that labour and are heavy laden, and I will give you rest.",
+"Psalm 55:22 — Cast thy burden upon the Lord, and he shall sustain thee."
+],
+
+Fear: [
+"Isaiah 41:10 — Fear thou not; for I am with thee.",
+"2 Timothy 1:7 — For God hath not given us the spirit of fear."
+],
+
+Grief: [
+"Psalm 34:18 — The Lord is nigh unto them that are of a broken heart.",
+"Matthew 5:4 — Blessed are they that mourn: for they shall be comforted."
+],
+
+Anger: [
+"James 1:19 — Be swift to hear, slow to speak, slow to wrath.",
+"Proverbs 15:1 — A soft answer turneth away wrath."
+],
+
+Loneliness: [
+"Hebrews 13:5 — I will never leave thee, nor forsake thee.",
+"Matthew 28:20 — I am with you always."
+],
+
+Confusion: [
+"Proverbs 3:5-6 — Trust in the Lord with all thine heart.",
+"1 Corinthians 14:33 — God is not the author of confusion, but of peace."
+],
+
+Joy: [
+"Psalm 16:11 — In thy presence is fullness of joy.",
+"Nehemiah 8:10 — The joy of the Lord is your strength."
+],
+
+Gratitude: [
+"1 Thessalonians 5:18 — In every thing give thanks.",
+"Psalm 107:1 — O give thanks unto the Lord, for he is good."
+]
+
+};
+
+function showVerses(emotion) {
+  const section = document.createElement("div");
+  section.style = "padding:40px;";
+
+  let html = `<h2 style="text-align:center;">${emotion}</h2>`;
+
+  verses[emotion].forEach(v => {
+    html += `
+      <div class="verse-card">
+        ${v}
+      </div>
+    `;
+  });
+
+  section.innerHTML = html;
+
+  document.body.innerHTML = section.outerHTML;
+}
+
+function goHome() {
+  location.reload();
+}
+
+function showSaved() {
+  alert("Saved feature coming next");
+}
+
+</script>
 </body>
 </html>
