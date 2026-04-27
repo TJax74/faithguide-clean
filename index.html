@@ -29,9 +29,18 @@ body {
 .screen { display:none; }
 .active { display:block; }
 
+/* GRID */
+.grid {
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:15px;
+  margin-top:20px;
+}
+
+/* CARDS */
 .card {
   background:#f2f2f2;
-  padding:30px 20px;
+  padding:25px 15px;
   border-radius:20px;
   text-align:center;
   box-shadow:0 8px 20px rgba(0,0,0,0.06);
@@ -46,29 +55,7 @@ body {
 .card-icon {
   width:50px;
   height:50px;
-  margin:0 auto 15px;
-  border-radius:12px;
-  background:#e8e8e8;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  font-size:22px;
-  color:#c9a94d;
-}
-
-.card p {
-  font-size:14px;
-  color:#555;
-}
-
-.card:hover {
-  transform:translateY(-4px);
-}
-
-.card-icon {
-  width:50px;
-  height:50px;
-  margin:0 auto 15px;
+  margin:0 auto 12px;
   border-radius:12px;
   background:#e8e8e8;
   display:flex;
@@ -80,20 +67,21 @@ body {
 
 .card h3 {
   color:#c9a94d;
-  margin-bottom:8px;
+  margin-bottom:6px;
 }
 
 .card p {
-  font-size:14px;
+  font-size:13px;
   color:#555;
 }
 
+/* VERSE CARDS */
 .verse-card {
   background:white;
   padding:20px;
   border-radius:12px;
   box-shadow:0 6px 15px rgba(0,0,0,0.08);
-  margin:20px auto;
+  margin:15px auto;
   max-width:700px;
   border-left:5px solid #c9a94d;
 }
@@ -129,17 +117,61 @@ body {
 <div id="home" class="screen active" style="padding:20px;">
 <h2 class="center" style="color:#c9a94d;">How are you feeling today?</h2>
 
-<div style="display:grid; gap:15px; margin-top:20px;">
+<div class="grid">
 
-<div class="card" onclick="openEmotion('Anxiety')"><h3>Anxiety</h3></div>
-<div class="card" onclick="openEmotion('Stress')"><h3>Stress</h3></div>
-<div class="card" onclick="openEmotion('Fear')"><h3>Fear</h3></div>
-<div class="card" onclick="openEmotion('Grief')"><h3>Grief</h3></div>
-<div class="card" onclick="openEmotion('Anger')"><h3>Anger</h3></div>
-<div class="card" onclick="openEmotion('Loneliness')"><h3>Loneliness</h3></div>
-<div class="card" onclick="openEmotion('Confusion')"><h3>Confusion</h3></div>
-<div class="card" onclick="openEmotion('Joy')"><h3>Joy</h3></div>
-<div class="card" onclick="openEmotion('Gratitude')"><h3>Gratitude</h3></div>
+<div class="card" onclick="openEmotion('Anxiety')">
+  <div class="card-icon">!</div>
+  <h3>Anxiety</h3>
+  <p>Find peace in worry</p>
+</div>
+
+<div class="card" onclick="openEmotion('Stress')">
+  <div class="card-icon">⚡</div>
+  <h3>Stress</h3>
+  <p>Find rest in pressure</p>
+</div>
+
+<div class="card" onclick="openEmotion('Fear')">
+  <div class="card-icon">🛡</div>
+  <h3>Fear</h3>
+  <p>Build courage</p>
+</div>
+
+<div class="card" onclick="openEmotion('Grief')">
+  <div class="card-icon">❤</div>
+  <h3>Grief</h3>
+  <p>Find comfort</p>
+</div>
+
+<div class="card" onclick="openEmotion('Anger')">
+  <div class="card-icon">🔥</div>
+  <h3>Anger</h3>
+  <p>Respond with grace</p>
+</div>
+
+<div class="card" onclick="openEmotion('Loneliness')">
+  <div class="card-icon">🌙</div>
+  <h3>Loneliness</h3>
+  <p>You are not alone</p>
+</div>
+
+<div class="card" onclick="openEmotion('Confusion')">
+  <div class="card-icon">?</div>
+  <h3>Confusion</h3>
+  <p>Seek clarity</p>
+</div>
+
+<div class="card" onclick="openEmotion('Joy')">
+  <div class="card-icon">☀</div>
+  <h3>Joy</h3>
+  <p>Celebrate goodness</p>
+</div>
+
+<div class="card" onclick="openEmotion('Gratitude')">
+  <div class="card-icon">★</div>
+  <h3>Gratitude</h3>
+  <p>Give thanks</p>
+</div>
 
 </div>
 </div>
@@ -183,34 +215,31 @@ body {
 <script>
 
 const verses = {
+
 Anxiety: [
-{ ref:"Matthew 6:34", text:"Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself." },
-{ ref:"Philippians 4:6", text:"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." }
+{ ref:"Matthew 6:34", text:"Take therefore no thought for the morrow..." },
+{ ref:"Philippians 4:6", text:"Be careful for nothing..." },
+{ ref:"1 Peter 5:7", text:"Casting all your care upon him." },
+{ ref:"John 14:27", text:"Peace I leave with you." },
+{ ref:"Isaiah 26:3", text:"Perfect peace, whose mind is stayed on thee." }
 ],
+
 Stress: [
-{ ref:"Matthew 11:28", text:"Come unto me, all ye that labour and are heavy laden, and I will give you rest." }
+{ ref:"Matthew 11:28", text:"Come unto me, all ye that labour..." },
+{ ref:"Psalm 55:22", text:"Cast thy burden upon the Lord..." },
+{ ref:"Psalm 46:1", text:"God is our refuge and strength." },
+{ ref:"Isaiah 40:31", text:"They that wait upon the Lord..." },
+{ ref:"John 16:33", text:"In me ye might have peace." }
 ],
+
 Fear: [
-{ ref:"Isaiah 41:10", text:"Fear thou not; for I am with thee." }
-],
-Grief: [
-{ ref:"Psalm 34:18", text:"The Lord is nigh unto them that are of a broken heart." }
-],
-Anger: [
-{ ref:"Ephesians 4:26", text:"Be ye angry, and sin not." }
-],
-Loneliness: [
-{ ref:"Deuteronomy 31:6", text:"He will not fail thee, nor forsake thee." }
-],
-Confusion: [
-{ ref:"1 Corinthians 14:33", text:"God is not the author of confusion, but of peace." }
-],
-Joy: [
-{ ref:"Psalm 16:11", text:"In thy presence is fullness of joy." }
-],
-Gratitude: [
-{ ref:"1 Thessalonians 5:18", text:"In every thing give thanks." }
+{ ref:"Isaiah 41:10", text:"Fear thou not; for I am with thee." },
+{ ref:"2 Timothy 1:7", text:"God hath not given us fear." },
+{ ref:"Psalm 23:4", text:"I will fear no evil." },
+{ ref:"Joshua 1:9", text:"Be strong and courageous." },
+{ ref:"Psalm 27:1", text:"Whom shall I fear?" }
 ]
+
 };
 
 function showScreen(id) {
@@ -233,7 +262,7 @@ function openEmotion(emotion) {
   verses[emotion].forEach(v => {
     container.innerHTML += `
       <div class="verse-card">
-        <div style="color:#c9a94d; font-size:14px;">${v.ref}</div>
+        <div style="color:#c9a94d;">${v.ref}</div>
         <div style="margin-top:10px;">"${v.text}"</div>
         <button class="save-btn" onclick='saveVerse(${JSON.stringify(v)})'>Save</button>
       </div>
