@@ -9,25 +9,28 @@
 <style>
 body {
   margin: 0;
-  font-family: Georgia, serif;
-  background: linear-gradient(to bottom, #f5f5f5, #e6e6e6);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background:#f7f7f7;
 }
 
+/* REMOVE TOP NAV LOOK */
 .nav {
-  background:#16263d;
-  color:white;
-  padding:15px 20px;
-  display:flex;
-  justify-content:space-between;
+  display:none;
 }
 
-.nav span {
-  margin-left:15px;
-  cursor:pointer;
+/* SCREENS */
+.screen {
+  display:none;
+  padding:20px;
+  padding-bottom:80px;
+  opacity:0;
+  transition:0.25s;
 }
 
-.screen { display:none; }
-.active { display:block; }
+.screen.active {
+  display:block;
+  opacity:1;
+}
 
 /* GRID */
 .grid {
@@ -96,25 +99,36 @@ body {
   cursor:pointer;
 }
 
+/* BOTTOM NAV */
+.bottom-nav {
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:white;
+  display:flex;
+  justify-content:space-around;
+  padding:12px 0;
+  box-shadow:0 -2px 10px rgba(0,0,0,0.08);
+}
+
+.bottom-nav div {
+  font-size:12px;
+  color:#444;
+  cursor:pointer;
+}
+
 .center { text-align:center; }
 </style>
 </head>
 
 <body>
 
-<div class="nav">
-  <div>FaithGuide</div>
-  <div>
-    <span onclick="showScreen('home')">Home</span>
-    <span onclick="showScreen('saved')">Saved</span>
-    <span onclick="showScreen('devotionals')">Devotionals</span>
-    <span onclick="showScreen('plans')">Reading Plans</span>
-    <span onclick="showScreen('bible')">Bible</span>
-  </div>
-</div>
+<!-- KEEP YOUR NAV (just hidden now) -->
+<div class="nav"></div>
 
 <!-- HOME -->
-<div id="home" class="screen active" style="padding:20px;">
+<div id="home" class="screen active">
 <h2 class="center" style="color:#c9a94d;">How are you feeling today?</h2>
 
 <div class="grid">
@@ -177,7 +191,7 @@ body {
 </div>
 
 <!-- EMOTION -->
-<div id="verses" class="screen" style="padding:20px;">
+<div id="verses" class="screen">
 <h2 id="emotionTitle" class="center" style="color:#c9a94d;"></h2>
 <p class="center" id="emotionSubtitle"></p>
 
@@ -189,127 +203,54 @@ body {
 </div>
 
 <!-- SAVED -->
-<div id="saved" class="screen" style="padding:20px;">
+<div id="saved" class="screen">
 <h2 class="center" style="color:#c9a94d;">Saved Verses</h2>
 <div id="savedList"></div>
 </div>
 
 <!-- DEVOTIONALS -->
-<div id="devotionals" class="screen" style="padding:20px;">
+<div id="devotionals" class="screen">
 <h2 class="center">Devotionals</h2>
 <p class="center">Coming soon...</p>
 </div>
 
 <!-- PLANS -->
-<div id="plans" class="screen" style="padding:20px;">
+<div id="plans" class="screen">
 <h2 class="center">Reading Plans</h2>
 <p class="center">Coming soon...</p>
 </div>
 
 <!-- BIBLE -->
-<div id="bible" class="screen" style="padding:20px;">
+<div id="bible" class="screen">
 <h2 class="center">Bible</h2>
 <p class="center">Coming soon...</p>
 </div>
 
+<!-- NEW BOTTOM NAV -->
+<div class="bottom-nav">
+  <div onclick="showScreen('home')">Home</div>
+  <div onclick="showScreen('saved')">Saved</div>
+  <div onclick="showScreen('devotionals')">Devotionals</div>
+  <div onclick="showScreen('plans')">Plans</div>
+  <div onclick="showScreen('bible')">Bible</div>
+</div>
+
 <script>
 
-const verses = {
-
-Anxiety: [
-{ ref:"Matthew 6:34", text:"Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof." },
-{ ref:"Philippians 4:6", text:"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." },
-{ ref:"1 Peter 5:7", text:"Casting all your care upon him; for he careth for you." },
-{ ref:"John 14:27", text:"Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid." },
-{ ref:"Isaiah 26:3", text:"Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee." }
-],
-
-Stress: [
-{ ref:"Matthew 11:28", text:"Come unto me, all ye that labour and are heavy laden, and I will give you rest." },
-{ ref:"Psalm 55:22", text:"Cast thy burden upon the Lord, and he shall sustain thee: he shall never suffer the righteous to be moved." },
-{ ref:"Psalm 46:1", text:"God is our refuge and strength, a very present help in trouble." },
-{ ref:"Isaiah 40:31", text:"But they that wait upon the Lord shall renew their strength; they shall mount up with wings as eagles; they shall run, and not be weary; and they shall walk, and not faint." },
-{ ref:"John 16:33", text:"These things I have spoken unto you, that in me ye might have peace. In the world ye shall have tribulation: but be of good cheer; I have overcome the world." }
-],
-
-Fear: [
-{ ref:"Isaiah 41:10", text:"Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness." },
-{ ref:"2 Timothy 1:7", text:"For God hath not given us the spirit of fear; but of power, and of love, and of a sound mind." },
-{ ref:"Psalm 23:4", text:"Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me." },
-{ ref:"Joshua 1:9", text:"Have not I commanded thee? Be strong and of a good courage; be not afraid, neither be thou dismayed: for the Lord thy God is with thee whithersoever thou goest." },
-{ ref:"Psalm 27:1", text:"The Lord is my light and my salvation; whom shall I fear? the Lord is the strength of my life; of whom shall I be afraid?" }
-],
-
-Grief: [
-{ ref:"Psalm 34:18", text:"The Lord is nigh unto them that are of a broken heart; and saveth such as be of a contrite spirit." },
-{ ref:"Matthew 5:4", text:"Blessed are they that mourn: for they shall be comforted." },
-{ ref:"Revelation 21:4", text:"And God shall wipe away all tears from their eyes; and there shall be no more death, neither sorrow, nor crying, neither shall there be any more pain: for the former things are passed away." },
-{ ref:"John 14:1", text:"Let not your heart be troubled: ye believe in God, believe also in me." },
-{ ref:"Psalm 147:3", text:"He healeth the broken in heart, and bindeth up their wounds." }
-],
-
-Anger: [
-{ ref:"Ephesians 4:26", text:"Be ye angry, and sin not: let not the sun go down upon your wrath." },
-{ ref:"Proverbs 15:1", text:"A soft answer turneth away wrath: but grievous words stir up anger." },
-{ ref:"James 1:19", text:"Wherefore, my beloved brethren, let every man be swift to hear, slow to speak, slow to wrath." },
-{ ref:"Proverbs 16:32", text:"He that is slow to anger is better than the mighty; and he that ruleth his spirit than he that taketh a city." },
-{ ref:"Colossians 3:8", text:"But now ye also put off all these; anger, wrath, malice, blasphemy, filthy communication out of your mouth." }
-],
-
-Loneliness: [
-{ ref:"Deuteronomy 31:6", text:"Be strong and of a good courage, fear not, nor be afraid of them: for the Lord thy God, he it is that doth go with thee; he will not fail thee, nor forsake thee." },
-{ ref:"Psalm 23:4", text:"Yea, though I walk through the valley of the shadow of death, I will fear no evil: for thou art with me; thy rod and thy staff they comfort me." },
-{ ref:"Hebrews 13:5", text:"Let your conversation be without covetousness; and be content with such things as ye have: for he hath said, I will never leave thee, nor forsake thee." },
-{ ref:"Isaiah 41:10", text:"Fear thou not; for I am with thee: be not dismayed; for I am thy God." },
-{ ref:"Matthew 28:20", text:"Teaching them to observe all things whatsoever I have commanded you: and, lo, I am with you alway, even unto the end of the world. Amen." }
-],
-
-Confusion: [
-{ ref:"1 Corinthians 14:33", text:"For God is not the author of confusion, but of peace, as in all churches of the saints." },
-{ ref:"James 1:5", text:"If any of you lack wisdom, let him ask of God, that giveth to all men liberally, and upbraideth not; and it shall be given him." },
-{ ref:"Proverbs 3:5", text:"Trust in the Lord with all thine heart; and lean not unto thine own understanding." },
-{ ref:"Psalm 32:8", text:"I will instruct thee and teach thee in the way which thou shalt go: I will guide thee with mine eye." },
-{ ref:"John 16:13", text:"Howbeit when he, the Spirit of truth, is come, he will guide you into all truth." }
-],
-
-Joy: [
-{ ref:"Psalm 16:11", text:"Thou wilt shew me the path of life: in thy presence is fullness of joy; at thy right hand there are pleasures for evermore." },
-{ ref:"Nehemiah 8:10", text:"Then he said unto them, Go your way, eat the fat, and drink the sweet... for the joy of the Lord is your strength." },
-{ ref:"Romans 15:13", text:"Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost." },
-{ ref:"Psalm 118:24", text:"This is the day which the Lord hath made; we will rejoice and be glad in it." },
-{ ref:"John 15:11", text:"These things have I spoken unto you, that my joy might remain in you, and that your joy might be full." }
-],
-
-Gratitude: [
-{ ref:"1 Thessalonians 5:18", text:"In every thing give thanks: for this is the will of God in Christ Jesus concerning you." },
-{ ref:"Psalm 107:1", text:"O give thanks unto the Lord, for he is good: for his mercy endureth for ever." },
-{ ref:"Colossians 3:15", text:"And let the peace of God rule in your hearts, to the which also ye are called in one body; and be ye thankful." },
-{ ref:"Psalm 100:4", text:"Enter into his gates with thanksgiving, and into his courts with praise: be thankful unto him, and bless his name." },
-{ ref:"Ephesians 5:20", text:"Giving thanks always for all things unto God and the Father in the name of our Lord Jesus Christ." }
-]
-
-};
-
 function showScreen(id) {
-
-  // hide everything
   document.querySelectorAll('.screen').forEach(s => {
     s.classList.remove('active');
   });
 
-  // show selected
-  document.getElementById(id).classList.add('active');
+  setTimeout(() => {
+    document.getElementById(id).classList.add('active');
+  }, 50);
 
-  // special cases
   if(id === "saved") loadSaved();
 }
-function openEmotion(emotion) {
 
-  // safety check (prevents crashes)
-  if (!verses[emotion]) {
-    alert("No verses found for " + emotion);
-    return;
-  }
+function openEmotion(emotion) {
+  if (!verses[emotion]) return;
 
   showScreen('verses');
 
@@ -330,6 +271,7 @@ function openEmotion(emotion) {
     `;
   });
 }
+
 function saveVerse(v) {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
 
@@ -358,14 +300,11 @@ function loadSaved() {
   });
 }
 
-  function removeVerse(index) {
+function removeVerse(index) {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
-
   saved.splice(index, 1);
-
   localStorage.setItem("saved", JSON.stringify(saved));
-
-  loadSaved(); // refresh screen
+  loadSaved();
 }
 
 </script>
