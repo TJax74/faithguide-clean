@@ -347,14 +347,25 @@ function loadSaved() {
 
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
 
-  saved.forEach(v => {
+  saved.forEach((v, index) => {
     container.innerHTML += `
       <div class="verse-card">
         <div style="color:#c9a94d;">${v.ref}</div>
         <div style="margin-top:10px;">"${v.text}"</div>
+        <button class="save-btn" onclick="removeVerse(${index})">Remove</button>
       </div>
     `;
   });
+}
+
+  function removeVerse(index) {
+  let saved = JSON.parse(localStorage.getItem("saved")) || [];
+
+  saved.splice(index, 1);
+
+  localStorage.setItem("saved", JSON.stringify(saved));
+
+  loadSaved(); // refresh screen
 }
 
 </script>
