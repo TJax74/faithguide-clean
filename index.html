@@ -298,6 +298,13 @@ function showScreen(id) {
 }
 
 function openEmotion(emotion) {
+
+  // safety check (prevents crashes)
+  if (!verses[emotion]) {
+    alert("No verses found for " + emotion);
+    return;
+  }
+
   showScreen('verses');
 
   document.getElementById("emotionTitle").innerText = emotion;
@@ -317,7 +324,6 @@ function openEmotion(emotion) {
     `;
   });
 }
-
 function saveVerse(v) {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
 
