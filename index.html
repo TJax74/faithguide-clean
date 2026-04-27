@@ -13,11 +13,6 @@ body {
   background:#f7f7f7;
 }
 
-/* REMOVE TOP NAV LOOK */
-.nav {
-  display:none;
-}
-
 /* SCREENS */
 .screen {
   display:none;
@@ -124,9 +119,6 @@ body {
 
 <body>
 
-<!-- KEEP YOUR NAV (just hidden now) -->
-<div class="nav"></div>
-
 <!-- HOME -->
 <div id="home" class="screen active">
 <h2 class="center" style="color:#c9a94d;">How are you feeling today?</h2>
@@ -190,7 +182,7 @@ body {
 </div>
 </div>
 
-<!-- EMOTION -->
+<!-- VERSES -->
 <div id="verses" class="screen">
 <h2 id="emotionTitle" class="center" style="color:#c9a94d;"></h2>
 <p class="center" id="emotionSubtitle"></p>
@@ -226,7 +218,7 @@ body {
 <p class="center">Coming soon...</p>
 </div>
 
-<!-- NEW BOTTOM NAV -->
+<!-- BOTTOM NAV -->
 <div class="bottom-nav">
   <div onclick="showScreen('home')">Home</div>
   <div onclick="showScreen('saved')">Saved</div>
@@ -237,11 +229,25 @@ body {
 
 <script>
 
-function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => {
-    s.classList.remove('active');
-  });
+const verses = {
+Anxiety: [
+{ ref:"Matthew 6:34", text:"Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself. Sufficient unto the day is the evil thereof." },
+{ ref:"Philippians 4:6", text:"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." },
+{ ref:"1 Peter 5:7", text:"Casting all your care upon him; for he careth for you." },
+{ ref:"John 14:27", text:"Peace I leave with you, my peace I give unto you: not as the world giveth, give I unto you. Let not your heart be troubled, neither let it be afraid." },
+{ ref:"Isaiah 26:3", text:"Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee." }
+],
+Stress: [
+{ ref:"Matthew 11:28", text:"Come unto me, all ye that labour and are heavy laden, and I will give you rest." },
+{ ref:"Psalm 55:22", text:"Cast thy burden upon the Lord, and he shall sustain thee: he shall never suffer the righteous to be moved." }
+],
+Fear: [
+{ ref:"Isaiah 41:10", text:"Fear thou not; for I am with thee: be not dismayed; for I am thy God." }
+]
+};
 
+function showScreen(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   setTimeout(() => {
     document.getElementById(id).classList.add('active');
   }, 50);
