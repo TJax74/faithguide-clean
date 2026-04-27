@@ -432,12 +432,22 @@ function removeVerse(index) {
 "Trust in the Lord with all thine heart. — Proverbs 3:5"
 ];
 
+const devotionals = [
+"Even when life feels uncertain, God calls us to trust Him and release our worries into His hands.",
+"Fear loses its power when we remember that God is always with us, guiding and protecting us.",
+"In moments of exhaustion, Jesus invites us to come to Him and find true rest for our souls.",
+"When life feels overwhelming, stillness before God brings clarity, peace, and strength.",
+"Your strength does not come from yourself alone, but from Christ who empowers you daily.",
+"Trusting God means letting go of control and believing He is leading you in the right direction."
+];
+  
 function loadDailyVerse() {
   const index = new Date().getDate() % dailyVerses.length;
-  document.getElementById("dailyVerseText").innerText = dailyVerses[index];
-}
 
-loadDailyVerse();
+  document.getElementById("dailyVerseText").innerText = dailyVerses[index];
+  document.getElementById("dailyDevotional").innerText = devotionals[index];
+}
+ loadDailyVerse();
   
 </script>
 
