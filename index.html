@@ -306,7 +306,37 @@ function goHome() {
 function showSaved() {
   alert("Saved feature coming next");
 }
+<script>
+function showVerses(emotion) {
+  document.body.innerHTML = `
+    <div style="padding:40px; max-width:800px; margin:auto;">
+      <h1 style="color:#c9a94d; text-align:center;">${emotion}</h1>
+      <p style="text-align:center; color:#666;">What the Bible says about ${emotion.toLowerCase()}</p>
+    </div>
+  `;
 
+  verses[emotion].forEach(v => {
+    const [ref, text] = v.split("—");
+
+    document.body.innerHTML += `
+      <div style="max-width:700px; margin:25px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08);">
+        
+        <div style="color:#c9a94d; font-size:12px; margin-bottom:10px;">
+          ${ref.toUpperCase()}
+        </div>
+
+        <div style="display:flex; gap:15px;">
+          <div style="width:3px; background:#c9a94d;"></div>
+          <div style="font-size:20px; line-height:1.6;">
+            "${text}"
+          </div>
+        </div>
+
+      </div>
+    `;
+  });
+}
+</script>
 </script>
 </body>
 </html>
