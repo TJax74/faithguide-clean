@@ -4,8 +4,6 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-<link rel="manifest" href="manifest.json">
-
 <title>FaithGuide</title>
 
 <style>
@@ -18,215 +16,89 @@ body {
 .nav {
   background:#16263d;
   color:white;
-  padding:15px 30px;
+  padding:15px 20px;
   display:flex;
   justify-content:space-between;
-  align-items:center;
+}
+
+.screen {
+  display:none;
+}
+
+.active {
+  display:block;
 }
 
 .card {
   background:white;
-  padding:30px;
+  padding:25px;
   border-radius:16px;
   text-align:center;
   box-shadow:0 6px 15px rgba(0,0,0,0.08);
-  border:1px solid #eee;
   cursor:pointer;
-  transition: all 0.2s ease;
-}
-
-.card:hover {
-  transform: translateY(-4px);
-}
-
-.icon {
-  width:60px;
-  height:60px;
-  margin:0 auto 16px;
-  border-radius:14px;
-  background:#f2f2f2;
-  display:flex;
-  align-items:center;
-  justify-content:center;
 }
 
 .card h3 { color:#c9a94d; }
-.card p { color:#666; font-size:14px; }
 
 .verse-card {
   background:white;
-  padding:30px;
+  padding:25px;
   border-radius:12px;
   box-shadow:0 6px 15px rgba(0,0,0,0.08);
-  margin:25px auto;
+  margin:20px auto;
   max-width:700px;
+}
+
+.save-btn {
+  margin-top:10px;
+  background:#c9a94d;
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <div class="nav">
-  <div style="color:#d4af37; font-weight:bold;">FaithGuide</div>
-  <div style="display:flex; gap:25px;">
-    <span onclick="goHome()">Home</span>
-    <span onclick="showSaved()">Saved</span>
-    <span>Devotionals</span>
-    <span>Reading Plans</span>
-    <span>Bible</span>
-  </div>
+  <div>FaithGuide</div>
+  <div onclick="goHome()" style="cursor:pointer;">Home</div>
 </div>
 
-<!-- HERO -->
-<div style="background:#1b2f4b; color:white; padding:60px 20px; text-align:center;">
-  <h1>FaithGuide</h1>
-  <p>"Come to me, all who are weary and burdened, and I will give you rest."</p>
-  <p style="color:#d4af37;">— Matthew 11:28</p>
+<div id="home" class="screen active" style="padding:20px;">
+<h2 style="text-align:center; color:#c9a94d;">How are you feeling today?</h2>
+
+<div style="display:grid; gap:15px; margin-top:20px;">
+
+<div class="card" onclick="openEmotion('Anxiety')">
+<h3>Anxiety</h3>
+<p>Find peace when worry overwhelms you</p>
 </div>
 
-<!-- DAILY VERSE -->
-<script>
-const dailyVerses = [
-  "Matthew 11:28 — Come to me, all who are weary."
-];
-
-function showDailyVerse() {
-  const box = document.createElement("div");
-  box.style = "max-width:600px; margin:30px auto; padding:20px; background:white; border-radius:12px; text-align:center;";
-  box.innerHTML = `<div style="color:#c9a94d;">DAILY VERSE</div><div>"${dailyVerses[0]}"</div>`;
-  document.body.appendChild(box);
-}
-showDailyVerse();
-</script>
-
-<!-- SEARCH -->
-<div style="text-align:center; padding:40px 20px;">
-  <h2 style="color:#c9a94d;">How are you feeling today?</h2>
-  <p>Select an emotion below or search for what's on your heart.</p>
-
-  <input placeholder="Search..." style="padding:10px; width:250px;">
-  <button style="padding:10px; background:#c9a94d; color:white;">Find Verses</button>
+<div class="card" onclick="openEmotion('Stress')">
+<h3>Stress</h3>
+<p>Discover rest in pressure</p>
 </div>
 
-<!-- CARDS -->
-<div style="max-width:1100px; margin:40px auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;">
-
-<div style="max-width:1100px; margin:40px auto; display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr)); gap:20px;">
-
-<!-- Anxiety -->
-<div class="card" onclick="showVerses('Anxiety')">
-  <div class="icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a94d" stroke-width="2.5" stroke-linecap="round">
-      <circle cx="12" cy="12" r="9"/>
-      <line x1="12" y1="7" x2="12" y2="12"/>
-      <circle cx="12" cy="16" r="1"/>
-    </svg>
-  </div>
-  <h3>Anxiety</h3>
-  <p>Find peace when worry overwhelms you</p>
+<div class="card" onclick="openEmotion('Fear')">
+<h3>Fear</h3>
+<p>Build courage through God's promises</p>
 </div>
 
-<!-- Stress -->
-<div class="card" onclick="showVerses('Stress')">
-  <div class="icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a94d" stroke-width="2.5" stroke-linecap="round">
-      <polyline points="3 12 7 12 9 8 13 16 16 12 21 12"/>
-    </svg>
-  </div>
-  <h3>Stress</h3>
-  <p>Discover rest in the midst of pressure</p>
+</div>
 </div>
 
-<!-- Fear -->
-<div class="card" onclick="showVerses('Fear')">
-  <div class="icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a94d" stroke-width="2.5" stroke-linecap="round">
-      <path d="M12 3l7 3v6c0 5-3.5 8-7 9-3.5-1-7-4-7-9V6l7-3z"/>
-    </svg>
-  </div>
-  <h3>Fear</h3>
-  <p>Build courage through God's promises</p>
-</div>
+<div id="verses" class="screen" style="padding:20px;">
+<h2 id="emotionTitle" style="text-align:center; color:#c9a94d;"></h2>
+<p style="text-align:center;">What the Bible says</p>
 
-<!-- Grief -->
-<div class="card" onclick="showVerses('Grief')">
-  <div class="icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a94d" stroke-width="2.5" stroke-linecap="round">
-      <path d="M6 14a4 4 0 1 1 7-3 3 3 0 1 1 1 6H7"/>
-      <line x1="8" y1="18" x2="8" y2="20"/>
-      <line x1="12" y1="18" x2="12" y2="20"/>
-    </svg>
-  </div>
-  <h3>Grief</h3>
-  <p>Experience comfort in times of loss</p>
-</div>
+<div id="verseList"></div>
 
-<!-- Anger -->
-<div class="card" onclick="showVerses('Anger')">
-  <div class="icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a94d" stroke-width="2.5" stroke-linecap="round">
-      <path d="M12 3s-3 4-3 7a3 3 0 0 0 6 0c0-3-3-7-3-7z"/>
-      <path d="M9 14a3 3 0 0 0 6 0"/>
-    </svg>
-  </div>
-  <h3>Anger</h3>
-  <p>Learn to respond with grace</p>
+<div style="text-align:center; margin-top:20px;">
+<button onclick="goHome()">← Back</button>
 </div>
-
-<!-- Loneliness -->
-<div class="card" onclick="showVerses('Loneliness')">
-  <div class="icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a94d" stroke-width="2.5" stroke-linecap="round">
-      <circle cx="9" cy="10" r="3"/>
-      <circle cx="16" cy="11" r="2"/>
-      <path d="M4 18c1-3 8-3 10 0"/>
-    </svg>
-  </div>
-  <h3>Loneliness</h3>
-  <p>You are never truly alone</p>
-</div>
-
-<!-- Confusion -->
-<div class="card" onclick="showVerses('Confusion')">
-  <div class="icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a94d" stroke-width="2.5" stroke-linecap="round">
-      <circle cx="12" cy="12" r="9"/>
-      <path d="M10 10a2 2 0 1 1 3 2c-1 .5-1.5 1-1.5 2"/>
-      <circle cx="12" cy="17" r="1"/>
-    </svg>
-  </div>
-  <h3>Confusion</h3>
-  <p>Seek clarity and divine direction</p>
-</div>
-
-<!-- Joy -->
-<div class="card" onclick="showVerses('Joy')">
-  <div class="icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a94d" stroke-width="2.5" stroke-linecap="round">
-      <circle cx="12" cy="12" r="4"/>
-      <line x1="12" y1="2" x2="12" y2="5"/>
-      <line x1="12" y1="19" x2="12" y2="22"/>
-      <line x1="2" y1="12" x2="5" y2="12"/>
-      <line x1="19" y1="12" x2="22" y2="12"/>
-    </svg>
-  </div>
-  <h3>Joy</h3>
-  <p>Celebrate God’s goodness and blessings</p>
-</div>
-
-<!-- Gratitude -->
-<div class="card" onclick="showVerses('Gratitude')">
-  <div class="icon">
-    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#c9a94d" stroke-width="2.5" stroke-linecap="round">
-      <path d="M12 3l1.5 4.5L18 9l-4.5 1.5L12 15l-1.5-4.5L6 9l4.5-1.5z"/>
-      <path d="M18 15l1 3 3 1-3 1-1 3-1-3-3-1 3-1z"/>
-    </svg>
-  </div>
-  <h3>Gratitude</h3>
-  <p>Give thanks in all circumstances</p>
-</div>
-
 </div>
 
 <script>
@@ -246,97 +118,45 @@ Stress: [
 Fear: [
 "Isaiah 41:10 — Fear thou not; for I am with thee.",
 "2 Timothy 1:7 — For God hath not given us the spirit of fear."
-],
-
-Grief: [
-"Psalm 34:18 — The Lord is nigh unto them that are of a broken heart.",
-"Matthew 5:4 — Blessed are they that mourn: for they shall be comforted."
-],
-
-Anger: [
-"James 1:19 — Be swift to hear, slow to speak, slow to wrath.",
-"Proverbs 15:1 — A soft answer turneth away wrath."
-],
-
-Loneliness: [
-"Hebrews 13:5 — I will never leave thee, nor forsake thee.",
-"Matthew 28:20 — I am with you always."
-],
-
-Confusion: [
-"Proverbs 3:5-6 — Trust in the Lord with all thine heart.",
-"1 Corinthians 14:33 — God is not the author of confusion, but of peace."
-],
-
-Joy: [
-"Psalm 16:11 — In thy presence is fullness of joy.",
-"Nehemiah 8:10 — The joy of the Lord is your strength."
-],
-
-Gratitude: [
-"1 Thessalonians 5:18 — In every thing give thanks.",
-"Psalm 107:1 — O give thanks unto the Lord, for he is good."
 ]
 
 };
 
-function showVerses(emotion) {
-  const section = document.createElement("div");
-  section.style = "padding:40px;";
+function openEmotion(emotion) {
+  document.getElementById("home").classList.remove("active");
+  document.getElementById("verses").classList.add("active");
 
-  let html = `<h2 style="text-align:center;">${emotion}</h2>`;
+  document.getElementById("emotionTitle").innerText = emotion;
+
+  const container = document.getElementById("verseList");
+  container.innerHTML = "";
 
   verses[emotion].forEach(v => {
-    html += `
+    const parts = v.split("—");
+
+    container.innerHTML += `
       <div class="verse-card">
-        ${v}
+        <div style="color:#c9a94d; font-size:12px;">${parts[0]}</div>
+        <div style="margin-top:10px;">"${parts[1]}"</div>
+        <button class="save-btn" onclick="saveVerse('${v}')">Save</button>
       </div>
     `;
   });
-
-  section.innerHTML = html;
-
-  document.body.innerHTML = section.outerHTML;
 }
 
 function goHome() {
-  location.reload();
+  document.getElementById("verses").classList.remove("active");
+  document.getElementById("home").classList.add("active");
 }
 
-function showSaved() {
-  alert("Saved feature coming next");
+function saveVerse(v) {
+  let saved = JSON.parse(localStorage.getItem("saved")) || [];
+  saved.push(v);
+  localStorage.setItem("saved", JSON.stringify(saved));
+  alert("Saved!");
 }
-<script>
-function showVerses(emotion) {
-  document.body.innerHTML = `
-    <div style="padding:40px; max-width:800px; margin:auto;">
-      <h1 style="color:#c9a94d; text-align:center;">${emotion}</h1>
-      <p style="text-align:center; color:#666;">What the Bible says about ${emotion.toLowerCase()}</p>
-    </div>
-  `;
 
-  verses[emotion].forEach(v => {
-    const [ref, text] = v.split("—");
-
-    document.body.innerHTML += `
-      <div style="max-width:700px; margin:25px auto; background:white; padding:30px; border-radius:12px; box-shadow:0 6px 15px rgba(0,0,0,0.08);">
-        
-        <div style="color:#c9a94d; font-size:12px; margin-bottom:10px;">
-          ${ref.toUpperCase()}
-        </div>
-
-        <div style="display:flex; gap:15px;">
-          <div style="width:3px; background:#c9a94d;"></div>
-          <div style="font-size:20px; line-height:1.6;">
-            "${text}"
-          </div>
-        </div>
-
-      </div>
-    `;
-  });
-}
 </script>
-</script>
+
 </body>
 </html>
