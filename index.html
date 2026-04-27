@@ -1,194 +1,167 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
 <title>FaithGuide</title>
 
 <style>
 body {
   margin: 0;
-  font-family: Arial, sans-serif;
-  background: #0b1f3a;
-  color: #fff;
+  font-family: Georgia, serif;
+  background: linear-gradient(to bottom, #f5f5f5, #e6e6e6);
 }
 
-header {
-  display: flex;
-  justify-content: space-around;
-  padding: 10px;
-  background: #08172b;
-  position: sticky;
-  top: 0;
+.nav {
+  background:#16263d;
+  color:white;
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
 }
 
-header button {
-  background: none;
-  border: none;
-  color: #d4af37;
-  font-size: 14px;
+.nav span {
+  margin-left:15px;
+  cursor:pointer;
 }
 
-.screen {
-  display: none;
-  padding: 15px;
-}
-
-.active {
-  display: block;
-}
-
-.hero {
-  background: #122b4d;
-  padding: 20px;
-  border-radius: 12px;
-  margin-bottom: 15px;
-}
-
-.search {
-  width: 100%;
-  padding: 10px;
-  border-radius: 10px;
-  border: none;
-  margin-bottom: 15px;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
+.screen { display:none; }
+.active { display:block; }
 
 .card {
-  background: #122b4d;
-  padding: 15px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-  cursor: pointer;
+  background:white;
+  padding:25px;
+  border-radius:16px;
+  text-align:center;
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);
+  cursor:pointer;
 }
+
+.card h3 { color:#c9a94d; }
 
 .verse-card {
-  background: #122b4d;
-  padding: 15px;
-  border-radius: 12px;
-  margin-bottom: 10px;
-  position: relative;
-  border-left: 5px solid #d4af37;
-}
-
-.verse-ref {
-  color: #d4af37;
-  font-weight: bold;
+  background:white;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 6px 15px rgba(0,0,0,0.08);
+  margin:20px auto;
+  max-width:700px;
+  border-left:5px solid #c9a94d;
 }
 
 .save-btn {
-  position: absolute;
-  right: 10px;
-  top: 10px;
-  background: #d4af37;
-  border: none;
-  border-radius: 6px;
-  padding: 5px 8px;
-  cursor: pointer;
+  margin-top:10px;
+  background:#c9a94d;
+  color:white;
+  border:none;
+  padding:8px 12px;
+  border-radius:6px;
+  cursor:pointer;
 }
 
-.back-btn {
-  margin-bottom: 10px;
-  background: #d4af37;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 8px;
-}
+.center { text-align:center; }
 </style>
 </head>
 
 <body>
 
-<header>
-  <button onclick="showScreen('home')">Home</button>
-  <button onclick="showScreen('saved')">Saved</button>
-  <button onclick="showScreen('devotionals')">Devotionals</button>
-  <button onclick="showScreen('plans')">Reading Plans</button>
-  <button onclick="showScreen('bible')">Bible</button>
-</header>
+<div class="nav">
+  <div>FaithGuide</div>
+  <div>
+    <span onclick="showScreen('home')">Home</span>
+    <span onclick="showScreen('saved')">Saved</span>
+    <span onclick="showScreen('devotionals')">Devotionals</span>
+    <span onclick="showScreen('plans')">Plans</span>
+    <span onclick="showScreen('bible')">Bible</span>
+  </div>
+</div>
 
 <!-- HOME -->
-<div id="home" class="screen active">
-  <div class="hero">
-    <h3>Daily Verse</h3>
-    <p>"The Lord is my shepherd; I shall not want." — Psalm 23:1</p>
-  </div>
+<div id="home" class="screen active" style="padding:20px;">
+<h2 class="center" style="color:#c9a94d;">How are you feeling today?</h2>
 
-  <input class="search" placeholder="Search...">
+<div style="display:grid; gap:15px; margin-top:20px;">
 
-  <h3>How are you feeling today?</h3>
+<div class="card" onclick="openEmotion('Anxiety')"><h3>Anxiety</h3></div>
+<div class="card" onclick="openEmotion('Stress')"><h3>Stress</h3></div>
+<div class="card" onclick="openEmotion('Fear')"><h3>Fear</h3></div>
+<div class="card" onclick="openEmotion('Grief')"><h3>Grief</h3></div>
+<div class="card" onclick="openEmotion('Anger')"><h3>Anger</h3></div>
+<div class="card" onclick="openEmotion('Loneliness')"><h3>Loneliness</h3></div>
+<div class="card" onclick="openEmotion('Confusion')"><h3>Confusion</h3></div>
+<div class="card" onclick="openEmotion('Joy')"><h3>Joy</h3></div>
+<div class="card" onclick="openEmotion('Gratitude')"><h3>Gratitude</h3></div>
 
-  <div class="grid" id="emotionGrid"></div>
+</div>
 </div>
 
 <!-- EMOTION -->
-<div id="emotion" class="screen">
-  <button class="back-btn" onclick="showScreen('home')">Back</button>
-  <h2 id="emotionTitle"></h2>
-  <p id="emotionSubtitle"></p>
-  <div id="verseList"></div>
+<div id="verses" class="screen" style="padding:20px;">
+<h2 id="emotionTitle" class="center" style="color:#c9a94d;"></h2>
+<p class="center" id="emotionSubtitle"></p>
+
+<div id="verseList"></div>
+
+<div class="center">
+<button onclick="showScreen('home')">← Back</button>
+</div>
 </div>
 
 <!-- SAVED -->
-<div id="saved" class="screen">
-  <h2>Saved Verses</h2>
-  <div id="savedList"></div>
+<div id="saved" class="screen" style="padding:20px;">
+<h2 class="center" style="color:#c9a94d;">Saved Verses</h2>
+<div id="savedList"></div>
 </div>
 
 <!-- DEVOTIONALS -->
-<div id="devotionals" class="screen">
-  <h2>Devotionals</h2>
-  <p>Coming soon...</p>
+<div id="devotionals" class="screen" style="padding:20px;">
+<h2 class="center">Devotionals</h2>
+<p class="center">Coming soon...</p>
 </div>
 
 <!-- PLANS -->
-<div id="plans" class="screen">
-  <h2>Reading Plans</h2>
-  <p>Coming soon...</p>
+<div id="plans" class="screen" style="padding:20px;">
+<h2 class="center">Reading Plans</h2>
+<p class="center">Coming soon...</p>
 </div>
 
 <!-- BIBLE -->
-<div id="bible" class="screen">
-  <h2>Bible</h2>
-  <p>Coming soon...</p>
+<div id="bible" class="screen" style="padding:20px;">
+<h2 class="center">Bible</h2>
+<p class="center">Coming soon...</p>
 </div>
 
 <script>
-const emotions = ["Anxiety","Stress","Fear","Grief","Anger","Loneliness","Confusion","Joy","Gratitude"];
 
 const verses = {
 Anxiety: [
-{ ref: "Matthew 6:34", text: "Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself." },
-{ ref: "Philippians 4:6", text: "Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." }
+{ ref:"Matthew 6:34", text:"Take therefore no thought for the morrow: for the morrow shall take thought for the things of itself." },
+{ ref:"Philippians 4:6", text:"Be careful for nothing; but in every thing by prayer and supplication with thanksgiving let your requests be made known unto God." }
 ],
 Stress: [
-{ ref: "Psalm 55:22", text: "Cast thy burden upon the Lord, and he shall sustain thee." }
+{ ref:"Matthew 11:28", text:"Come unto me, all ye that labour and are heavy laden, and I will give you rest." }
 ],
 Fear: [
-{ ref: "Isaiah 41:10", text: "Fear thou not; for I am with thee: be not dismayed; for I am thy God." }
+{ ref:"Isaiah 41:10", text:"Fear thou not; for I am with thee." }
 ],
 Grief: [
-{ ref: "Psalm 34:18", text: "The Lord is nigh unto them that are of a broken heart." }
+{ ref:"Psalm 34:18", text:"The Lord is nigh unto them that are of a broken heart." }
 ],
 Anger: [
-{ ref: "Ephesians 4:26", text: "Be ye angry, and sin not: let not the sun go down upon your wrath." }
+{ ref:"Ephesians 4:26", text:"Be ye angry, and sin not." }
 ],
 Loneliness: [
-{ ref: "Deuteronomy 31:6", text: "He will not fail thee, nor forsake thee." }
+{ ref:"Deuteronomy 31:6", text:"He will not fail thee, nor forsake thee." }
 ],
 Confusion: [
-{ ref: "1 Corinthians 14:33", text: "For God is not the author of confusion, but of peace." }
+{ ref:"1 Corinthians 14:33", text:"God is not the author of confusion, but of peace." }
 ],
 Joy: [
-{ ref: "Psalm 16:11", text: "In thy presence is fullness of joy." }
+{ ref:"Psalm 16:11", text:"In thy presence is fullness of joy." }
 ],
 Gratitude: [
-{ ref: "1 Thessalonians 5:18", text: "In every thing give thanks." }
+{ ref:"1 Thessalonians 5:18", text:"In every thing give thanks." }
 ]
 };
 
@@ -199,68 +172,54 @@ function showScreen(id) {
   if(id === "saved") loadSaved();
 }
 
-function loadEmotions() {
-  const grid = document.getElementById('emotionGrid');
-  emotions.forEach(emotion => {
-    const div = document.createElement('div');
-    div.className = "card";
-    div.innerText = emotion;
-    div.onclick = () => openEmotion(emotion);
-    grid.appendChild(div);
-  });
-}
-
 function openEmotion(emotion) {
-  showScreen('emotion');
-  document.getElementById('emotionTitle').innerText = emotion;
-  document.getElementById('emotionSubtitle').innerText = "What the Bible says about " + emotion.toLowerCase();
+  showScreen('verses');
 
-  const list = document.getElementById('verseList');
-  list.innerHTML = "";
+  document.getElementById("emotionTitle").innerText = emotion;
+  document.getElementById("emotionSubtitle").innerText =
+    "What the Bible says about " + emotion.toLowerCase();
+
+  const container = document.getElementById("verseList");
+  container.innerHTML = "";
 
   verses[emotion].forEach(v => {
-    const card = document.createElement('div');
-    card.className = "verse-card";
-
-    card.innerHTML = `
-      <div class="verse-ref">${v.ref}</div>
-      <p>${v.text}</p>
-      <button class="save-btn">Save</button>
+    container.innerHTML += `
+      <div class="verse-card">
+        <div style="color:#c9a94d; font-size:14px;">${v.ref}</div>
+        <div style="margin-top:10px;">"${v.text}"</div>
+        <button class="save-btn" onclick='saveVerse(${JSON.stringify(v)})'>Save</button>
+      </div>
     `;
-
-    card.querySelector('button').onclick = () => saveVerse(v);
-
-    list.appendChild(card);
   });
 }
 
-function saveVerse(verse) {
-  let saved = JSON.parse(localStorage.getItem("savedVerses")) || [];
-  saved.push(verse);
-  localStorage.setItem("savedVerses", JSON.stringify(saved));
+function saveVerse(v) {
+  let saved = JSON.parse(localStorage.getItem("saved")) || [];
+
+  if(!saved.find(s => s.ref === v.ref && s.text === v.text)) {
+    saved.push(v);
+  }
+
+  localStorage.setItem("saved", JSON.stringify(saved));
   alert("Saved!");
 }
 
 function loadSaved() {
-  const list = document.getElementById('savedList');
-  list.innerHTML = "";
+  const container = document.getElementById("savedList");
+  container.innerHTML = "";
 
-  let saved = JSON.parse(localStorage.getItem("savedVerses")) || [];
+  let saved = JSON.parse(localStorage.getItem("saved")) || [];
 
   saved.forEach(v => {
-    const card = document.createElement('div');
-    card.className = "verse-card";
-
-    card.innerHTML = `
-      <div class="verse-ref">${v.ref}</div>
-      <p>${v.text}</p>
+    container.innerHTML += `
+      <div class="verse-card">
+        <div style="color:#c9a94d;">${v.ref}</div>
+        <div style="margin-top:10px;">"${v.text}"</div>
+      </div>
     `;
-
-    list.appendChild(card);
   });
 }
 
-loadEmotions();
 </script>
 
 </body>
