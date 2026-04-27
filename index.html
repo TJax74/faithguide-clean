@@ -291,12 +291,18 @@ Gratitude: [
 };
 
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+
+  // hide everything
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active');
+  });
+
+  // show selected
   document.getElementById(id).classList.add('active');
 
+  // special cases
   if(id === "saved") loadSaved();
 }
-
 function openEmotion(emotion) {
 
   // safety check (prevents crashes)
