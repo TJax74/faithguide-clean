@@ -449,10 +449,21 @@ function loadDailyVerse() {
 
   document.getElementById("dailyVerseText").innerText = dailyVerses[index];
   document.getElementById("dailyDevotional").innerText = devotionals[index];
+
+  const saved = JSON.parse(localStorage.getItem("saved")) || [];
+  const button = document.getElementById("dailySaveBtn");
+
+  if (saved.find(v => v.text === dailyVerses[index])) {
+    button.innerText = "Saved ✓";
+    button.disabled = true;
+  } else {
+    button.innerText = "Save";
+    button.disabled = false;
+  }
 }
 
 loadDailyVerse();
-
+  
 function saveDailyVerse() {
   const index = new Date().getDate() % dailyVerses.length;
 
