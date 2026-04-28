@@ -450,7 +450,27 @@ function loadDailyVerse() {
   document.getElementById("dailyVerseText").innerText = dailyVerses[index];
   document.getElementById("dailyDevotional").innerText = devotionals[index];
 }
- loadDailyVerse();
+
+loadDailyVerse();
+
+function saveDailyVerse() { 
+  const index = new Date().getDate() % dailyVerses.length;
+
+  const verse = {
+    ref: "Daily Verse",
+    text: dailyVerses[index]
+  };
+
+  let saved = JSON.parse(localStorage.getItem("saved")) || [];
+
+  if (!saved.find(v => v.text === verse.text)) {
+    saved.push(verse);
+    localStorage.setItem("saved", JSON.stringify(saved));
+    alert("Saved!");
+  } else {
+    alert("Already saved");
+  }
+}
   
 </script>
 
