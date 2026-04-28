@@ -163,7 +163,7 @@ body {
   <p id="dailyVerseText"></p>
   <p id="dailyDevotional"></p>
 
-  <button class="save-btn" onclick="saveDailyVerse()">Save</button>
+  <button id="dailySaveBtn" class="save-btn" onclick="saveDailyVerse()">Save</button>
 </div>
 
 <h2 class="center" style="color:#c9a94d;">How are you feeling today?</h2>
@@ -453,7 +453,7 @@ function loadDailyVerse() {
 
 loadDailyVerse();
 
-function saveDailyVerse() { 
+function saveDailyVerse() {
   const index = new Date().getDate() % dailyVerses.length;
 
   const verse = {
@@ -463,12 +463,18 @@ function saveDailyVerse() {
 
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
 
+  const button = document.getElementById("dailySaveBtn");
+
   if (!saved.find(v => v.text === verse.text)) {
     saved.push(verse);
     localStorage.setItem("saved", JSON.stringify(saved));
-    alert("Saved!");
+
+    button.innerText = "Saved ✓";
+    button.disabled = true;
+
   } else {
-    alert("Already saved");
+    button.innerText = "Saved ✓";
+    button.disabled = true;
   }
 }
   
