@@ -65,10 +65,10 @@ body {
 
 /* GRID */
 .grid {
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:15px;
-  margin-top:20px;
+  display: grid;
+  grid-template-columns: repeat(2, 180px);
+  justify-content: center;
+  gap: 20px;
 }
 
 /* CARDS */
@@ -157,6 +157,7 @@ body {
 
 <!-- HOME -->
 <div id="home" class="screen active">
+  <div class="container">
 
 <div class="daily-verse">
   <small>DAILY VERSE</small>
