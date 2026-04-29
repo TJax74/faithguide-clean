@@ -370,16 +370,14 @@ function showScreen(id) {
 }
 
 function openEmotion(emotion) {
-  if (!verses[emotion]) return;
-
   showScreen('verses');
 
   document.getElementById("emotionTitle").innerText = emotion;
-  document.getElementById("emotionSubtitle").innerText =
-    "What the Bible says about " + emotion.toLowerCase();
+  document.getElementById("emotionSubtitle").innerText = "test";
 
   const container = document.getElementById("verseList");
-  container.innerHTML = "";
+  container.innerHTML = "WORKING";
+}
 
   verses[emotion].forEach(function(v) {
     const card = document.createElement("div");
