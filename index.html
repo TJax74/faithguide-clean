@@ -370,7 +370,6 @@ function showScreen(id) {
 }
 
 function openEmotion(emotion) {
-  alert("clicked");
   if (!verses[emotion]) return;
 
   showScreen('verses');
@@ -392,7 +391,7 @@ function openEmotion(emotion) {
 
     const text = document.createElement("div");
     text.style.marginTop = "10px";
-    text.innerText = "\"" + v.text + "\"";
+    text.innerText = v.text;
 
     const btn = document.createElement("button");
     btn.className = "save-btn";
