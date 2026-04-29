@@ -381,14 +381,21 @@ function openEmotion(emotion) {
   const container = document.getElementById("verseList");
   container.innerHTML = "";
 
-  verses[emotion].forEach(v => {
-    container.innerHTML += `
-      <div class="verse-card">
-        <div style="color:#c9a94d;">${v.ref}</div>
-        <div style="margin-top:10px;">"${v.text}"</div>
-        <button class="save-btn" onclick='saveVerse(${JSON.stringify(v)})'>Save</button>
-      </div>
-    `;
+ const card = document.createElement("div");
+card.className = "verse-card";
+
+card.innerHTML = `
+  <div style="color:#c9a94d;">${v.ref}</div>
+  <div style="margin-top:10px;">"${v.text}"</div>
+`;
+
+const btn = document.createElement("button");
+btn.className = "save-btn";
+btn.innerText = "Save";
+btn.onclick = () => saveVerse(v);
+
+card.appendChild(btn);
+container.appendChild(card);
   });
 }
 
