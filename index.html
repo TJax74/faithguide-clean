@@ -369,35 +369,23 @@ function showScreen(id) {
   if(id === "saved") loadSaved();
 }
 
-function openEmotion(emotion) {
-  if (!verses[emotion]) return;
+verses[emotion].forEach(v => {
+  const card = document.createElement("div");
+  card.className = "verse-card";
 
-  showScreen('verses');
+  card.innerHTML = `
+    <div style="color:#c9a94d;">${v.ref}</div>
+    <div style="margin-top:10px;">"${v.text}"</div>
+  `;
 
-  document.getElementById("emotionTitle").innerText = emotion;
-  document.getElementById("emotionSubtitle").innerText =
-    "What the Bible says about " + emotion.toLowerCase();
+  const btn = document.createElement("button");
+  btn.className = "save-btn";
+  btn.innerText = "Save";
+  btn.onclick = () => saveVerse(v);
 
-  const container = document.getElementById("verseList");
-  container.innerHTML = "";
-
- const card = document.createElement("div");
-card.className = "verse-card";
-
-card.innerHTML = `
-  <div style="color:#c9a94d;">${v.ref}</div>
-  <div style="margin-top:10px;">"${v.text}"</div>
-`;
-
-const btn = document.createElement("button");
-btn.className = "save-btn";
-btn.innerText = "Save";
-btn.onclick = () => saveVerse(v);
-
-card.appendChild(btn);
-container.appendChild(card);
-  });
-}
+  card.appendChild(btn);
+  container.appendChild(card);
+});
 
 function saveVerse(v) {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
