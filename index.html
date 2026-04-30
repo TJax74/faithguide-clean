@@ -423,12 +423,20 @@ function openEmotion(emotion) {
   function saveVerse(v) {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
 
-  if(!saved.find(s => s.ref === v.ref && s.text === v.text)) {
+  if (!saved.find(s => s.ref === v.ref && s.text === v.text)) {
     saved.push(v);
+    localStorage.setItem("saved", JSON.stringify(saved));
   }
 
-  localStorage.setItem("saved", JSON.stringify(saved));
-  alert("Saved!");
+  // update button UI
+  const buttons = document.querySelectorAll(".save-btn");
+
+  buttons.forEach(btn => {
+    if (btn.innerText === "Save") {
+      btn.innerText = "Saved ✓";
+      btn.disabled = true;
+    }
+  });
 }
 
 function loadSaved() {
