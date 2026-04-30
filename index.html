@@ -424,16 +424,6 @@ function saveVerse(v, button) {
   button.disabled = true;
 }
 
-  const buttons = document.querySelectorAll(".save-btn");
-
-  buttons.forEach(btn => {
-    if (btn.innerText === "Save") {
-      btn.innerText = "Saved ✓";
-      btn.disabled = true;
-    }
-  });
-}
-
 function loadSaved() {
   const container = document.getElementById("savedList");
   container.innerHTML = "";
