@@ -409,6 +409,8 @@ function openEmotion(emotion) {
     btn.className = "save-btn";
     btn.innerText = "Save";
     btn.onclick = function() {
+  saveVerse(v, btn);
+};
       saveVerse(v);
     };
 
