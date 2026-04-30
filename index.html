@@ -415,7 +415,8 @@ function openEmotion(emotion) {
   }
   
   }  
-function saveVerse(v) {
+
+  function saveVerse(v) {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
 
   if(!saved.find(s => s.ref === v.ref && s.text === v.text)) {
