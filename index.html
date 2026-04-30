@@ -420,7 +420,7 @@ function openEmotion(emotion) {
   });
 }
 
-  function saveVerse(v) {
+function saveVerse(v, button) {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
 
   if (!saved.find(s => s.ref === v.ref && s.text === v.text)) {
@@ -428,7 +428,10 @@ function openEmotion(emotion) {
     localStorage.setItem("saved", JSON.stringify(saved));
   }
 
-  // update button UI
+  button.innerText = "Saved ✓";
+  button.disabled = true;
+}
+
   const buttons = document.querySelectorAll(".save-btn");
 
   buttons.forEach(btn => {
