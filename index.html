@@ -412,14 +412,6 @@ function openEmotion(emotion) {
   saveVerse(v, btn);
 };
 
-    card.appendChild(ref);
-    card.appendChild(text);
-    card.appendChild(btn);
-
-    container.appendChild(card);
-  });
-}
-
 function saveVerse(v, button) {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
 
