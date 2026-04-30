@@ -372,49 +372,31 @@ function showScreen(id) {
 function openEmotion(emotion) {
   showScreen('verses');
 
-  document.getElementById("emotionTitle").innerText = emotion;
-  document.getElementById("emotionSubtitle").innerText =
-    "What the Bible says about " + emotion.toLowerCase();
-
   const container = document.getElementById("verseList");
   container.innerHTML = "";
 
-  const list = verses[emotion];
+  try {
+    const list = verses[emotion];
 
-  if (!list) {
-    container.innerHTML = "No verses found.";
-    return;
+    if (!list) {
+      container.innerHTML = "No verses found for: " + emotion;
+      return;
+    }
+
+    for (let i = 0; i < list.length; i++) {
+      const v = list[i];
+
+      const card = document.createElement("div");
+      card.className = "verse-card";
+      card.innerText = v.ref + " - " + v.text;
+
+      container.appendChild(card);
+    }
+
+  } catch (e) {
+    container.innerHTML = "ERROR: " + e.message;
   }
-
-  for (let i = 0; i < list.length; i++) {
-    const v = list[i];
-
-    const card = document.createElement("div");
-    card.className = "verse-card";
-
-    const ref = document.createElement("div");
-    ref.style.color = "#c9a94d";
-    ref.innerText = v.ref;
-
-    const text = document.createElement("div");
-    text.style.marginTop = "10px";
-    text.innerText = v.text;
-
-    const btn = document.createElement("button");
-    btn.className = "save-btn";
-    btn.innerText = "Save";
-    btn.onclick = function() {
-      saveVerse(v);
-    };
-
-    card.appendChild(ref);
-    card.appendChild(text);
-    card.appendChild(btn);
-
-    container.appendChild(card);
-  }
-  
-  }  
+}  
 
   function saveVerse(v) {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
