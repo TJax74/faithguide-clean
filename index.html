@@ -373,12 +373,22 @@ function openEmotion(emotion) {
   showScreen('verses');
 
   document.getElementById("emotionTitle").innerText = emotion;
-  document.getElementById("emotionSubtitle").innerText = "test";
+  document.getElementById("emotionSubtitle").innerText =
+    "What the Bible says about " + emotion.toLowerCase();
 
   const container = document.getElementById("verseList");
   container.innerHTML = "";
 
-  verses[emotion].forEach(function(v) {
+  const list = verses[emotion];
+
+  if (!list) {
+    container.innerHTML = "No verses found.";
+    return;
+  }
+
+  for (let i = 0; i < list.length; i++) {
+    const v = list[i];
+
     const card = document.createElement("div");
     card.className = "verse-card";
 
@@ -402,8 +412,7 @@ function openEmotion(emotion) {
     card.appendChild(btn);
 
     container.appendChild(card);
-  });
-}
+  }
   
 function saveVerse(v) {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
