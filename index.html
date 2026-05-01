@@ -393,7 +393,9 @@ function openEmotion(emotion) {
     return;
   }
 
-  list.forEach(function(v) {
+  for (let i = 0; i < list.length; i++) {
+    const v = list[i];
+
     const card = document.createElement("div");
     card.className = "verse-card";
 
@@ -408,9 +410,18 @@ function openEmotion(emotion) {
     const btn = document.createElement("button");
     btn.className = "save-btn";
     btn.innerText = "Save";
-    btn.onclick = function() {
-  saveVerse(v, btn);
-};
+
+    btn.onclick = function () {
+      saveVerse(v, btn);
+    };
+
+    card.appendChild(ref);
+    card.appendChild(text);
+    card.appendChild(btn);
+
+    container.appendChild(card);
+  }
+}
 
 function saveVerse(v, button) {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
