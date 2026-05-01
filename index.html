@@ -197,6 +197,13 @@ body {
   color: #666;
   line-height: 1.5;
 }
+
+.checkin-subtext {
+  text-align: center;
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 20px;
+}
   
 </style>
 </head>
@@ -217,6 +224,8 @@ body {
 
 <h2 class="center" style="color:#c9a94d;">How are you feeling today?</h2>
 
+<p class="checkin-subtext">Take a moment to check in with your heart.</p>    
+    
 <div class="grid">
 
 <div class="card" onclick="openEmotion('Anxiety')">
@@ -535,6 +544,14 @@ function removeVerse(index) {
   loadSaved();
 }
 
+const dailyPrompts = [
+  "How is your heart today?",
+  "What are you carrying today?",
+  "Take a breath. What do you feel right now?",
+  "Pause for a moment—what’s on your mind?",
+  "God cares about how you feel. What is it today?"
+];
+  
   const dailyVerses = [
 "The Lord is my shepherd; I shall not want. — Psalm 23:1",
 "Fear thou not; for I am with thee. — Isaiah 41:10",
@@ -558,7 +575,12 @@ function loadDailyVerse() {
 
   document.getElementById("dailyVerseText").innerText = dailyVerses[index];
   document.getElementById("dailyDevotional").innerText = devotionals[index];
+const promptIndex = new Date().getDate() % dailyPrompts.length;
+const subtext = document.querySelector(".checkin-subtext");
 
+if (subtext) {
+  subtext.innerText = dailyPrompts[promptIndex];
+}
   const saved = JSON.parse(localStorage.getItem("saved")) || [];
   const button = document.getElementById("dailySaveBtn");
 
