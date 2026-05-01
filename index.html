@@ -225,58 +225,60 @@ body {
 <h2 class="center" style="color:#c9a94d;">How are you feeling today?</h2>
 
 <p class="checkin-subtext">Take a moment to check in with your heart.</p>    
+
+<p id="todayCheckin" class="checkin-result"></p>
     
 <div class="grid">
 
-<div class="card" onclick="openEmotion('Anxiety')">
+<div class="card" onclick="selectEmotion('Anxiety')">
   <div class="card-icon">!</div>
   <h3>Anxiety</h3>
   <p>Find peace in worry</p>
 </div>
 
-<div class="card" onclick="openEmotion('Stress')">
+<div class="card" onclick="selectEmotion('Stress')">
   <div class="card-icon">⚡</div>
   <h3>Stress</h3>
   <p>Find rest in pressure</p>
 </div>
 
-<div class="card" onclick="openEmotion('Fear')">
+<div class="card" onclick="selectEmotion('Fear')">
   <div class="card-icon">🛡</div>
   <h3>Fear</h3>
   <p>Build courage</p>
 </div>
 
-<div class="card" onclick="openEmotion('Grief')">
+<div class="card" onclick="selectEmotion('Grief')">
   <div class="card-icon">❤</div>
   <h3>Grief</h3>
   <p>Find comfort</p>
 </div>
 
-<div class="card" onclick="openEmotion('Anger')">
+<div class="card" onclick="selectEmotion('Anger')">
   <div class="card-icon">🔥</div>
   <h3>Anger</h3>
   <p>Respond with grace</p>
 </div>
 
-<div class="card" onclick="openEmotion('Loneliness')">
+<div class="card" onclick="selectEmotion('Loneliness')">
   <div class="card-icon">🌙</div>
   <h3>Loneliness</h3>
   <p>You are not alone</p>
 </div>
 
-<div class="card" onclick="openEmotion('Confusion')">
+<div class="card" onclick="selectEmotion('Confusion')">
   <div class="card-icon">?</div>
   <h3>Confusion</h3>
   <p>Seek clarity</p>
 </div>
 
-<div class="card" onclick="openEmotion('Joy')">
+<div class="card" onclick="selectEmotion('Joy')">
   <div class="card-icon">☀</div>
   <h3>Joy</h3>
   <p>Celebrate goodness</p>
 </div>
 
-<div class="card" onclick="openEmotion('Gratitude')">
+<div class="card" onclick="selectEmotion('Gratitude')">
   <div class="card-icon">★</div>
   <h3>Gratitude</h3>
   <p>Give thanks</p>
@@ -591,9 +593,24 @@ if (subtext) {
     button.innerText = "Save";
     button.disabled = false;
   }
+const today = new Date().toDateString();
+let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
+
+const todayEntry = checkins.find(c => c.date === today);
+
+const checkinText = document.getElementById("todayCheckin");
+
+if (checkinText) {
+  if (todayEntry) {
+    checkinText.innerText = "You checked in today: " + todayEntry.emotion;
+  } else {
+    checkinText.innerText = "";
+  }
 }
 
-loadDailyVerse();
+}
+  
+  loadDailyVerse();
   
 function saveDailyVerse() {
   const index = new Date().getDate() % dailyVerses.length;
