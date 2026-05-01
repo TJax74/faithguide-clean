@@ -114,13 +114,38 @@ body {
 
 /* VERSE CARDS */
 .verse-card {
-  background:white;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 6px 15px rgba(0,0,0,0.08);
-  margin:15px auto;
-  max-width:700px;
-  border-left:5px solid #c9a94d;
+  background: #f6f6f6;
+  padding: 18px;
+  border-radius: 16px;
+  margin: 15px auto;
+  max-width: 600px;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+  border-left: 4px solid #c9a94d;
+}
+
+  .verse-ref {
+  color: #c9a94d;
+  font-weight: 600;
+}
+
+.verse-text {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #444;
+}
+
+.remove-btn {
+  margin-top: 12px;
+  background: #f0f0f0;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 12px;
+}
+
+.remove-btn:hover {
+  background: #ddd;
 }
 
 .save-btn {
@@ -450,12 +475,12 @@ function loadSaved() {
 
   saved.forEach((v, index) => {
     container.innerHTML += `
-      <div class="verse-card">
-        <div style="color:#c9a94d;">${v.ref}</div>
-        <div style="margin-top:10px;">"${v.text}"</div>
-        <button class="save-btn" onclick="removeVerse(${index})">Remove</button>
-      </div>
-    `;
+  <div class="verse-card">
+    <div class="verse-ref">${v.ref}</div>
+    <div class="verse-text">${v.text}</div>
+    <button class="remove-btn" onclick="removeVerse(${index})">Remove</button>
+  </div>
+`;
   });
 }
 
