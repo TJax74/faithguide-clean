@@ -228,6 +228,8 @@ body {
 
 <p id="todayCheckin" class="checkin-result"></p>
     
+<div id="checkinHistory" class="checkin-history"></div>
+    
 <div class="grid">
 
 <div class="card" onclick="selectEmotion('Anxiety')">
@@ -608,6 +610,24 @@ if (checkinText) {
   }
 }
 
+const historyContainer = document.getElementById("checkinHistory");
+
+if (historyContainer) {
+  historyContainer.innerHTML = "";
+
+  // show last 3 check-ins (excluding today)
+  const recent = checkins
+    .filter(c => c.date !== today)
+    .slice(-3)
+    .reverse();
+
+  recent.forEach(entry => {
+    const item = document.createElement("div");
+    item.className = "history-item";
+    item.innerText = entry.date + ": " + entry.emotion;
+
+    historyContainer.appendChild(item);
+  });
 }
   
   loadDailyVerse();
