@@ -615,7 +615,6 @@ const historyContainer = document.getElementById("checkinHistory");
 if (historyContainer) {
   historyContainer.innerHTML = "";
 
-  // show last 3 check-ins (excluding today)
   const recent = checkins
     .filter(c => c.date !== today)
     .slice(-3)
