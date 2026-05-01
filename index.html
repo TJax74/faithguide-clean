@@ -181,6 +181,14 @@ body {
   text-align: center;
   margin-top: 30px;
 }
+
+.empty-state {
+  text-align: center;
+  margin-top: 40px;
+  color: #777;
+  font-size: 14px;
+}
+
 </style>
 </head>
 
@@ -473,6 +481,15 @@ function loadSaved() {
 
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
 
+  if (saved.length === 0) {
+  container.innerHTML = `
+    <div class="empty-state">
+      No saved verses yet
+    </div>
+  `;
+  return;
+}
+  
   saved.forEach((v, index) => {
     container.innerHTML += `
   <div class="verse-card">
