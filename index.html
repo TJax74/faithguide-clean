@@ -408,12 +408,19 @@ function openEmotion(emotion) {
     text.innerText = v.text;
 
     const btn = document.createElement("button");
-    btn.className = "save-btn";
-    btn.innerText = "Save";
+btn.className = "save-btn";
+btn.innerText = "Save";
 
-    btn.onclick = function () {
-      saveVerse(v, btn);
-    };
+let saved = JSON.parse(localStorage.getItem("saved")) || [];
+
+if (saved.find(s => s.ref === v.ref && s.text === v.text)) {
+  btn.innerText = "Saved ✓";
+  btn.disabled = true;
+}
+
+btn.onclick = function () {
+  saveVerse(v, btn);
+};
 
     card.appendChild(ref);
     card.appendChild(text);
