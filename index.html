@@ -345,7 +345,7 @@ const guidance = {
   Anger: "Pause and breathe. God calls you to respond with grace.",
   Loneliness: "You are never truly alone. God is always near.",
   Confusion: "Even in uncertainty, God is guiding your steps.",
-  Joy: "Celebrate this moment. Joy is a gift from God."
+  Joy: "Celebrate this moment. Joy is a gift from God.",
   Gratitude: "Give thanks in all things. Gratitude shifts your heart toward God's goodness.",
 };
   
@@ -637,8 +637,10 @@ function selectEmotion(emotion) {
 
   let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
 
+  // remove today's existing entry
   checkins = checkins.filter(c => c.date !== today);
 
+  // add new one
   checkins.push({
     date: today,
     emotion: emotion
@@ -646,6 +648,7 @@ function selectEmotion(emotion) {
 
   localStorage.setItem("checkins", JSON.stringify(checkins));
 
+  // go to verses screen
   openEmotion(emotion);
 }
   
