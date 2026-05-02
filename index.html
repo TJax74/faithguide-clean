@@ -610,9 +610,8 @@ if (checkinText) {
     checkinText.innerText = "";
   }
 }
-}
 
-  const historyContainer = document.getElementById("checkinHistory");
+const historyContainer = document.getElementById("checkinHistory");
 
 if (historyContainer) {
   historyContainer.innerHTML = "";
@@ -625,7 +624,7 @@ if (historyContainer) {
   recent.forEach(entry => {
     const item = document.createElement("div");
     item.className = "history-item";
-    item.innerText = entry.date + ": " + entry.emotion;
+    item.innerHTML = "<strong>" + entry.emotion + "</strong> • " + entry.date;
 
     historyContainer.appendChild(item);
   });
