@@ -578,18 +578,7 @@ const devotionals = [
 function loadDailyVerse() {
   console.log("running daily");
 
-  const today = new Date().toDateString();
-  let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
-  
-  let lastDate = localStorage.getItem("lastVerseDate");
-  let index = parseInt(localStorage.getItem("verseIndex")) || 0;
-  
-  // If it's a new day → move to next verse
-  if (lastDate !== today) {
-    index = (index + 1) % dailyVerses.length;
-    localStorage.setItem("verseIndex", index);
-    localStorage.setItem("lastVerseDate", today);
-  }
+  const index = new Date().getDate() % dailyVerses.length;
 
   // Set verse + devotional
   document.getElementById("dailyVerseText").innerText = dailyVerses[index];
@@ -615,8 +604,10 @@ function loadDailyVerse() {
     button.disabled = false;
   }
 
-  // Check-in display
+  // ✅ Check-in + history (ALL IN ONE PLACE)
+  const today = new Date().toDateString();
   let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
+
   const todayEntry = checkins.find(c => c.date === today);
   const checkinText = document.getElementById("todayCheckin");
 
@@ -630,23 +621,22 @@ function loadDailyVerse() {
 
   const historyContainer = document.getElementById("checkinHistory");
 
-if (historyContainer) {
-  historyContainer.innerHTML = "";
+  if (historyContainer) {
+    historyContainer.innerHTML = "";
 
-  const recent = checkins
-    .filter(c => c.date !== today)
-    .slice(-3)
-    .reverse();
+    const recent = checkins
+      .filter(c => c.date !== today)
+      .slice(-3)
+      .reverse();
 
-  recent.forEach(entry => {
-    const item = document.createElement("div");
-    item.className = "history-item";
-    item.innerHTML = "<strong>" + entry.emotion + "</strong> • " + entry.date;
+    recent.forEach(entry => {
+      const item = document.createElement("div");
+      item.className = "history-item";
+      item.innerHTML = "<strong>" + entry.emotion + "</strong> • " + entry.date;
 
-    historyContainer.appendChild(item);
-  });
-}
-
+      historyContainer.appendChild(item);
+    });
+  }
 }
 
 function selectEmotion(emotion) {
