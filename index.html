@@ -680,6 +680,29 @@ loadDevotionals();
 
 openEmotion(emotion);
 }
+
+function loadDevotionals() {
+  const container = document.getElementById("devotionalList");
+  container.innerHTML = "";
+
+  devotionals.forEach((text, index) => {
+    const card = document.createElement("div");
+    card.className = "verse-card";
+
+    const title = document.createElement("div");
+    title.className = "verse-ref";
+    title.innerText = "Day " + (index + 1);
+
+    const content = document.createElement("div");
+    content.className = "verse-text";
+    content.innerText = text;
+
+    card.appendChild(title);
+    card.appendChild(content);
+
+    container.appendChild(card);
+  });
+}
   
 function saveDailyVerse() {
   const index = new Date().getDate() % dailyVerses.length;
