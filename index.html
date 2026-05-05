@@ -633,8 +633,6 @@ if (historyContainer) {
     historyContainer.appendChild(item);
   });
 }
-  
-  loadDailyVerse();
 
 function selectEmotion(emotion) {
   const today = new Date().toDateString();
@@ -680,6 +678,8 @@ function saveDailyVerse() {
     button.disabled = true;
   }
 }
+
+loadDailyVerse();
   
 </script>
 
