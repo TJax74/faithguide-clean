@@ -83,11 +83,17 @@ body {
   transition: all 0.2s ease;
 }
 
+.card.active {
+  border: 2px solid #c9a94d;
+  background: #fffaf0;
+  transform: scale(1.03);
+}
+  
 .card:hover {
   transform: translateY(-5px);
   box-shadow: 0 15px 30px rgba(0,0,0,0.08);
 }
-
+  
 .card-icon {
   width: 42px;
   height: 42px;
@@ -652,7 +658,13 @@ function loadDailyVerse() {
 
 function selectEmotion(emotion, event) {
   if (event) event.stopPropagation();
-  
+
+  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+
+  if (event) {
+    event.currentTarget.classList.add('active');
+  }
+
   const today = new Date().toDateString();
 
   let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
@@ -666,7 +678,7 @@ function selectEmotion(emotion, event) {
 
   localStorage.setItem("checkins", JSON.stringify(checkins));
 
-  loadDailyVerse(); // 👈 ADD THIS LINE
+  loadDailyVerse();
 
   openEmotion(emotion);
 }
