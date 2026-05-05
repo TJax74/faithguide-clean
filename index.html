@@ -579,10 +579,11 @@ function loadDailyVerse() {
   console.log("running daily");
 
   const today = new Date().toDateString();
-
+  let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
+  
   let lastDate = localStorage.getItem("lastVerseDate");
   let index = parseInt(localStorage.getItem("verseIndex")) || 0;
-
+  
   // If it's a new day → move to next verse
   if (lastDate !== today) {
     index = (index + 1) % dailyVerses.length;
@@ -626,9 +627,8 @@ function loadDailyVerse() {
       checkinText.innerText = "";
     }
   }
-}
 
-const historyContainer = document.getElementById("checkinHistory");
+  const historyContainer = document.getElementById("checkinHistory");
 
 if (historyContainer) {
   historyContainer.innerHTML = "";
@@ -646,7 +646,8 @@ if (historyContainer) {
     historyContainer.appendChild(item);
   });
 }
-} 
+
+}
 
 function selectEmotion(emotion) {
   const today = new Date().toDateString();
