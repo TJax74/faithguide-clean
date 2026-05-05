@@ -634,28 +634,11 @@ function loadDailyVerse() {
     } else {
       checkinText.innerText = "";
     }
-  }
-
-  const historyContainer = document.getElementById("checkinHistory");
-
-  if (historyContainer) {
-    historyContainer.innerHTML = "";
-
-    const recent = checkins
-      .filter(c => c.date !== today)
-      .slice(-3)
-      .reverse();
-
-    recent.forEach(entry => {
-      const item = document.createElement("div");
-      item.className = "history-item";
-      item.innerHTML = "<strong>" + entry.emotion + "</strong> • " + entry.date;
-
-      historyContainer.appendChild(item);
-    });
-  }
 }
 
+}
+    
+    
 function selectEmotion(emotion, event) {
   if (event) event.stopPropagation();
 
@@ -671,10 +654,12 @@ function selectEmotion(emotion, event) {
 
   checkins = checkins.filter(c => c.date !== today);
 
-  checkins.push({
-    date: today,
-    emotion: emotion
-  });
+ checkins.push({
+  date: today,
+  emotion: emotion
+});
+
+localStorage.setItem("selectedEmotion", emotion);
 
   localStorage.setItem("checkins", JSON.stringify(checkins));
 
