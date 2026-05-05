@@ -644,10 +644,8 @@ function selectEmotion(emotion) {
 
   let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
 
-  // remove today's existing entry
   checkins = checkins.filter(c => c.date !== today);
 
-  // add new one
   checkins.push({
     date: today,
     emotion: emotion
@@ -655,7 +653,8 @@ function selectEmotion(emotion) {
 
   localStorage.setItem("checkins", JSON.stringify(checkins));
 
-  // go to verses screen
+  loadDailyVerse(); // 👈 ADD THIS LINE
+
   openEmotion(emotion);
 }
   
