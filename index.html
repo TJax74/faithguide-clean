@@ -511,7 +511,7 @@ if (saved.find(s => s.ref === v.ref && s.text === v.text)) {
 }
 
 btn.onclick = function () {
-  saveVerse(v, btn);
+  openPlan(index);
 };
 
     card.appendChild(ref);
@@ -592,6 +592,30 @@ const devotionals = [
 "Your strength does not come from yourself alone, but from Christ who empowers you daily.",
 "Trusting God means letting go of control and believing He is leading you in the right direction."
 ];
+
+const plans = [
+  {
+    title: "Peace in the Storm",
+    category: "Anxiety & Peace",
+    days: 30,
+    description: "A 30-day journey to finding God's perfect peace when life feels overwhelming and chaotic.",
+    content: devotionals
+  },
+  {
+    title: "Trusting God in Uncertainty",
+    category: "Faith & Guidance",
+    days: 21,
+    description: "A 21-day exploration of faith and trust when the future is unclear.",
+    content: devotionals
+  },
+  {
+    title: "Strength for Heavy Days",
+    category: "Strength & Healing",
+    days: 14,
+    description: "A 14-day devotional focused on strength and endurance during difficult seasons.",
+    content: devotionals
+  }
+];
   
 function loadDailyVerse() {
   console.log("running daily");
@@ -659,7 +683,7 @@ function selectEmotion(emotion, event) {
   if (event) {
     event.currentTarget.classList.add('active');
   }
-
+  
   const today = new Date().toDateString();
 
   let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
@@ -681,24 +705,74 @@ loadDevotionals();
 openEmotion(emotion);
 }
 
+function openPlan(index) {
+  const plan = plans[index];
+
+  localStorage.setItem("activePlan", index);
+  localStorage.setItem("currentDay", 0);
+
+  showPlanScreen(plan);
+}
+
+function showPlanScreen(plan) {
+  showScreen("plans");
+
+  const currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
+  const dayContent = plan.content[currentDay];
+
+  const container = document.getElementById("plans");
+
+  container.innerHTML = `
+    <h2 class="center">${plan.title}</h2>
+    <p class="center">Day ${currentDay + 1} of ${plan.days}</p>
+
+    <div class="verse-card" style="margin-top:20px;">
+      ${dayContent}
+    </div>
+
+    <div class="center" style="margin-top:20px;">
+      <button onclick="nextDay()">Next Day →</button>
+    </div>
+  `;
+}
+
 function loadDevotionals() {
   const container = document.getElementById("devotionalList");
   container.innerHTML = "";
 
-  devotionals.forEach((text, index) => {
+  plans.forEach((plan, index) => {
     const card = document.createElement("div");
     card.className = "verse-card";
 
+    const category = document.createElement("div");
+    category.className = "verse-ref";
+    category.innerText = plan.category + " • " + plan.days + " Days";
+
     const title = document.createElement("div");
-    title.className = "verse-ref";
-    title.innerText = "Day " + (index + 1);
+    title.className = "verse-text";
+    title.style.fontWeight = "600";
+    title.style.fontSize = "18px";
+    title.style.marginTop = "8px";
+    title.innerText = plan.title;
 
-    const content = document.createElement("div");
-    content.className = "verse-text";
-    content.innerText = text;
+    const desc = document.createElement("div");
+    desc.className = "verse-text";
+    desc.style.marginTop = "8px";
+    desc.innerText = plan.description;
 
+    const btn = document.createElement("button");
+    btn.className = "save-btn";
+    btn.style.marginTop = "12px";
+    btn.innerText = "Start Journey";
+
+    btn.onclick = function () {
+      alert("Next step: open plan 👀");
+    };
+
+    card.appendChild(category);
     card.appendChild(title);
-    card.appendChild(content);
+    card.appendChild(desc);
+    card.appendChild(btn);
 
     container.appendChild(card);
   });
