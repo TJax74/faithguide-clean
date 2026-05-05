@@ -576,6 +576,8 @@ const devotionals = [
 ];
   
 function loadDailyVerse() {
+  console.log("running daily");
+  
   const index = new Date().getDate() % dailyVerses.length;
 
   document.getElementById("dailyVerseText").innerText = dailyVerses[index];
@@ -678,7 +680,7 @@ function saveDailyVerse() {
     button.disabled = true;
   }
 }
-
+  
 loadDailyVerse();
   
 </script>
