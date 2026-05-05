@@ -328,7 +328,7 @@ body {
 <!-- DEVOTIONALS -->
 <div id="devotionals" class="screen">
 <h2 class="center">Devotionals</h2>
-<p class="center">Coming soon...</p>
+<div id="devotionalList"></div>
 </div>
 
 <!-- PLANS -->
@@ -458,6 +458,7 @@ function showScreen(id) {
   }, 50);
 
   if(id === "saved") loadSaved();
+  if(id === "devotionals") loadDevotionals(); // 👈 ADD THIS
 }
 
 function openEmotion(emotion) {
