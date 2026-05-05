@@ -580,12 +580,14 @@ function loadDailyVerse() {
 
   document.getElementById("dailyVerseText").innerText = dailyVerses[index];
   document.getElementById("dailyDevotional").innerText = devotionals[index];
-const promptIndex = new Date().getDate() % dailyPrompts.length;
-const subtext = document.querySelector(".checkin-subtext");
 
-if (subtext) {
-  subtext.innerText = dailyPrompts[promptIndex];
-}
+  const promptIndex = new Date().getDate() % dailyPrompts.length;
+  const subtext = document.querySelector(".checkin-subtext");
+
+  if (subtext) {
+    subtext.innerText = dailyPrompts[promptIndex];
+  }
+
   const saved = JSON.parse(localStorage.getItem("saved")) || [];
   const button = document.getElementById("dailySaveBtn");
 
@@ -596,18 +598,20 @@ if (subtext) {
     button.innerText = "Save";
     button.disabled = false;
   }
-const today = new Date().toDateString();
-let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
 
-const todayEntry = checkins.find(c => c.date === today);
+  // ✅ check-in display
+  const today = new Date().toDateString();
+  let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
 
-const checkinText = document.getElementById("todayCheckin");
+  const todayEntry = checkins.find(c => c.date === today);
+  const checkinText = document.getElementById("todayCheckin");
 
-if (checkinText) {
-  if (todayEntry) {
-    checkinText.innerText = "You checked in today: " + todayEntry.emotion;
-  } else {
-    checkinText.innerText = "";
+  if (checkinText) {
+    if (todayEntry) {
+      checkinText.innerText = "You checked in today: " + todayEntry.emotion;
+    } else {
+      checkinText.innerText = "";
+    }
   }
 }
 
