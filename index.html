@@ -612,7 +612,7 @@ function loadDailyVerse() {
   // Save button state
   const saved = JSON.parse(localStorage.getItem("saved")) || [];
   const button = document.getElementById("dailySaveBtn");
-
+  
   if (saved.find(v => v.text === dailyVerses[index])) {
     button.innerText = "Saved ✓";
     button.disabled = true;
@@ -621,6 +621,17 @@ function loadDailyVerse() {
     button.disabled = false;
   }
 
+// Restore selected emotion
+const savedEmotion = localStorage.getItem("selectedEmotion");
+
+if (savedEmotion) {
+  document.querySelectorAll('.card').forEach(card => {
+    if (card.innerText.includes(savedEmotion)) {
+      card.classList.add('active');
+    }
+  });
+}
+  
   // ✅ Check-in + history (ALL IN ONE PLACE)
   const today = new Date().toDateString();
   let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
@@ -661,11 +672,11 @@ function selectEmotion(emotion, event) {
 
 localStorage.setItem("selectedEmotion", emotion);
 
-  localStorage.setItem("checkins", JSON.stringify(checkins));
+localStorage.setItem("checkins", JSON.stringify(checkins));
 
-  loadDailyVerse();
+loadDailyVerse();
 
-  openEmotion(emotion);
+openEmotion(emotion);
 }
   
 function saveDailyVerse() {
