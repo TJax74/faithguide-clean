@@ -766,9 +766,8 @@ function loadDevotionals() {
     btn.innerText = "Start Journey";
 
     btn.onclick = function () {
-      alert("Next step: open plan 👀");
-    };
-
+  openPlan(index);
+};
     card.appendChild(category);
     card.appendChild(title);
     card.appendChild(desc);
