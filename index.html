@@ -1200,9 +1200,12 @@ container.innerHTML = `
 // Restore completed state
 const completedPlans =
   JSON.parse(localStorage.getItem("completedPlans")) || [];
+
 const completedCount = completedPlans.filter(item =>
   item.startsWith(plan.title)
 ).length;
+
+container.innerHTML = `
   
 const completeKey = plan.title + "-day-" + currentDay;
 
