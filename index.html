@@ -614,6 +614,13 @@ button:hover {
   font-weight: 600;
   margin-top: 8px;
 }
+
+.completion-text {
+  text-align: center;
+  color: #777;
+  font-size: 13px;
+  margin-top: 6px;
+}
   
 </style>
 </head>
@@ -1137,6 +1144,10 @@ container.innerHTML = `
     <p>Day ${currentDay + 1} of ${plan.days}</p>
 <div class="streak-text" id="streakDisplay">
   🔥 ${localStorage.getItem("streak") || 0} Day Streak
+</div>
+
+<div class="completion-text" id="completionDisplay">
+  0 of ${plan.days} Days Completed
 </div>
 
     <div class="progress-bar">
