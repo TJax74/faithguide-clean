@@ -430,6 +430,34 @@ body {
   background: #eee;
   margin: 16px 0;
 }
+
+.verse-ref {
+  font-weight: 600;
+  color: #c9a94d;
+  margin-bottom: 8px;
+}
+
+.verse-text {
+  font-style: italic;
+  margin-bottom: 16px;
+  color: #555;
+}
+
+.section {
+  margin-top: 16px;
+}
+
+.section h4 {
+  margin-bottom: 6px;
+  color: #333;
+  font-size: 14px;
+}
+
+.section p {
+  font-size: 14px;
+  color: #666;
+  line-height: 1.6;
+}
   
 </style>
 </head>
@@ -794,12 +822,27 @@ const dailyPrompts = [
 ];
 
 const devotionals = [
-"Even when life feels uncertain, God calls us to trust Him and release our worries into His hands.",
-"Fear loses its power when we remember that God is always with us, guiding and protecting us.",
-"In moments of exhaustion, Jesus invites us to come to Him and find true rest for our souls.",
-"When life feels overwhelming, stillness before God brings clarity, peace, and strength.",
-"Your strength does not come from yourself alone, but from Christ who empowers you daily.",
-"Trusting God means letting go of control and believing He is leading you in the right direction."
+  {
+    verse: "Philippians 4:6-7",
+    text: "Be careful for nothing; but in everything by prayer and supplication...",
+    reflection: "Even when life feels uncertain, God calls us to trust Him and release our worries into His hands.",
+    prayer: "Lord, help me trust You with what I cannot control. Give me peace in uncertainty.",
+    question: "What worries do you need to surrender to God today?"
+  },
+  {
+    verse: "Isaiah 41:10",
+    text: "Fear not, for I am with you...",
+    reflection: "Fear loses its power when we remember God is always with us.",
+    prayer: "God, remind me that You are with me in every situation.",
+    question: "Where do you need to rely on God instead of fear?"
+  },
+  {
+    verse: "Matthew 11:28",
+    text: "Come to me, all who are weary...",
+    reflection: "Jesus invites us to find rest in Him when we are exhausted.",
+    prayer: "Jesus, I bring my burdens to You. Give me rest.",
+    question: "What burden are you carrying today?"
+  }
 ];
 
 const plans = [
@@ -942,17 +985,26 @@ function showPlanScreen(plan) {
 </div>
     </div>
 
-    <div class="plan-card">
-      ${dayContent}
-    </div>
+<div class="plan-card">
 
-<div class="plan-actions">
-  <button class="nav-btn" onclick="previousDay()">← Previous</button>
-  <button class="nav-btn primary-btn" onclick="nextDay()">Next →</button>
-</div>
+  <div class="verse-ref">📖 ${dayContent.verse}</div>
+  <div class="verse-text">"${dayContent.text}"</div>
 
-<div class="center" style="margin-top:10px;">
-  <button id="completeBtn" class="complete-btn" onclick="completeDay()">Mark as Complete </button>
+  <div class="section">
+    <h4>Reflection</h4>
+    <p>${dayContent.reflection}</p>
+  </div>
+
+  <div class="section">
+    <h4>Prayer</h4>
+    <p>${dayContent.prayer}</p>
+  </div>
+
+  <div class="section">
+    <h4>Reflection Question</h4>
+    <p>${dayContent.question}</p>
+  </div>
+
 </div>
 
   `;
