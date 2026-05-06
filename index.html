@@ -377,9 +377,13 @@ body {
   justify-content: space-between;
   font-size: 12px;
   color: #999;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
+.plan-card-item {
+  border-left: 4px solid #c9a94d;
+}
+  
 .plan-category {
   color: #c9a94d;
   font-weight: 600;
@@ -413,8 +417,18 @@ body {
   align-self: flex-start; 
 }
 
+.start-btn {
+  font-weight: 500;
+}
+  
 .start-btn:hover {
   background: #b8963f;
+}
+
+.card-divider {
+  height: 1px;
+  background: #eee;
+  margin: 16px 0;
 }
   
 </style>
@@ -653,7 +667,7 @@ function showScreen(id) {
   }, 50);
 
   if(id === "saved") loadSaved();
-  if(id === "devotionals") loadDevotionals(); // 👈 ADD THIS
+  if(id === "devotionals") loadDevotionals();
 }
 
 function openEmotion(emotion) {
