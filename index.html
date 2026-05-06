@@ -1314,6 +1314,24 @@ function completeDay() {
     localStorage.setItem("completedPlans", JSON.stringify(completed));
   }
 
+// STREAK SYSTEM
+const today = new Date().toDateString();
+
+const lastCompleted = localStorage.getItem("lastCompletedDate");
+let streak = parseInt(localStorage.getItem("streak")) || 0;
+
+const yesterday = new Date();
+yesterday.setDate(yesterday.getDate() - 1);
+
+if (lastCompleted === yesterday.toDateString()) {
+  streak++;
+} else if (lastCompleted !== today) {
+  streak = 1;
+}
+
+localStorage.setItem("streak", streak);
+localStorage.setItem("lastCompletedDate", today);
+  
   const btn = document.getElementById("completeBtn");
   if (btn) {
     btn.innerText = "Completed ✓";
