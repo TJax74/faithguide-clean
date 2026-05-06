@@ -1204,8 +1204,6 @@ const completedPlans =
 const completedCount = completedPlans.filter(item =>
   item.startsWith(plan.title)
 ).length;
-
-container.innerHTML = `
   
 const completeKey = plan.title + "-day-" + currentDay;
 
