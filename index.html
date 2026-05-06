@@ -496,9 +496,16 @@ body {
 /* Reflection */
 .reflection-block {
   max-width: 700px;
-  margin: 20px auto;
-  line-height: 1.8;
-  color: #444;
+  margin: 25px auto;
+  padding-top: 15px;
+  border-top: 1px solid #e5e5e5;
+}
+
+.reflection-block h4 {
+  color: #c9a94d;
+  font-size: 12px;
+  letter-spacing: 1px;
+  margin-bottom: 10px;
 }
 
 /* Prayer block */
@@ -1068,8 +1075,9 @@ container.innerHTML = `
   </div>
 
   <div class="reflection-block">
-    <p>${dayContent.reflection}</p>
-  </div>
+  <h4>REFLECTION</h4>
+  <p>${dayContent.reflection}</p>
+</div>
 
   <div class="prayer-block">
     <h4>PRAYER</h4>
