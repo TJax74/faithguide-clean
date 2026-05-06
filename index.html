@@ -606,6 +606,14 @@ button:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.06);
 }
+
+.streak-text {
+  text-align: center;
+  color: #ff7a00;
+  font-size: 14px;
+  font-weight: 600;
+  margin-top: 8px;
+}
   
 </style>
 </head>
@@ -1127,6 +1135,7 @@ container.innerHTML = `
   <div class="plan-header">
     <h2>${plan.title}</h2>
     <p>Day ${currentDay + 1} of ${plan.days}</p>
+<div class="streak-text" id="streakDisplay">🔥 0 Day Streak</div>
 
     <div class="progress-bar">
       <div class="progress-fill" style="width: ${((currentDay + 1) / plan.days) * 100}%"></div>
