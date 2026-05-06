@@ -468,6 +468,70 @@ body {
   color: #555;
   line-height: 1.7;
 }
+
+.plan-title-main {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 600;
+  margin: 20px 0;
+  color: #1f2d3d;
+}
+
+/* Verse block */
+.verse-block {
+  background: #f3f3f3;
+  border-left: 4px solid #c9a94d;
+  padding: 20px;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 700px;
+}
+
+.verse-text {
+  font-style: italic;
+  margin-top: 10px;
+  line-height: 1.7;
+}
+
+/* Reflection */
+.reflection-block {
+  max-width: 700px;
+  margin: 20px auto;
+  line-height: 1.8;
+  color: #444;
+}
+
+/* Prayer block */
+.prayer-block {
+  background: #f6f1e6;
+  border-left: 4px solid #c9a94d;
+  padding: 20px;
+  border-radius: 12px;
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+/* Question */
+.question-block {
+  max-width: 700px;
+  margin: 20px auto;
+}
+
+.question-block h4 {
+  color: #c9a94d;
+  margin-bottom: 8px;
+}
+
+/* Complete button */
+.complete-btn {
+  margin-top: 15px;
+  background: #1fa84f;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 25px;
+  cursor: pointer;
+}
   
 </style>
 </head>
@@ -984,40 +1048,46 @@ function showPlanScreen(plan) {
   const currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
   const dayContent = plan.content[currentDay];
 
-  container.innerHTML = `
-    
-    <div class="plan-header">
-      <h2>${plan.title}</h2>
-      <p>Day ${currentDay + 1} of ${plan.days}</p>
+container.innerHTML = `
+  <div class="plan-header">
+    <h2>${plan.title}</h2>
+    <p>Day ${currentDay + 1} of ${plan.days}</p>
 
-<div class="progress-bar">
-  <div class="progress-fill" style="width: ${( (currentDay + 1) / plan.days ) * 100}%"></div>
-</div>
+    <div class="progress-bar">
+      <div class="progress-fill" style="width: ${((currentDay + 1) / plan.days) * 100}%"></div>
     </div>
+  </div>
 
-<div class="plan-card">
+  <div class="plan-title-main">
+    When Storms Arrive
+  </div>
 
-  <div class="verse-ref">📖 ${dayContent.verse}</div>
-  <div class="verse-text">"${dayContent.text}"</div>
+  <div class="verse-block">
+    <div class="verse-ref">📖 ${dayContent.verse}</div>
+    <div class="verse-text">${dayContent.text}</div>
+  </div>
 
-  <div class="section">
-    <h4>Reflection</h4>
+  <div class="reflection-block">
     <p>${dayContent.reflection}</p>
   </div>
 
-  <div class="section">
-    <h4>Prayer</h4>
+  <div class="prayer-block">
+    <h4>PRAYER</h4>
     <p>${dayContent.prayer}</p>
   </div>
 
-  <div class="section">
-    <h4>Reflection Question</h4>
+  <div class="question-block">
+    <h4>REFLECTION QUESTION</h4>
     <p>${dayContent.question}</p>
+
+    <button class="complete-btn" onclick="savePlanDay()">Mark Day as Complete</button>
   </div>
 
-</div>
-
-  `;
+  <div class="plan-actions">
+    <button class="nav-btn" onclick="previousDay()">← Previous</button>
+    <button class="nav-btn primary-btn" onclick="nextDay()">Next →</button>
+  </div>
+`;
 
   // restore saved state
   const activePlanIndex = localStorage.getItem("activePlan");
