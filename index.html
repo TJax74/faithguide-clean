@@ -306,6 +306,27 @@ body {
   font-size: 22px;
   letter-spacing: 0.3px;
 }
+
+.progress-bar {
+  width: 100%;
+  max-width: 500px;
+  height: 8px;
+  background: #eee;
+  border-radius: 10px;
+  margin: 12px auto 0 auto;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #c9a94d, #b8963f);
+  border-radius: 10px;
+  transition: width 0.3s ease;
+}
+
+.plan-header p {
+  margin-bottom: 6px;
+}
   
 </style>
 </head>
@@ -812,6 +833,10 @@ function showPlanScreen(plan) {
     <div class="plan-header">
       <h2>${plan.title}</h2>
       <p>Day ${currentDay + 1} of ${plan.days}</p>
+
+<div class="progress-bar">
+  <div class="progress-fill" style="width: ${( (currentDay + 1) / plan.days ) * 100}%"></div>
+</div>
     </div>
 
     <div class="plan-card">
