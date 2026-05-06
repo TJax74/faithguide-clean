@@ -1186,12 +1186,18 @@ container.innerHTML = `
   const planKey = plans[activePlanIndex].title + "-day-" + savedDay;
   const saved = JSON.parse(localStorage.getItem("savedPlans")) || [];
 
-  const btn = document.getElementById("planSaveBtn");
+// Restore completed state
+const completedPlans =
+  JSON.parse(localStorage.getItem("completedPlans")) || [];
 
-  if (btn && saved.includes(planKey)) {
-    btn.innerText = "Saved ✓";
-    btn.disabled = true;
-  }
+const completeKey = plan.title + "-day-" + currentDay;
+
+const completeBtn = document.getElementById("completeBtn");
+
+if (completeBtn && completedPlans.includes(completeKey)) {
+  completeBtn.innerText = "Completed ✓";
+  completeBtn.disabled = true;
+}
 }
 
 function loadDevotionals() {
