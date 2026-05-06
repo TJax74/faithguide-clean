@@ -727,8 +727,12 @@ function showPlanScreen(plan) {
     <p class="center">Day ${currentDay + 1} of ${plan.days}</p>
 
     <div class="verse-card" style="margin-top:20px;">
-      ${dayContent}
-    </div>
+  ${dayContent}
+</div>
+
+<div class="center" style="margin-top:15px;">
+  <button id="planSaveBtn" onclick="savePlanDay()">Save</button>
+</div>
 
     <div class="center" style="margin-top:20px;">
       <button onclick="previousDay()">← Previous</button>
@@ -812,6 +816,31 @@ function previousDay() {
     currentDay = 0;
   }
 
+function savePlanDay() {
+  const activePlanIndex = localStorage.getItem("activePlan");
+  const currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
+
+  if (activePlanIndex === null) return;
+
+  const plan = plans[activePlanIndex];
+
+  let saved = JSON.parse(localStorage.getItem("savedPlans")) || [];
+
+  const key = plan.title + "-day-" + currentDay;
+
+  if (!saved.includes(key)) {
+    saved.push(key);
+  }
+
+  localStorage.setItem("savedPlans", JSON.stringify(saved));
+
+  const btn = document.getElementById("planSaveBtn");
+  if (btn) {
+    btn.innerText = "Saved ✓";
+    btn.disabled = true;
+  }
+}
+  
   localStorage.setItem("currentDay", currentDay);
 
   showPlanScreen(plan);
