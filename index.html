@@ -850,15 +850,7 @@ function savePlanDay() {
     btn.disabled = true;
   }
 }
-
-  localStorage.setItem("savedPlans", JSON.stringify(saved));
-
-  const btn = document.getElementById("planSaveBtn");
-  if (btn) {
-    btn.innerText = "Saved ✓";
-    btn.disabled = true;
-  }
-}
+  
   
 function saveDailyVerse() {
   const index = new Date().getDate() % dailyVerses.length;
