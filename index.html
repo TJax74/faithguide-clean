@@ -279,6 +279,22 @@ body {
 .primary-btn:hover {
   background: #b8963f;
 }
+
+.save-btn {
+  margin-top: 10px;
+  background: #c9a94d;
+  color: white;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.save-btn:disabled {
+  background: #d8c27a;
+  cursor: default;
+}
   
 </style>
 </head>
@@ -372,7 +388,7 @@ body {
 
 <div id="verseList"></div>
 
-<div class="center">
+<div class="center" style="margin-top:10px;">
 <button onclick="showScreen('home')">← Back</button>
 </div>
 </div>
