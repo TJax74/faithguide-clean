@@ -255,6 +255,24 @@ body {
 .plan-card {
   background: #fafafa;
 }
+
+.plan-card > * {
+  margin-bottom: 18px;
+}
+
+.reflection-block,
+.prayer-block,
+.question-block {
+  max-width: 700px;
+  margin: 25px auto;
+}
+
+.prayer-block h4,
+.question-block h4 {
+  margin-bottom: 6px;
+  font-size: 12px;
+  letter-spacing: 1px;
+}
   
 .plan-actions {
   display: flex;
@@ -477,20 +495,31 @@ body {
   color: #1f2d3d;
 }
 
+.plan-card > * {
+  margin-bottom: 18px;
+}
+  
 /* Verse block */
 .verse-block {
-  background: #f3f3f3;
+  background: #f7f7f7;
   border-left: 4px solid #c9a94d;
-  padding: 20px;
-  border-radius: 12px;
-  margin: 20px auto;
+  padding: 24px;
+  border-radius: 14px;
+  margin: 25px auto;
   max-width: 700px;
+}
+
+.verse-ref {
+  font-weight: 600;
+  color: #c9a94d;
+  margin-bottom: 8px;
 }
 
 .verse-text {
   font-style: italic;
-  margin-top: 10px;
-  line-height: 1.7;
+  color: #444;
+  line-height: 1.8;
+  font-size: 15px;
 }
 
 /* Reflection */
