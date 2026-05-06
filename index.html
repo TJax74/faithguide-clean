@@ -805,15 +805,11 @@ function nextDay() {
 
   const plan = plans[activePlanIndex];
 
-  currentDay++;
-
-  if (currentDay >= plan.content.length) {
-    currentDay = plan.content.length - 1;
+  if (currentDay < plan.content.length - 1) {
+    currentDay++;
+    localStorage.setItem("currentDay", currentDay);
+    showPlanScreen(plan);
   }
-
-  localStorage.setItem("currentDay", currentDay);
-
-  showPlanScreen(plan);
 }
 
 
@@ -825,16 +821,13 @@ function previousDay() {
 
   const plan = plans[activePlanIndex];
 
-  currentDay--;
-
-  if (currentDay < 0) {
-    currentDay = 0;
+  if (currentDay > 0) {
+    currentDay--;
+    localStorage.setItem("currentDay", currentDay);
+    showPlanScreen(plan);
   }
-
-  localStorage.setItem("currentDay", currentDay);
-
-  showPlanScreen(plan);
 }
+
 
 function savePlanDay() {
   const activePlanIndex = localStorage.getItem("activePlan");
@@ -850,9 +843,8 @@ function savePlanDay() {
 
   if (!saved.includes(key)) {
     saved.push(key);
+    localStorage.setItem("savedPlans", JSON.stringify(saved));
   }
-
-  localStorage.setItem("savedPlans", JSON.stringify(saved));
 
   const btn = document.getElementById("planSaveBtn");
   if (btn) {
