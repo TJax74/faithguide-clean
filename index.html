@@ -1147,8 +1147,8 @@ container.innerHTML = `
 </div>
 
 <div class="completion-text" id="completionDisplay">
-  0 of ${plan.days} Days Completed
-</div>
+  ${completedCount} of ${plan.days} Days Completed
+</div>>
 
     <div class="progress-bar">
       <div class="progress-fill" style="width: ${((currentDay + 1) / plan.days) * 100}%"></div>
@@ -1200,7 +1200,10 @@ container.innerHTML = `
 // Restore completed state
 const completedPlans =
   JSON.parse(localStorage.getItem("completedPlans")) || [];
-
+const completedCount = completedPlans.filter(item =>
+  item.startsWith(plan.title)
+).length;
+  
 const completeKey = plan.title + "-day-" + currentDay;
 
 const completeBtn = document.getElementById("completeBtn");
