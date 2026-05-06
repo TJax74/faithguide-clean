@@ -731,10 +731,9 @@ function showPlanScreen(plan) {
     </div>
 
     <div class="center" style="margin-top:20px;">
-      <button onclick="nextDay()">Next Day →</button>
-    </div>
-  `;
-}
+  <button onclick="previousDay()">← Previous</button>
+  <button onclick="nextDay()">Next →</button>
+</div>
 
 function loadDevotionals() {
   const container = document.getElementById("devotionalList");
@@ -809,6 +808,25 @@ function nextDay() {
 
   if (currentDay >= plan.content.length) {
     currentDay = plan.content.length - 1;
+  }
+
+  localStorage.setItem("currentDay", currentDay);
+
+  showPlanScreen(plan);
+}
+
+function previousDay() {
+  let currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
+  const activePlanIndex = localStorage.getItem("activePlan");
+
+  if (activePlanIndex === null) return;
+
+  const plan = plans[activePlanIndex];
+
+  currentDay--;
+
+  if (currentDay < 0) {
+    currentDay = 0;
   }
 
   localStorage.setItem("currentDay", currentDay);
