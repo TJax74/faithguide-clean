@@ -812,7 +812,6 @@ function nextDay() {
   }
 }
 
-
 function previousDay() {
   let currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
   const activePlanIndex = localStorage.getItem("activePlan");
@@ -827,7 +826,6 @@ function previousDay() {
     showPlanScreen(plan);
   }
 }
-
 
 function savePlanDay() {
   const activePlanIndex = localStorage.getItem("activePlan");
