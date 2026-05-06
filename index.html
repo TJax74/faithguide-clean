@@ -817,18 +817,6 @@ function nextDay() {
 }
 
 function previousDay() {
-  let currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
-  const activePlanIndex = localStorage.getItem("activePlan");
-
-  if (activePlanIndex === null) return;
-
-  const plan = plans[activePlanIndex];
-
-  currentDay--;
-
-  if (currentDay < 0) {
-    currentDay = 0;
-  }
 
 function savePlanDay() {
   const activePlanIndex = localStorage.getItem("activePlan");
@@ -858,6 +846,31 @@ function savePlanDay() {
   localStorage.setItem("currentDay", currentDay);
 
   showPlanScreen(plan);
+}
+
+function savePlanDay() {
+  const activePlanIndex = localStorage.getItem("activePlan");
+  const currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
+
+  if (activePlanIndex === null) return;
+
+  const plan = plans[activePlanIndex];
+
+  let saved = JSON.parse(localStorage.getItem("savedPlans")) || [];
+
+  const key = plan.title + "-day-" + currentDay;
+
+  if (!saved.includes(key)) {
+    saved.push(key);
+  }
+
+  localStorage.setItem("savedPlans", JSON.stringify(saved));
+
+  const btn = document.getElementById("planSaveBtn");
+  if (btn) {
+    btn.innerText = "Saved ✓";
+    btn.disabled = true;
+  }
 }
   
 function saveDailyVerse() {
