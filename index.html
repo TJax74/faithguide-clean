@@ -741,11 +741,6 @@ function loadDevotionals() {
   container.innerHTML = "";
 
   plans.forEach((plan, index) => {
-
-  localStorage.setItem("currentDay", currentDay);
-
-  showPlanScreen(plan);
-}
     const card = document.createElement("div");
     card.className = "verse-card";
 
@@ -771,8 +766,9 @@ function loadDevotionals() {
     btn.innerText = "Start Journey";
 
     btn.onclick = function () {
-  openPlan(index);
-};
+      openPlan(index);
+    };
+
     card.appendChild(category);
     card.appendChild(title);
     card.appendChild(desc);
@@ -782,6 +778,25 @@ function loadDevotionals() {
   });
 }
 
+function nextDay() {
+  let currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
+  const activePlanIndex = localStorage.getItem("activePlan");
+
+  if (activePlanIndex === null) return;
+
+  const plan = plans[activePlanIndex];
+
+  currentDay++;
+
+  if (currentDay >= plan.content.length) {
+    currentDay = plan.content.length - 1;
+  }
+
+  localStorage.setItem("currentDay", currentDay);
+
+  showPlanScreen(plan);
+}
+  
 function nextDay() {
   let currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
   const activePlanIndex = localStorage.getItem("activePlan");
