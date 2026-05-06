@@ -1135,7 +1135,9 @@ container.innerHTML = `
   <div class="plan-header">
     <h2>${plan.title}</h2>
     <p>Day ${currentDay + 1} of ${plan.days}</p>
-<div class="streak-text" id="streakDisplay">🔥 0 Day Streak</div>
+<div class="streak-text" id="streakDisplay">
+  🔥 ${localStorage.getItem("streak") || 0} Day Streak
+</div>
 
     <div class="progress-bar">
       <div class="progress-fill" style="width: ${((currentDay + 1) / plan.days) * 100}%"></div>
