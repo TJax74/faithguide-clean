@@ -727,31 +727,32 @@ function showPlanScreen(plan) {
     <p class="center">Day ${currentDay + 1} of ${plan.days}</p>
 
     <div class="verse-card" style="margin-top:20px;">
-  ${dayContent}
-</div>
+      ${dayContent}
+    </div>
 
-<div class="center" style="margin-top:15px;">
-  <button id="planSaveBtn" onclick="savePlanDay()">Save</button>
-</div>
+    <div class="center" style="margin-top:15px;">
+      <button id="planSaveBtn" onclick="savePlanDay()">Save</button>
+    </div>
 
     <div class="center" style="margin-top:20px;">
       <button onclick="previousDay()">← Previous</button>
       <button onclick="nextDay()">Next →</button>
     </div>
   `;
-  
-const activePlanIndex = localStorage.getItem("activePlan");
-const currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
 
-const planKey = plans[activePlanIndex].title + "-day-" + currentDay;
+  // ✅ SAFE placement (inside function, AFTER innerHTML)
+  const activePlanIndex = localStorage.getItem("activePlan");
+  const savedDay = parseInt(localStorage.getItem("currentDay")) || 0;
 
-const saved = JSON.parse(localStorage.getItem("savedPlans")) || [];
+  const planKey = plans[activePlanIndex].title + "-day-" + savedDay;
+  const saved = JSON.parse(localStorage.getItem("savedPlans")) || [];
 
-const btn = document.getElementById("planSaveBtn");
+  const btn = document.getElementById("planSaveBtn");
 
-if (btn && saved.includes(planKey)) {
-  btn.innerText = "Saved ✓";
-  btn.disabled = true;
+  if (btn && saved.includes(planKey)) {
+    btn.innerText = "Saved ✓";
+    btn.disabled = true;
+  }
 }
 
 function loadDevotionals() {
