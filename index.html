@@ -363,6 +363,13 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: 0.2s;
+  border: 1px solid #f2f2f2;
+}
+
+.plan-card-item:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 30px rgba(0,0,0,0.08);
 }
 
 .plan-top {
@@ -382,7 +389,7 @@ body {
 .plan-title {
   font-size: 18px;
   font-weight: 600;
-  margin: 10px 0;
+  margin: 12px 0 8px 0;
   color: #333;
 }
 
@@ -402,6 +409,8 @@ body {
   cursor: pointer;
   font-size: 14px;
   transition: 0.2s;
+  width: fit-content;      
+  align-self: flex-start; 
 }
 
 .start-btn:hover {
