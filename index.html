@@ -347,6 +347,66 @@ body {
   background: #81c784;
   cursor: default;
 }
+
+#devotionalList {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+}
+
+.plan-card-item {
+  background: white;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.plan-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 12px;
+  color: #999;
+  margin-bottom: 10px;
+}
+
+.plan-category {
+  color: #c9a94d;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.plan-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin: 10px 0;
+  color: #333;
+}
+
+.plan-desc {
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 20px;
+  line-height: 1.5;
+}
+
+.start-btn {
+  background: #c9a94d;
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.start-btn:hover {
+  background: #b8963f;
+}
   
 </style>
 </head>
@@ -895,37 +955,22 @@ function loadDevotionals() {
 
   plans.forEach((plan, index) => {
     const card = document.createElement("div");
-    card.className = "verse-card";
+    card.className = "plan-card-item";
 
-    const category = document.createElement("div");
-    category.className = "verse-ref";
-    category.innerText = plan.category + " • " + plan.days + " Days";
+    card.innerHTML = `
+      <div class="plan-top">
+        <span class="plan-category">${plan.category}</span>
+        <span class="plan-days">${plan.days} Days</span>
+      </div>
 
-    const title = document.createElement("div");
-    title.className = "verse-text";
-    title.style.fontWeight = "600";
-    title.style.fontSize = "18px";
-    title.style.marginTop = "8px";
-    title.innerText = plan.title;
+      <h3 class="plan-title">${plan.title}</h3>
 
-    const desc = document.createElement("div");
-    desc.className = "verse-text";
-    desc.style.marginTop = "8px";
-    desc.innerText = plan.description;
+      <p class="plan-desc">${plan.description}</p>
 
-    const btn = document.createElement("button");
-    btn.className = "save-btn";
-    btn.style.marginTop = "12px";
-    btn.innerText = "Start Journey";
-
-    btn.onclick = function () {
-      openPlan(index);
-    };
-
-    card.appendChild(category);
-    card.appendChild(title);
-    card.appendChild(desc);
-    card.appendChild(btn);
+      <button class="start-btn" onclick="openPlan(${index})">
+        Start Journey →
+      </button>
+    `;
 
     container.appendChild(card);
   });
