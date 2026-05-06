@@ -327,6 +327,26 @@ body {
 .plan-header p {
   margin-bottom: 6px;
 }
+
+.complete-btn {
+  background: #2e7d32;
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 14px;
+  transition: 0.2s;
+}
+
+.complete-btn:hover {
+  background: #256628;
+}
+
+.complete-btn:disabled {
+  background: #81c784;
+  cursor: default;
+}
   
 </style>
 </head>
@@ -848,6 +868,15 @@ function showPlanScreen(plan) {
   <button class="nav-btn primary-btn" onclick="nextDay()">Next →</button>
 </div>
 
+<div class="plan-actions">
+  <button class="nav-btn" onclick="previousDay()">← Previous</button>
+  <button class="nav-btn primary-btn" onclick="nextDay()">Next →</button>
+</div>
+
+<div class="center" style="margin-top:10px;">
+  <button id="completeBtn" class="complete-btn" onclick="completeDay()">Mark as Complete ✓</button>
+</div>
+
   `;
 
   // restore saved state
@@ -984,6 +1013,30 @@ function saveDailyVerse() {
   } else {
     button.innerText = "Saved ✓";
     button.disabled = true;
+  }
+}
+
+function completeDay() {
+  const activePlanIndex = localStorage.getItem("activePlan");
+  const currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
+
+  if (activePlanIndex === null) return;
+
+  const plan = plans[activePlanIndex];
+
+  let completed = JSON.parse(localStorage.getItem("completedPlans")) || [];
+
+  const key = plan.title + "-day-" + currentDay;
+
+  if (!completed.includes(key)) {
+    completed.push(key);
+    localStorage.setItem("completedPlans", JSON.stringify(completed));
+  }
+
+  const btn = document.getElementById("completeBtn");
+  if (btn) {
+    btn.innerText = "Completed ✓";
+    btn.disabled = true;
   }
 }
   
