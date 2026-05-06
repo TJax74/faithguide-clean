@@ -739,6 +739,19 @@ function showPlanScreen(plan) {
       <button onclick="nextDay()">Next →</button>
     </div>
   `;
+  
+const activePlanIndex = localStorage.getItem("activePlan");
+const currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
+
+const planKey = plans[activePlanIndex].title + "-day-" + currentDay;
+
+const saved = JSON.parse(localStorage.getItem("savedPlans")) || [];
+
+const btn = document.getElementById("planSaveBtn");
+
+if (btn && saved.includes(planKey)) {
+  btn.innerText = "Saved ✓";
+  btn.disabled = true;
 }
 
 function loadDevotionals() {
