@@ -129,19 +129,6 @@ body {
   border-left: 4px solid #c9a94d;
 }
 
- .verse-ref {
-  font-weight: 600;
-  color: #c9a94d;
-  margin-bottom: 6px;
-}
-
-.verse-text {
-  font-style: italic;
-  margin-bottom: 14px;
-  color: #444;
-  line-height: 1.6;
-}
-
 .remove-btn {
   margin-top: 12px;
   background: #f0f0f0;
@@ -462,18 +449,6 @@ body {
   height: 1px;
   background: #eee;
   margin: 16px 0;
-}
-
-.verse-ref {
-  font-weight: 600;
-  color: #c9a94d;
-  margin-bottom: 8px;
-}
-
-.verse-text {
-  font-style: italic;
-  margin-bottom: 16px;
-  color: #555;
 }
 
 .section {
@@ -888,6 +863,10 @@ Gratitude: [
 
 };
 
+// =========================
+// SCREEN NAVIGATION
+// =========================
+
 function showScreen(id) {
   document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
   setTimeout(() => {
@@ -897,6 +876,10 @@ function showScreen(id) {
   if(id === "saved") loadSaved();
   if(id === "devotionals") loadDevotionals();
 }
+
+// =========================
+// EMOTION VERSES
+// =========================
 
 function openEmotion(emotion) {
   showScreen('verses');
@@ -970,6 +953,10 @@ function saveVerse(v, button) {
   button.innerText = "Saved ✓";
   button.disabled = true;
 }
+
+// =========================
+// SAVED VERSES
+// =========================
 
 function loadSaved() {
   const container = document.getElementById("savedList");
@@ -1256,6 +1243,10 @@ if (completeBtn && completedPlans.includes(completeKey)) {
 }
 }
 
+// =========================
+// DEVOTIONAL PLANS
+// =========================
+
 function loadDevotionals() {
   const container = document.getElementById("devotionalList");
   container.innerHTML = "";
@@ -1398,6 +1389,10 @@ function saveDailyVerse() {
     button.disabled = true;
   }
 }
+
+// =========================
+// STREAKS & COMPLETION
+// =========================
 
 function completeDay() {
   const activePlanIndex = localStorage.getItem("activePlan");
