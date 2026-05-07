@@ -1135,6 +1135,8 @@ function showPlanScreen(plan) {
 
   const container = document.getElementById("plans");
 
+  localStorage.setItem("activePlanTitle", plan.title);
+  
   const currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
 
   const dayContent = plan.content[currentDay];
@@ -1221,6 +1223,37 @@ function loadDevotionals() {
   const container = document.getElementById("devotionalList");
   container.innerHTML = "";
 
+const activePlanTitle = localStorage.getItem("activePlanTitle");
+
+if (activePlanTitle) {
+  const activePlan = plans.find(
+    p => p.title === activePlanTitle
+  );
+
+  if (activePlan) {
+    const currentDay =
+      parseInt(localStorage.getItem("currentDay")) || 0;
+
+    const continueCard = document.createElement("div");
+
+    continueCard.className = "continue-card";
+
+    continueCard.innerHTML = `
+      <div class="continue-label">Continue Reading</div>
+      <div class="continue-title">${activePlan.title}</div>
+      <div class="continue-day">
+        Day ${currentDay + 1} of ${activePlan.days}
+      </div>
+    `;
+
+    continueCard.onclick = function () {
+      showPlanScreen(activePlan);
+    };
+
+    container.appendChild(continueCard);
+  }
+}
+  
   plans.forEach((plan, index) => {
     const card = document.createElement("div");
     card.className = "plan-card-item";
