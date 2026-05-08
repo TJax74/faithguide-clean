@@ -914,13 +914,13 @@ container.appendChild(message);
     card.className = "verse-card";
 
     const ref = document.createElement("div");
-    ref.style.color = "#c9a94d";
-    ref.innerText = v.ref;
+    ref.className = "verse-ref";
+    ref.innerText = v.ref;rText = v.ref;
 
     const text = document.createElement("div");
-    text.style.marginTop = "10px";
+    text.className = "verse-text";
     text.innerText = v.text;
-
+    
     const btn = document.createElement("button");
 btn.className = "save-btn";
 btn.innerText = "Save";
