@@ -685,7 +685,9 @@ button:hover {
 
 <h2 class="center" style="color:#c9a94d;">How are you feeling today?</h2>
 
-<p class="checkin-subtext">Take a moment to check in with your heart.</p>    
+<p id="checkInPrompt" class="checkin-subtext">
+  Take a moment to check in with your heart.
+</p>    
 
 <p id="todayCheckin" class="checkin-result"></p>
     
@@ -1043,13 +1045,35 @@ function removeVerse(index) {
 }
 
 const dailyPrompts = [
+
   "How is your heart today?",
+
   "What are you carrying today?",
+
   "Take a breath. What do you feel right now?",
+
   "Pause for a moment—what’s on your mind?",
-  "God cares about how you feel. What is it today?"
+
+  "God cares about how you feel. What is it today?",
+
+  "You do not have to carry everything alone.",
+
+  "What burden can you release to God today?",
+
+  "Be honest with yourself about what you need today.",
+
+  "What emotion feels strongest right now?",
+
+  "God is present even in difficult moments."
+
 ];
-  
+
+const promptIndex =
+  new Date().getDate() % dailyPrompts.length;
+
+document.getElementById("checkInPrompt").innerText =
+  dailyPrompts[promptIndex];
+    
   const dailyVerses = [
 "The Lord is my shepherd; I shall not want. — Psalm 23:1",
 "Fear thou not; for I am with thee. — Isaiah 41:10",
