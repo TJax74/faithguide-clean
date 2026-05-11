@@ -1133,8 +1133,10 @@ function loadDailyVerse() {
 
   // Set verse + devotional
   document.getElementById("dailyVerseText").innerText = dailyVerses[index];
-  document.getElementById("dailyDevotional").innerText =
-  devotionals[index].reflection;
+const devotionalIndex = index % devotionals.length;
+
+document.getElementById("dailyDevotional").innerText =
+  devotionals[devotionalIndex].reflection;
 
   // Prompt
   const promptIndex = index % dailyPrompts.length;
