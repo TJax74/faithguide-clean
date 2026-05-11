@@ -1187,11 +1187,17 @@ if (savedEmotion) {
     
 function selectEmotion(emotion, event) {
 
-  alert("clicked");
+  if (event) {
+    event.stopPropagation();
+  }
 
-  openEmotion(emotion);
+  document.querySelectorAll('.card').forEach(card => {
+    card.classList.remove('active');
+  });
 
-}
+  if (event && event.currentTarget) {
+    event.currentTarget.classList.add('active');
+  }
 
   const today = new Date().toDateString();
 
@@ -1206,17 +1212,16 @@ function selectEmotion(emotion, event) {
   });
 
   localStorage.setItem(
-    "selectedEmotion",
-    emotion
-  );
-
-  localStorage.setItem(
     "checkins",
     JSON.stringify(checkins)
   );
 
+  localStorage.setItem(
+    "selectedEmotion",
+    emotion
+  );
+
   loadDailyVerse();
-  loadDevotionals();
 
   openEmotion(emotion);
 }
