@@ -934,9 +934,6 @@ function showScreen(id) {
 // EMOTION VERSES
 // =========================
 
-function selectEmotion(emotion) {
-  openEmotion(emotion);
-}
   
 function openEmotion(emotion) {
   showScreen('verses');
@@ -1193,9 +1190,12 @@ function selectEmotion(emotion, event) {
 
   document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
 
-  if (event) {
-    event.currentTarget.classList.add('active');
-  }
+const clickedCard = [...document.querySelectorAll('.card')]
+  .find(card => card.innerText.includes(emotion));
+
+if (clickedCard) {
+  clickedCard.classList.add('active');
+}
   
   const today = new Date().toDateString();
 
