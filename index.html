@@ -1186,6 +1186,9 @@ if (savedEmotion) {
     
     
 function selectEmotion(emotion, event) {
+
+  alert("clicked");
+  
   if (event) event.stopPropagation();
 
   document.querySelectorAll('.card').forEach(c =>
