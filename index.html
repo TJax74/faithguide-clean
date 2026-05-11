@@ -1188,38 +1188,41 @@ if (savedEmotion) {
 function selectEmotion(emotion, event) {
   if (event) event.stopPropagation();
 
-  document.querySelectorAll('.card').forEach(c => c.classList.remove('active'));
+  document.querySelectorAll('.card').forEach(c =>
+    c.classList.remove('active')
+  );
 
-const clickedCard = [...document.querySelectorAll('.card')]
-  .find(card => card.innerText.includes(emotion));
+  if (event) {
+    event.currentTarget.classList.add('active');
+  }
 
-if (clickedCard) {
-  clickedCard.classList.add('active');
-}
-  
   const today = new Date().toDateString();
 
-  let checkins = JSON.parse(localStorage.getItem("checkins")) || [];
+  let checkins =
+    JSON.parse(localStorage.getItem("checkins")) || [];
 
   checkins = checkins.filter(c => c.date !== today);
 
- checkins.push({
-  date: today,
-  emotion: emotion
-});
+  checkins.push({
+    date: today,
+    emotion: emotion
+  });
 
-localStorage.setItem("selectedEmotion", emotion);
+  localStorage.setItem(
+    "selectedEmotion",
+    emotion
+  );
 
-localStorage.setItem("checkins", JSON.stringify(checkins));
+  localStorage.setItem(
+    "checkins",
+    JSON.stringify(checkins)
+  );
 
-const promptIndex =
-  new Date().getDate() % dailyPrompts.length;
+  loadDailyVerse();
+  loadDevotionals();
 
-document.getElementById("checkInPrompt").innerText =
-  dailyPrompts[promptIndex];
-
-loadDailyVerse();
-loadDevotionals();
+  openEmotion(emotion);
+}
 
 openEmotion(emotion);
 }
