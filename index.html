@@ -1188,16 +1188,10 @@ if (savedEmotion) {
 function selectEmotion(emotion, event) {
 
   alert("clicked");
-  
-  if (event) event.stopPropagation();
 
-  document.querySelectorAll('.card').forEach(c =>
-    c.classList.remove('active')
-  );
+  openEmotion(emotion);
 
-  if (event) {
-    event.currentTarget.classList.add('active');
-  }
+}
 
   const today = new Date().toDateString();
 
