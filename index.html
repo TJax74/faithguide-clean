@@ -1067,12 +1067,6 @@ const dailyPrompts = [
   "God is present even in difficult moments."
 
 ];
-
-const promptIndex =
-  new Date().getDate() % dailyPrompts.length;
-
-document.getElementById("checkInPrompt").innerText =
-  dailyPrompts[promptIndex];
     
   const dailyVerses = [
 "The Lord is my shepherd; I shall not want. — Psalm 23:1",
@@ -1213,6 +1207,12 @@ function selectEmotion(emotion, event) {
 localStorage.setItem("selectedEmotion", emotion);
 
 localStorage.setItem("checkins", JSON.stringify(checkins));
+
+const promptIndex =
+  new Date().getDate() % dailyPrompts.length;
+
+document.getElementById("checkInPrompt").innerText =
+  dailyPrompts[promptIndex];
 
 loadDailyVerse();
 loadDevotionals();
