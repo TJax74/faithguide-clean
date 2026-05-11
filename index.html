@@ -169,23 +169,42 @@ body {
 
 /* BOTTOM NAV */
 .bottom-nav {
-  position:fixed;
-  bottom:0;
-  left:0;
-  width:100%;
-  background:white;
-  display:flex;
-  justify-content:space-around;
-  padding:12px 0;
-  box-shadow:0 -2px 10px rgba(0,0,0,0.08);
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(14px);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 14px 0 calc(14px + env(safe-area-inset-bottom));
+  box-shadow: 0 -4px 18px rgba(0,0,0,0.06);
+  border-top: 1px solid #f0ece0;
+  z-index: 1000;
 }
 
 .bottom-nav div {
-  font-size:12px;
-  color:#444;
-  cursor:pointer;
+  font-size: 12px;
+  color: #666;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  padding: 8px 14px;
+  border-radius: 12px;
+  font-weight: 500;
 }
 
+.bottom-nav div:hover {
+  background: #f5f1e6;
+  color: #c9a94d;
+  transform: translateY(-1px);
+}
+
+.bottom-nav .active-nav {
+  background: #f5f1e6;
+  color: #c9a94d;
+}  
+  
 .center {
   text-align: center;
   margin-top: 40px;
@@ -986,7 +1005,12 @@ Gratitude: [
 // =========================
 
 function showScreen(id) {
-  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.screen')
+    .forEach(s => s.classList.remove('active'));
+
+  document.querySelectorAll('.bottom-nav div')
+    .forEach(btn => btn.classList.remove('active-nav'));
+
   setTimeout(() => {
     document.getElementById(id).classList.add('active');
   }, 50);
