@@ -747,6 +747,30 @@ button:hover {
   background: #e8e8e8;
   transform: translateY(-1px);
 }
+
+.empty-state {
+  text-align: center;
+  padding: 80px 24px;
+  max-width: 500px;
+  margin: 0 auto;
+  color: #666;
+}
+
+.empty-icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+}
+
+.empty-state h3 {
+  color: #1f2b46;
+  margin-bottom: 12px;
+  font-size: 28px;
+}
+
+.empty-state p {
+  line-height: 1.8;
+  font-size: 15px;
+}
   
   .bottom-nav div {
     font-size: 11px;
@@ -1119,12 +1143,15 @@ function loadSaved() {
 
   if (saved.length === 0) {
   container.innerHTML = `
-    <div class="empty-state">
-      No saved verses yet
-    </div>
-  `;
-  return;
-}
+  <div class="empty-state">
+    <div class="empty-icon">📖</div>
+    <h3>No Saved Verses Yet</h3>
+    <p>
+      Save meaningful verses during your journey
+      and revisit them anytime.
+    </p>
+  </div>
+`;
   
   saved.forEach((v, index) => {
     container.innerHTML += `
