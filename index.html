@@ -1155,9 +1155,9 @@ function loadSaved() {
   
   saved.forEach((v, index) => {
     container.innerHTML += `
-  <div class="verse-card">
-    <div class="verse-ref">${v.ref}</div>
-    <div class="verse-text">${v.text}</div>
+    <div class="verse-card fade-in">
+      <div class="verse-ref">${v.ref}</div>
+      <div class="verse-text">${v.text}</div>
     <button class="remove-btn" onclick="removeVerse(${index})">Remove</button>
   </div>
 `;
