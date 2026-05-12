@@ -1450,7 +1450,7 @@ function selectEmotion(emotion, event) {
     emotion
   );
 
-  loadDailyVerse();
+loadDailyVerse();
 
   openEmotion(emotion);
 }
@@ -1797,6 +1797,24 @@ showCompletionMessage(randomMessage);
 
 }
   
+function showCompletionMessage(message) {
+
+  const popup =
+    document.getElementById("completionPopup");
+
+  const text =
+    document.getElementById("completionText");
+
+  text.innerText = message;
+
+  popup.classList.add("show");
+
+  setTimeout(() => {
+    popup.classList.remove("show");
+  }, 2600);
+
+}
+
 loadDailyVerse();
   
 </script>
