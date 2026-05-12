@@ -1287,6 +1287,24 @@ const dailyPrompts = [
 "Trust in the Lord with all thine heart. — Proverbs 3:5"
 ];
 
+const completionMessages = [
+
+  "✨ Beautiful work today. Every step toward peace matters.",
+
+  "🙏 God sees your effort and your heart.",
+
+  "🌿 You showed up today. That matters more than perfection.",
+
+  "📖 One day at a time. One prayer at a time.",
+
+  "💛 Keep going. God is walking with you.",
+
+  "☀️ Small faithful steps create lasting peace.",
+
+  "🕊️ Rest in the progress you made today."
+
+];
+  
 const devotionals = [
   {
     verse: "Philippians 4:6-7",
@@ -1763,8 +1781,18 @@ localStorage.setItem("lastCompletedDate", today);
   const btn = document.getElementById("completeBtn");
   if (btn) {
     btn.innerText = "Completed ✓";
-    btn.disabled = true;
-  }
+    
+const randomMessage =
+  completionMessages[
+    Math.floor(
+      Math.random() *
+      completionMessages.length
+    )
+  ];
+
+showCompletionMessage(randomMessage);
+
+  btn.disabled = true;  
 }
   
 loadDailyVerse();
