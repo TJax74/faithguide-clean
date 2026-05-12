@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -161,16 +162,40 @@ body {
   background: #ddd;
 }
 
-.save-btn {
-  margin-top:10px;
-  background:#c9a94d;
-  color:white;
-  border:none;
-  padding:8px 12px;
-  border-radius:6px;
-  cursor:pointer;
+.save-btn,
+.primary-btn,
+.secondary-btn {
+  margin-top: 14px;
+  background: #c9a94d;
+  color: white;
+  border: none;
+  padding: 12px 18px;
+  border-radius: 14px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+  transition: all 0.22s ease;
+  box-shadow: 0 6px 16px rgba(201,169,77,0.18);
 }
 
+.save-btn:hover,
+.primary-btn:hover,
+.secondary-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 24px rgba(201,169,77,0.25);
+}
+
+.secondary-btn {
+  background: #f4f4f4;
+  color: #444;
+  box-shadow: none;
+}
+
+.secondary-btn:hover {
+  background: #ececec;
+  box-shadow: none;
+}
+  
 /* BOTTOM NAV */
 .bottom-nav {
   position: fixed;
@@ -1460,8 +1485,8 @@ function showPlanScreen(plan) {
   </div>
 
   <div class="plan-actions">
-    <button class="nav-btn" onclick="previousDay()">← Previous</button>
-    <button class="nav-btn primary-btn" onclick="nextDay()">Next →</button>
+    <button class="secondary-btn" onclick="previousDay()">← Previous</button>
+    <button class="primary-btn" onclick="nextDay()">Next →</button>
   </div>
 
 <button id="completeBtn" class="complete-btn" onclick="completeDay()">
