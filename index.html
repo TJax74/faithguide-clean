@@ -1217,6 +1217,45 @@ btn.onclick = function () {
     card.appendChild(btn);
 
     container.appendChild(card);
+}
+
+const journalCard = document.createElement("div");
+
+journalCard.className = "verse-card";
+
+journalCard.innerHTML = `
+  <small style="color:#c9a94d;letter-spacing:1px;font-weight:700;">
+    PRIVATE REFLECTION
+  </small>
+
+  <textarea
+    id="journalEntry"
+    placeholder="Write your thoughts, prayers, or reflections here..."
+    style="
+      width:100%;
+      min-height:140px;
+      margin-top:14px;
+      padding:16px;
+      border-radius:14px;
+      border:1px solid #ddd;
+      font-size:15px;
+      line-height:1.7;
+      resize:vertical;
+      box-sizing:border-box;
+    "></textarea>
+
+  <button
+    class="save-btn"
+    onclick="saveJournalEntry()">
+
+    Save Reflection
+
+  </button>
+`;
+
+container.appendChild(journalCard);
+
+}
   }
 }
 
