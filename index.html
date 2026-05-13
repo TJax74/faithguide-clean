@@ -1393,12 +1393,22 @@ function loadJournal() {
       <div class="verse-card">
 
         <small style="
-          color:#c9a94d;
-          font-weight:700;
-          letter-spacing:1px;
-        ">
-          ${journal.date}
-        </small>
+  color:#c9a94d;
+  font-weight:700;
+  letter-spacing:1px;
+  display:block;
+  margin-bottom:8px;
+">
+  ${journal.emotion || "Reflection"}
+</small>
+
+<small style="
+  color:#999;
+  display:block;
+  margin-bottom:14px;
+">
+  ${journal.date}
+</small>
 
         <p style="
           margin-top:14px;
@@ -1641,9 +1651,10 @@ function saveJournalEntry() {
     ) || [];
 
   journals.unshift({
-    text: entry,
-    date: new Date().toLocaleDateString()
-  });
+  text: entry,
+  emotion: document.getElementById("emotionTitle").innerText,
+  date: new Date().toLocaleDateString()
+});
 
   localStorage.setItem(
     "journals",
