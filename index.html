@@ -1255,8 +1255,17 @@ journalCard.innerHTML = `
 
 container.appendChild(journalCard);
 
-}
+const savedReflection =
+  localStorage.getItem("journalEntry");
 
+if (savedReflection) {
+
+  document.getElementById(
+    "journalEntry"
+  ).value = savedReflection;
+
+}
+  
 function saveVerse(v, button) {
   let saved = JSON.parse(localStorage.getItem("saved")) || [];
 
