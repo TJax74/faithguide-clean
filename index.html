@@ -583,8 +583,11 @@ body {
 .section h4 {
   margin-bottom: 6px;
   color: #c9a94d;
-  font-size: 13px;
-  letter-spacing: 0.5px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  color: #c9a94d;
+  opacity: 0.9;
   text-transform: uppercase;
 }
 
@@ -634,7 +637,8 @@ body {
   font-style: italic;
   color: #444;
   line-height: 1.9;
-  font-size: 17px;
+  font-size: 18px;
+  font-weight: 400;
   margin-top: 12px;
   margin-bottom: 18px;
 }
@@ -1391,13 +1395,21 @@ function loadJournal() {
           will appear here.
         </p>
 
-      </div>
-    `;
+<button
+  class="remove-btn"
+  onclick="deleteJournal(${index})">
+
+  Delete
+
+</button>
+
+</div>
+`;
 
     return;
   }
 
-  journals.forEach(journal => {
+  journals.forEach(journal, index) => {
 
     container.innerHTML += `
       <div class="verse-card">
@@ -1405,7 +1417,9 @@ function loadJournal() {
         <small style="
   color:#c9a94d;
   font-weight:700;
-  letter-spacing:1px;
+  letter-spacing:1.4px;
+  font-size:11px;
+  text-transform:uppercase;
   display:block;
   margin-bottom:8px;
 ">
@@ -1422,7 +1436,7 @@ function loadJournal() {
 
         <p style="
           margin-top:14px;
-          line-height:1.8;
+          line-height:1.95;
           color:#444;
         ">
           ${journal.text}
@@ -1435,6 +1449,23 @@ function loadJournal() {
 
 }
 
+function deleteJournal(index) {
+
+  let journals =
+    JSON.parse(
+      localStorage.getItem("journals")
+    ) || [];
+
+  journals.splice(index, 1);
+
+  localStorage.setItem(
+    "journals",
+    JSON.stringify(journals)
+  );
+
+  loadJournal();
+
+} 
 
   function removeVerse(index) {
   let saved =
