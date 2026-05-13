@@ -1574,9 +1574,19 @@ function saveJournalEntry() {
   const entry =
     document.getElementById("journalEntry").value;
 
+  const journals =
+    JSON.parse(
+      localStorage.getItem("journals")
+    ) || [];
+
+  journals.unshift({
+    text: entry,
+    date: new Date().toLocaleDateString()
+  });
+
   localStorage.setItem(
-    "journalEntry",
-    entry
+    "journals",
+    JSON.stringify(journals)
   );
 
   showCompletionMessage(
