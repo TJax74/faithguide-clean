@@ -1546,13 +1546,13 @@ function selectEmotion(emotion, event) {
     JSON.stringify(checkins)
   );
 
-  localStorage.setItem(
-    "selectedEmotion",
-    emotion
-  );
+ localStorage.setItem(
+  "selectedEmotion",
+  emotion
+);
 
-  }
-  
+}
+
 function saveJournalEntry() {
 
   const entry =
@@ -1762,6 +1762,8 @@ document.getElementById(
   "continuePlanDay"
 ).innerText =
   `Day ${currentDay + 1}`;
+
+}
 
 function resumePlan() {
 
