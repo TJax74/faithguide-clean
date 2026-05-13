@@ -481,7 +481,7 @@ body {
 }
 
 .complete-btn:hover {
-  background: #256628;
+  background: #2f4a78;
 }
 
 .complete-btn:disabled {
@@ -1150,7 +1150,16 @@ function showScreen(id) {
     .forEach(s => s.classList.remove('active'));
 
   document.querySelectorAll('.bottom-nav div')
-    .forEach(btn => btn.classList.remove('active-nav'));
+  .forEach(btn => btn.classList.remove('active-nav'));
+
+const activeButton =
+  document.querySelector(
+    `.bottom-nav div[onclick="showScreen('${id}')"]`
+  );
+
+if (activeButton) {
+  activeButton.classList.add('active-nav');
+}
 
 setTimeout(() => {
   document.getElementById(id).classList.add('active');
