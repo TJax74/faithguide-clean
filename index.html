@@ -1540,6 +1540,22 @@ function selectEmotion(emotion, event) {
     emotion
   );
 
+function saveJournalEntry() {
+
+  const entry =
+    document.getElementById("journalEntry").value;
+
+  localStorage.setItem(
+    "journalEntry",
+    entry
+  );
+
+  showCompletionMessage(
+    "Reflection saved privately ✨"
+  );
+
+}
+  
 loadDailyVerse();
 
   openEmotion(emotion);
