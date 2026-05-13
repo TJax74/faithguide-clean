@@ -1326,6 +1326,66 @@ function loadSaved() {
     return;
   }
 
+function loadJournal() {
+
+  const container =
+    document.getElementById("journalList");
+
+  container.innerHTML = "";
+
+  const journals =
+    JSON.parse(
+      localStorage.getItem("journals")
+    ) || [];
+
+  if (journals.length === 0) {
+
+    container.innerHTML = `
+      <div class="empty-state">
+
+        <div class="empty-icon">✍️</div>
+
+        <h3>No Reflections Yet</h3>
+
+        <p>
+          Your saved reflections and prayers
+          will appear here.
+        </p>
+
+      </div>
+    `;
+
+    return;
+  }
+
+  journals.forEach(journal => {
+
+    container.innerHTML += `
+      <div class="verse-card">
+
+        <small style="
+          color:#c9a94d;
+          font-weight:700;
+          letter-spacing:1px;
+        ">
+          ${journal.date}
+        </small>
+
+        <p style="
+          margin-top:14px;
+          line-height:1.8;
+          color:#444;
+        ">
+          ${journal.text}
+        </p>
+
+      </div>
+    `;
+
+  });
+
+}
+  
   // SAVED VERSES
   saved.forEach((v, index) => {
 
