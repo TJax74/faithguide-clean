@@ -1877,7 +1877,9 @@ function showPlanScreen(plan) {
     <h2>${plan.title}</h2>
     <p>Day ${currentDay + 1} of ${plan.days}</p>
 <div class="streak-text" id="streakDisplay">
-  🔥 ${localStorage.getItem("streak") || 0} Day Streak
+ 
+  <i data-lucide="flame"></i>
+${localStorage.getItem("streak") || 0} Day Streak 
 </div>
 
 <div class="completion-text" id="completionDisplay">
