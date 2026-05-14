@@ -888,6 +888,9 @@ button:hover {
 }
   
 </style>
+
+<script src="https://unpkg.com/lucide@latest"></script>
+
 </head>
 
 <body>
@@ -935,7 +938,9 @@ button:hover {
 <div class="grid">
 
 <div class="card" onclick="selectEmotion('Anxiety', event)">
-  <div class="card-icon">!</div>
+  <div class="card-icon">
+  <i data-lucide="cloud-rain"></i>
+</div>
   <h3>Anxiety</h3>
   <p>Find peace in worry</p>
 </div>
@@ -2127,6 +2132,8 @@ function showCompletionMessage(message) {
 }
 
 loadDailyVerse();
+
+lucide.createIcons();
   
 </script>
 
