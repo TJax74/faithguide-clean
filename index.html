@@ -1435,6 +1435,14 @@ function loadJournal() {
         </p>
 
 <button
+  class="save-btn"
+  onclick="editJournal(${index})">
+
+  Edit
+
+</button>
+
+<button
   class="remove-btn"
   onclick="deleteJournal(${index})">
 
@@ -1465,7 +1473,31 @@ function deleteJournal(index) {
 
   loadJournal();
 
-} 
+}
+
+function editJournal(index) {
+
+  let journals =
+    JSON.parse(
+      localStorage.getItem("journals")
+    ) || [];
+
+  const journal = journals[index];
+
+  showScreen('verses');
+
+  setTimeout(() => {
+
+    const textarea =
+      document.getElementById("journalEntry");
+
+    if (textarea) {
+      textarea.value = journal.text;
+    }
+
+  }, 200);
+
+}
 
   function removeVerse(index) {
   let saved =
