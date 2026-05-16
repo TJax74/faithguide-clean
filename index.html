@@ -949,6 +949,22 @@ button:hover {
   transform: translateY(-1px);
 }
 
+.plan-accent {
+  width: 42px;
+
+  height: 4px;
+
+  border-radius: 999px;
+
+  background: linear-gradient(
+    90deg,
+    #c9a94d,
+    #e7d7a5
+  );
+
+  margin: 14px 0 18px;
+}
+  
 .empty-state {
   text-align: center;
   padding: 80px 24px;
@@ -1753,20 +1769,55 @@ const devotionals = [
   }
 ];
 
+const anxietyDevotionals = [
+  {
+    verse: "Matthew 6:34",
+    text: "Do not worry about tomorrow...",
+    reflection:
+      "Anxiety often pulls your heart into the future. God gently calls you back to today and reminds you that His grace is already waiting for you there.",
+    prayer:
+      "Lord, calm my racing thoughts and help me trust You one moment at a time.",
+    question:
+      "What is one worry you can place into God's hands today?"
+  },
+
+  {
+    verse: "Psalm 94:19",
+    text: "When anxiety was great within me, your consolation brought me joy.",
+    reflection:
+      "God does not shame anxious hearts. He meets them with compassion, comfort, and steady peace.",
+    prayer:
+      "Father, remind me that I do not carry my burdens alone.",
+    question:
+      "Where do you most need God's comfort right now?"
+  },
+
+  {
+    verse: "John 14:27",
+    text: "Peace I leave with you; my peace I give you...",
+    reflection:
+      "The peace Jesus offers is deeper than temporary calm. It is a steady presence that remains even in uncertainty.",
+    prayer:
+      "Jesus, fill my heart with Your peace today.",
+    question:
+      "What would change if you truly believed God was with you right now?"
+  }
+];
+  
 const plans = [
   {
     title: "Peace in the Storm",
     category: "Anxiety & Peace",
     days: 30,
     description: "A 30-day journey to finding God's perfect peace when life feels overwhelming and chaotic.",
-    content: devotionals
+    content: anxietyDevotionals
   },
   {
-    title: "Trusting God in Uncertainty",
+    title: "Overcoming Anxiety",
     category: "Faith & Guidance",
     days: 21,
     description: "A 21-day exploration of faith and trust when the future is unclear.",
-    content: devotionals
+    content: anxietyDevotionals
   },
   {
     title: "Strength for Heavy Days",
@@ -2062,6 +2113,8 @@ if (activePlanTitle) {
       </div>
 
       <h3 class="plan-title">${plan.title}</h3>
+      
+      <div class="plan-accent"></div>
 
       <p class="plan-desc">${plan.description}</p>
 
