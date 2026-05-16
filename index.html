@@ -1970,6 +1970,18 @@ function openPlan(index) {
   showPlanScreen(plan);
 }
 
+function openDevotional(index) {
+
+  const plan = plans[index];
+
+  localStorage.setItem("activePlan", index);
+
+  localStorage.setItem("currentDay", 0);
+
+  showDevotionalScreen(plan);
+
+}
+  
 function showPlanScreen(plan) {
   showScreen("plans");
 
@@ -2043,6 +2055,14 @@ ${localStorage.getItem("streak") || 0} Day Streak
 </button>
   `;
 
+function showDevotionalScreen(plan) {
+
+  showScreen("devotionals");
+
+  showPlanScreen(plan);
+
+}
+  
   // restore saved state
   const activePlanIndex = localStorage.getItem("activePlan");
   const savedDay = parseInt(localStorage.getItem("currentDay")) || 0;
@@ -2124,7 +2144,7 @@ if (activePlanTitle) {
 
       <p class="plan-desc">${plan.description}</p>
 
-      <button class="start-btn" onclick="openPlan(${index})">
+      <button class="start-btn" onclick="openDevotional(${index})">
         Start Journey →
       </button>
     `;
