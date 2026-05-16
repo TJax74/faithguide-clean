@@ -1981,20 +1981,6 @@ function openDevotional(index) {
   showDevotionalScreen(plan);
 
 }
-
-function showReadingPlan(index) {
-
-  const plan = plans[index];
-
-  localStorage.setItem("activePlan", index);
-
-  localStorage.setItem("currentDay", 0);
-
-  showScreen("plans");
-
-  showPlanScreen(plan);
-
-}
   
 function showPlanScreen(plan) {
 
@@ -2090,7 +2076,7 @@ if (completeBtn && completedPlans.includes(completeKey)) {
 
 function showDevotionalScreen(plan) {
 
-  showScreen("devotionals");
+  showScreen("plans");
 
   showPlanScreen(plan);
 
