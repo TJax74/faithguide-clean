@@ -677,6 +677,20 @@ body {
   background: #b8963f;
 }
 
+.back-btn {
+  background: transparent;
+  border: none;
+  color: #1f2b46;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+
+.back-btn:hover {
+  color: #c9a94d;
+}
+  
 .card-divider {
   height: 1px;
   background: #eee;
@@ -2001,6 +2015,10 @@ function showPlanScreen(plan) {
   ).length;
 
   container.innerHTML = `
+
+    <button class="back-btn" onclick="showScreen('devotionals')">
+      ← Back to Devotionals
+    </button>
   
   <div class="plan-header">
     <h2>${plan.title}</h2>
