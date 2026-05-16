@@ -1981,9 +1981,22 @@ function openDevotional(index) {
   showDevotionalScreen(plan);
 
 }
+
+function showReadingPlan(index) {
+
+  const plan = plans[index];
+
+  localStorage.setItem("activePlan", index);
+
+  localStorage.setItem("currentDay", 0);
+
+  showScreen("plans");
+
+  showPlanScreen(plan);
+
+}
   
 function showPlanScreen(plan) {
-  showScreen("plans");
 
   const container = document.getElementById("plans");
 
