@@ -1985,7 +1985,7 @@ function openDevotional(index) {
 function showPlanScreen(plan) {
 
   const container =
-    document.getElementById("plans");
+    document.getElementById("devotionals");
   
   localStorage.setItem("activePlanTitle", plan.title);
   
@@ -2078,7 +2078,7 @@ function showDevotionalScreen(plan) {
 
   showScreen("plans");
 
-  showPlanScreen(plan);
+  showPlanScreen("devotionals");
 
 }
 
