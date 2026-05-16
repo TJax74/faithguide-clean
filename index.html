@@ -1808,6 +1808,7 @@ const plans = [
   {
     title: "Peace in the Storm",
     category: "Anxiety & Peace",
+    accent: "#c9a94d",
     days: 30,
     description: "A 30-day journey to finding God's perfect peace when life feels overwhelming and chaotic.",
     content: anxietyDevotionals
@@ -1815,6 +1816,7 @@ const plans = [
   {
     title: "Overcoming Anxiety",
     category: "Faith & Guidance",
+    accent: "#7fa6d6",
     days: 21,
     description: "A 21-day exploration of faith and trust when the future is unclear.",
     content: anxietyDevotionals
@@ -1822,6 +1824,7 @@ const plans = [
   {
     title: "Strength for Heavy Days",
     category: "Strength & Healing",
+    accent: "#9bbf9b",
     days: 14,
     description: "A 14-day devotional focused on strength and endurance during difficult seasons.",
     content: devotionals
@@ -2114,7 +2117,10 @@ if (activePlanTitle) {
 
       <h3 class="plan-title">${plan.title}</h3>
       
-      <div class="plan-accent"></div>
+      <div
+       class="plan-accent"
+       style="background:${plan.accent}"
+     ></div>
 
       <p class="plan-desc">${plan.description}</p>
 
