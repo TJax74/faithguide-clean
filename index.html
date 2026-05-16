@@ -2069,13 +2069,6 @@ ${localStorage.getItem("streak") || 0} Day Streak
 </button>
   `;
 
-function showDevotionalScreen(plan) {
-
-  showScreen("devotionals");
-
-  showPlanScreen(plan);
-
-}
   
   // restore saved state
   const activePlanIndex = localStorage.getItem("activePlan");
@@ -2093,6 +2086,14 @@ if (completeBtn && completedPlans.includes(completeKey)) {
   completeBtn.innerText = "Completed ✓";
   completeBtn.disabled = true;
 }
+}
+
+function showDevotionalScreen(plan) {
+
+  showScreen("devotionals");
+
+  showPlanScreen(plan);
+
 }
 
 // =========================
