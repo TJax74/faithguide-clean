@@ -2016,7 +2016,7 @@ function showPlanScreen(plan) {
 
   container.innerHTML = `
 
-    <button class="back-btn" onclick="showScreen('devotionals')">
+    <button class="back-btn" onclick="backToDevotionals()">
       ← Back to Devotionals
     </button>
   
@@ -2100,6 +2100,14 @@ function showDevotionalScreen(plan) {
 
 }
 
+function backToDevotionals() {
+
+  showScreen("devotionals");
+
+  loadDevotionals();
+
+}
+  
 // =========================
 // DEVOTIONAL PLANS
 // =========================
