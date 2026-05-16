@@ -1998,8 +1998,9 @@ function showReadingPlan(index) {
   
 function showPlanScreen(plan) {
 
-  const container = document.getElementById("plans");
-
+  const container =
+    document.querySelector(".screen.active");
+  
   localStorage.setItem("activePlanTitle", plan.title);
   
   const currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
