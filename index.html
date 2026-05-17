@@ -612,6 +612,10 @@ body {
   background: white;
   border-radius: 16px;
   padding: 20px;
+
+  max-width: 420px;
+  margin: 0 auto 24px auto;
+
   box-shadow: 0 10px 25px rgba(0,0,0,0.05);
   display: flex;
   flex-direction: column;
@@ -2554,9 +2558,8 @@ function loadReadingPlans() {
         ${plan.description}
       </p>
 
-      <button
-        class="start-btn"
-        onclick="openReadingPlan(${index})"
+      <button class="start-btn"
+        onclick="openReadingPlan(${index})">
 
         Start Plan →
 
