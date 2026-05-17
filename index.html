@@ -2119,8 +2119,144 @@ function openPlan(index) {
   localStorage.setItem("currentDay", 0);
 
   showPlanScreen(plan);
+  
 }
 
+function openReadingPlan(index) {
+
+  const plan = readingPlans[index];
+
+  localStorage.setItem("activeReadingPlan", index);
+
+  localStorage.setItem("readingCurrentDay", 0);
+
+  showReadingPlanScreen(plan);
+
+}
+
+function showReadingPlanScreen(plan) {
+
+  showScreen("readingPlans");
+
+  const container =
+    document.getElementById("readingPlans");
+
+  const currentDay =
+    parseInt(localStorage.getItem("readingCurrentDay")) || 0;
+
+  const dayContent = plan.content[currentDay];
+
+  container.innerHTML = `
+
+  <button class="back-btn"
+    onclick="backToReadingPlans()">
+
+    ← Back to Reading Plans
+
+  </button>
+
+  <div class="plan-header">
+
+    <h2>${plan.title}</h2>
+
+    <p>Day ${currentDay + 1} of ${plan.days}</p>
+
+  </div>
+
+  <div class="verse-block">
+
+    <div class="verse-ref">
+      📖 ${dayContent.verse}
+    </div>
+
+    <div class="verse-text">
+      ${dayContent.text}
+    </div>
+
+  </div>
+
+  <div class="reflection-block">
+
+    <h4>REFLECTION</h4>
+
+    <p>${dayContent.reflection}</p>
+
+  </div>
+
+  <div class="plan-actions">
+
+    <button class="nav-btn"
+      onclick="previousReadingDay()">
+
+      ← Previous
+
+    </button>
+
+    <button class="nav-btn primary-btn"
+      onclick="nextReadingDay()">
+
+      Next →
+
+    </button>
+
+  </div>
+  `;
+} 
+
+function nextReadingDay() {
+
+  let currentDay =
+    parseInt(localStorage.getItem("readingCurrentDay")) || 0;
+
+  const activeIndex =
+    localStorage.getItem("activeReadingPlan");
+
+  const activePlan =
+    readingPlans[activeIndex];
+
+  if (currentDay < activePlan.days - 1) {
+
+    currentDay++;
+
+    localStorage.setItem(
+      "readingCurrentDay",
+      currentDay
+    );
+
+    showReadingPlanScreen(activePlan);
+  }
+}
+
+function previousReadingDay() {
+
+  let currentDay =
+    parseInt(localStorage.getItem("readingCurrentDay")) || 0;
+
+  const activeIndex =
+    localStorage.getItem("activeReadingPlan");
+
+  const activePlan =
+    readingPlans[activeIndex];
+
+  if (currentDay > 0) {
+
+    currentDay--;
+
+    localStorage.setItem(
+      "readingCurrentDay",
+      currentDay
+    );
+
+    showReadingPlanScreen(activePlan);
+  }
+}  
+
+function backToReadingPlans() {
+
+  location.reload();
+
+}  
+  
 function openDevotional(index) {
 
   const plan = plans[index];
@@ -2420,7 +2556,7 @@ function loadReadingPlans() {
 
       <button
         class="start-btn"
-        onclick="openReadingPlan(${index})">
+        onclick="openReadingPlan(${index})"
 
         Start Plan →
 
