@@ -1247,6 +1247,14 @@ button:hover {
 <p class="center">Coming soon...</p>
 </div>
 
+<div id="readingPlans" class="screen">
+
+  <h1 class="center">Reading Plans</h1>
+
+  <div id="readingPlansList"></div>
+
+</div>
+  
 <!-- JOURNAL -->
 <div id="journal" class="screen">
 
@@ -1269,7 +1277,7 @@ button:hover {
     <div onclick="showScreen('home')">Home</div>
     <div onclick="showScreen('saved')">Saved</div>
     <div onclick="showScreen('devotionals')">Devotionals</div>
-    <div onclick="showScreen('plans')">Plans</div>
+    <div onclick="showScreen('readingPlans')">Plans</div>
 
     <div onclick="showScreen('journal')">Journal</div>
 
@@ -1905,6 +1913,73 @@ const plans = [
     content: devotionals
   }
 ];
+
+const readingPlans = [
+
+  {
+    title: "Gospel of John",
+    category: "New Testament",
+    days: 21,
+    description:
+      "Walk through the life, teachings, and miracles of Jesus in the Gospel of John.",
+
+    accent: "#c9a94d",
+
+    content: [
+      {
+        title: "In the Beginning",
+        verse: "John 1:1-5",
+        text:
+          "In the beginning was the Word, and the Word was with God, and the Word was God...",
+        reflection:
+          "Jesus has always existed and brings light into darkness.",
+        prayer:
+          "Lord, help me know You more deeply through Your Word.",
+        question:
+          "Where do you need God's light today?"
+      },
+
+      {
+        title: "The First Disciples",
+        verse: "John 1:35-51",
+        text:
+          "Jesus called His first disciples to follow Him...",
+        reflection:
+          "Jesus invites ordinary people into extraordinary purpose.",
+        prayer:
+          "Help me follow You faithfully today.",
+        question:
+          "What does following Jesus look like in your life?"
+      }
+
+    ]
+  },
+
+  {
+    title: "Psalms for Peace",
+    category: "Wisdom & Comfort",
+    days: 14,
+    description:
+      "Find peace, rest, and encouragement through selected Psalms.",
+
+    accent: "#d6b866",
+
+    content: []
+  },
+
+  {
+    title: "Proverbs Wisdom Journey",
+    category: "Wisdom",
+    days: 30,
+    description:
+      "Grow in wisdom and daily decision-making through Proverbs.",
+
+    accent: "#b8943f",
+
+    content: []
+  }
+
+];
   
 function loadDailyVerse() {
   console.log("running daily");
@@ -2054,6 +2129,65 @@ function openDevotional(index) {
   localStorage.setItem("currentDay", 0);
 
   showDevotionalScreen(plan);
+
+}
+
+function openReadingPlan(index) {
+
+  const plan = readingPlans[index];
+
+  localStorage.setItem(
+    "activeReadingPlan",
+    index
+  );
+
+  localStorage.setItem(
+    "readingCurrentDay",
+    0
+  );
+
+  showReadingPlanScreen(plan);
+
+}
+
+function showReadingPlanScreen(plan) {
+
+  showScreen("plans");
+
+  const container =
+    document.getElementById("plans");
+
+  container.innerHTML = `
+
+    <div class="plan-header">
+      <h2>${plan.title}</h2>
+
+      <p>
+        Day 1 of ${plan.days}
+      </p>
+    </div>
+
+    <div class="verse-block">
+
+      <div class="verse-ref">
+        📖 ${plan.content[0]?.verse || ""}
+      </div>
+
+      <div class="verse-text">
+        ${plan.content[0]?.text || ""}
+      </div>
+
+    </div>
+
+    <div class="reflection-block">
+      <h4>REFLECTION</h4>
+
+      <p>
+        ${plan.content[0]?.reflection || ""}
+      </p>
+    </div>
+
+  `;
 
 }
   
@@ -2242,6 +2376,63 @@ if (activePlanTitle) {
   });
 }
 
+function loadReadingPlans() {
+
+  const container =
+    document.getElementById("readingPlansList");
+
+  if (!container) return;
+
+  container.innerHTML = "";
+
+  readingPlans.forEach((plan, index) => {
+
+    const card =
+      document.createElement("div");
+
+    card.className = "plan-card-item";
+
+    card.innerHTML = `
+
+      <div class="plan-top">
+        <span class="plan-category">
+          ${plan.category}
+        </span>
+
+        <span class="plan-days">
+          ${plan.days} Days
+        </span>
+      </div>
+
+      <h3 class="plan-title">
+        ${plan.title}
+      </h3>
+
+      <div
+        class="plan-accent"
+        style="background:${plan.accent}">
+      </div>
+
+      <p class="plan-desc">
+        ${plan.description}
+      </p>
+
+      <button
+        class="start-btn"
+        onclick="openReadingPlan(${index})">
+
+        Start Plan →
+
+      </button>
+
+    `;
+
+    container.appendChild(card);
+
+  });
+
+}
+  
 function updateContinueCard() {
 
   const activePlan =
@@ -2452,6 +2643,10 @@ if (returnScreen) {
   localStorage.removeItem("returnScreen");
 
 }
+
+loadDevotionals();
+
+loadReadingPlans();
 
 lucide.createIcons();
   
