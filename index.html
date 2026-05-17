@@ -2290,10 +2290,14 @@ function openReadingPlan(index) {
     index
   );
 
-  localStorage.setItem(
-    "readingCurrentDay",
-    0
-  );
+  if (!localStorage.getItem("readingCurrentDay")) {
+
+    localStorage.setItem(
+      "readingCurrentDay",
+      0
+    );
+
+  }
 
   showReadingPlanScreen(plan);
 
@@ -2347,7 +2351,11 @@ function showPlanScreen(plan) {
   
   localStorage.setItem("activePlanTitle", plan.title);
   
-  const currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
+  const savedDayKey =
+"readingDay-" + plan.title;
+
+const currentDay =
+parseInt(localStorage.getItem(savedDayKey)) || 0;
 
   const dayContent = plan.content[currentDay];
 
@@ -2633,7 +2641,13 @@ function nextDay() {
 
   if (currentDay < plan.content.length - 1) {
     currentDay++;
-    localStorage.setItem("currentDay", currentDay);
+    const savedDayKey =
+"readingDay-" + activePlan.title;
+
+localStorage.setItem(
+savedDayKey,
+currentDay
+);
     showPlanScreen(plan);
   }
 }
