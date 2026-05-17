@@ -693,12 +693,19 @@ body {
   background: #c9a94d;
   color: white;
   border: none;
-  padding: 12px 22px;
-  border-radius: 10px;
+  padding: 14px 24px;
+  border-radius: 12px;
   font-size: 15px;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: none;
+
+  width: fit-content;
+
+  transition: 0.2s;
+}
+
+.continue-btn:hover {
+  background: #b8963f;
 }
   
 .back-btn {
@@ -875,16 +882,35 @@ button:hover {
 }
 
 .continue-card {
-  background: white;
-  border-left: 4px solid #c9a94d;
-  border-radius: 16px;
-  padding: 22px;
-  margin-bottom: 24px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  background: #1f2b46;
+  border-left: 5px solid #c9a94d;
+  border-radius: 24px;
+  padding: 28px;
+  margin: 30px auto;
+  width: calc(100% - 40px);
+  max-width: 900px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+
+  gap: 16px;
+
+  box-shadow: 0 10px 28px rgba(0,0,0,0.08);
 }
 
+.continue-card h3 {
+  margin: 0;
+  font-size: 42px;
+  color: white;
+}
+
+.continue-card p {
+  margin: 0;
+  color: rgba(255,255,255,0.7);
+}
+  
 .continue-card:hover {
   transform: translateY(-3px);
   box-shadow: 0 10px 24px rgba(0,0,0,0.06);
