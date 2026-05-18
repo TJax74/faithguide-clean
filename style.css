@@ -54,6 +54,22 @@ body {
   margin-bottom: 24px;
 }
 
+.app-button {
+  background: #c9a94d;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+.app-button:hover {
+  background: #b8933f;
+}
+
 /* =========================
    POPUPS
 ========================= */
