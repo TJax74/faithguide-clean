@@ -2776,21 +2776,33 @@ window.addEventListener("load", () => {
 
     setTimeout(() => {
 
-      const splash = document.getElementById("splash-screen");
+  const splash = document.getElementById("splash-screen");
+
+if (sessionStorage.getItem("splashShown")) {
+
+  splash.style.display = "none";
+
+} else {
+
+  window.addEventListener("load", () => {
+
+    setTimeout(() => {
 
       splash.classList.add("hide");
+
+      setTimeout(() => {
+
+        splash.style.display = "none";
+
+      }, 800);
 
       sessionStorage.setItem("splashShown", "true");
 
     }, 2000);
 
-  } else {
+  });
 
-    document.getElementById("splash-screen").style.display = "none";
-
-  }
-
-});
+}
                                                  
 </script>
 
