@@ -2194,10 +2194,13 @@ function previousReadingDay() {
 
     currentDay--;
 
-    localStorage.setItem(
-      "readingCurrentDay",
-      currentDay
-    );
+   const savedDayKey =
+  "readingDay-" + activePlan.title;
+
+  localStorage.setItem(
+    savedDayKey,
+    currentDay
+);
 
     showReadingPlanScreen(activePlan);
   }
