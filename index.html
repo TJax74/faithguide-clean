@@ -2782,13 +2782,13 @@ window.addEventListener("load", () => {
 
   setTimeout(() => {
 
-    splash.classList.add("hide");
+   splash.classList.add("hide");
 
-    setTimeout(() => {
+setTimeout(() => {
 
-      splash.style.display = "none";
+  splash.remove();
 
-      sessionStorage.setItem("splashShown", "true");
+  sessionStorage.setItem("splashShown", "true");
 
     }, 800);
 
