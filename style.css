@@ -12,6 +12,10 @@ body {
   overflow-x: hidden;
 
   padding-bottom: 90px;
+
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 * {
@@ -25,8 +29,13 @@ body {
 .app-container {
   width: 100%;
   max-width: 420px;
+
   margin: 0 auto;
+
   padding: 20px;
+
+  padding-top: 32px;
+  padding-bottom: 120px;
 }
 
 .screen-title {
@@ -52,8 +61,24 @@ body {
   background: white;
   border-radius: 18px;
   padding: 20px;
+   
+  border: 1px solid rgba(0,0,0,0.04);
+
+  backdrop-filter: blur(10px);
+   
   box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+   
   margin-bottom: 24px;
+   
+  transition: transform 0.2s ease,
+            box-shadow 0.2s ease;  
+}
+
+.app-card:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 28px rgba(0,0,0,0.08);
 }
 
 .screen-section {
@@ -80,6 +105,8 @@ body {
 
 .app-button:hover {
   background: #b8933f;
+
+  transform: translateY(-1px);
 }
 
 /* =========================
