@@ -33,6 +33,25 @@ body {
   font-size: 34px;
   font-weight: 700;
   margin-bottom: 12px;
+
+  letter-spacing: -0.5px;
+  line-height: 1.2;
+}
+
+.screen-subtitle {
+  text-align: center;
+  color: #666;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 28px;
+}
+
+.app-card {
+  background: white;
+  border-radius: 18px;
+  padding: 20px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.06);
+  margin-bottom: 24px;
 }
 
 /* =========================
