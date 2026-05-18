@@ -1,3 +1,7 @@
+/* =========================
+   POPUPS
+========================= */
+
 .completion-popup {
   position: fixed;
   inset: 0;
@@ -36,6 +40,10 @@
   line-height: 1.7;
   font-size: 17px;
 }
+
+/* =========================
+   DAILY VERSE
+========================= */
 
 .daily-verse {
   background: white;
