@@ -2795,7 +2795,19 @@ loadDevotionals();
 loadReadingPlans();
 
 lucide.createIcons();
-  
+
+window.addEventListener("load", () => {
+
+  setTimeout(() => {
+
+    const splash = document.getElementById("splash-screen");
+
+    splash.classList.add("hide");
+
+  }, 2000);
+
+});
+                                                 
 </script>
 
 <div id="completionPopup" class="completion-popup">
