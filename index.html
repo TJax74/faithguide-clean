@@ -2770,39 +2770,31 @@ lucide.createIcons();
 
 window.addEventListener("load", () => {
 
-  const splashShown = sessionStorage.getItem("splashShown");
-
-  if (!splashShown) {
-
-    setTimeout(() => {
-
   const splash = document.getElementById("splash-screen");
 
-if (sessionStorage.getItem("splashShown")) {
+  if (sessionStorage.getItem("splashShown")) {
 
-  splash.style.display = "none";
+    splash.style.display = "none";
 
-} else {
+    return;
 
-  window.addEventListener("load", () => {
+  }
+
+  setTimeout(() => {
+
+    splash.classList.add("hide");
 
     setTimeout(() => {
 
-      splash.classList.add("hide");
-
-      setTimeout(() => {
-
-        splash.style.display = "none";
-
-      }, 800);
+      splash.style.display = "none";
 
       sessionStorage.setItem("splashShown", "true");
 
-    }, 2000);
+    }, 800);
 
-  });
+  }, 2000);
 
-}
+});
                                                  
 </script>
 
