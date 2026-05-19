@@ -2582,13 +2582,16 @@ document.getElementById(
 function resumePlan() {
 
   const activePlanIndex =
-    localStorage.getItem("activePlan");
+    localStorage.getItem(
+      "activeReadingPlan"
+    );
 
   if (activePlanIndex === null) return;
 
-  const plan = plans[activePlanIndex];
+  const plan =
+    readingPlans[activePlanIndex];
 
-  showDevotionalScreen(plan);
+  showReadingPlanScreen(plan);
 
 }
   
