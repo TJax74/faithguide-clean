@@ -2102,8 +2102,13 @@ function showReadingPlanScreen(plan) {
   const container =
     document.getElementById("readingPlans");
 
+  const savedDayKey =
+    "readingDay-" + plan.title;
+
   const currentDay =
-    parseInt(localStorage.getItem("readingCurrentDay")) || 0;
+    parseInt(
+      localStorage.getItem(savedDayKey)
+    ) || 0;
 
   const dayContent = plan.content[currentDay];
 
