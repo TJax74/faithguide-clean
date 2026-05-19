@@ -2111,10 +2111,10 @@ function openReadingPlan(index) {
 
 function showReadingPlanScreen(plan) {
 
-  showScreen("readingPlans");
+  showScreen("plans");
 
   const container =
-    document.getElementById("readingPlans");
+    document.getElementById("plans");
 
   const savedDayKey =
     "readingDay-" + plan.title;
@@ -2262,7 +2262,17 @@ function previousReadingDay() {
   
 function backToReadingPlans() {
 
-  showScreen("readingPlans");
+  const screen =
+    document.getElementById("plans");
+
+  if (screen.dataset.original) {
+
+    screen.innerHTML =
+      screen.dataset.original;
+
+  }
+
+  showScreen("plans");
 
   loadReadingPlans();
 
