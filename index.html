@@ -2262,47 +2262,6 @@ function openReadingPlan(index) {
   showReadingPlanScreen(plan);
 
 }
-
-function showReadingPlanScreen(plan) {
-
-  showScreen("plans");
-
-  const container =
-    document.getElementById("plans");
-
-  container.innerHTML = `
-
-    <div class="plan-header">
-      <h2>${plan.title}</h2>
-
-      <p>
-        Day 1 of ${plan.days}
-      </p>
-    </div>
-
-    <div class="verse-block">
-
-      <div class="verse-ref">
-        📖 ${plan.content[0]?.verse || ""}
-      </div>
-
-      <div class="verse-text">
-        ${plan.content[0]?.text || ""}
-      </div>
-
-    </div>
-
-    <div class="reflection-block">
-      <h4>REFLECTION</h4>
-
-      <p>
-        ${plan.content[0]?.reflection || ""}
-      </p>
-    </div>
-
-  `;
-
-}
   
 function showPlanScreen(plan) {
 
