@@ -2211,12 +2211,18 @@ container.innerHTML = `
       </button>
 
       <button
-        class="nav-btn primary-btn"
-        onclick="nextReadingDay()">
+    <button
+  class="nav-btn primary-btn"
+  onclick="nextReadingDay()">
 
-        ✓ Complete Day
+  ${currentDay === plan.content.length - 1
 
-      </button>
+    ? "✨ You finished this journey"
+
+    : "Continue to Day " + (currentDay + 2) + " →"
+  }
+
+</button>
 
     </div>
 
@@ -2253,12 +2259,6 @@ function nextReadingDay() {
     showReadingPlanScreen(activePlan);
 
   }
-
-}
-
-function completeReadingDay() {
-
-  nextReadingDay();
 
 }
 
