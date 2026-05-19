@@ -2504,6 +2504,19 @@ function loadReadingPlans() {
 
     card.className = "plan-card-item";
 
+    const savedDayKey =
+  "readingDay-" + plan.title;
+
+const savedDay =
+  parseInt(
+    localStorage.getItem(savedDayKey)
+  ) || 0;
+
+const progressPercent =
+  Math.floor(
+    (savedDay / plan.days) * 100
+  );
+    
     card.innerHTML = `
 
       <div class="plan-top">
@@ -2529,12 +2542,22 @@ function loadReadingPlans() {
         ${plan.description}
       </p>
 
-      <button class="start-btn"
-        onclick="openReadingPlan(${index})">
+      <div class="plan-progress">
+        Day ${savedDay} of ${plan.days}
+      </div>
 
-        Start Plan →
+      <div class="plan-progress-bar">
+       <div
+         class="plan-progress-fill"
+         style="width:${progressPercent}%">
+      </div>
+    </div>
 
-      </button>
+    <button class="start-btn"
+      onclick="openReadingPlan(${index})">
+
+     Start Plan →
+    </button>
 
     `;
 
