@@ -2125,9 +2125,19 @@ function showReadingPlanScreen(plan) {
     ) || 0;
 
   const dayContent =
-    plan.content[currentDay];
+  plan.content[currentDay];
 
-  container.innerHTML = `
+if (!container.dataset.original) {
+
+  container.dataset.original =
+    container.innerHTML;
+
+}
+
+container.innerHTML = `
+
+  <button class="back-btn"
+    onclick="backToReadingPlans()">
 
     <button class="back-btn"
       onclick="backToReadingPlans()">
@@ -2255,16 +2265,7 @@ function previousReadingDay() {
   
 function backToReadingPlans() {
 
-  const screen =
-    document.getElementById("readingPlans");
-
-  screen.innerHTML = `
-    <h1 class="center">
-      Reading Plans
-    </h1>
-
-    <div id="readingPlansList"></div>
-  `;
+  showScreen("readingPlans");
 
   loadReadingPlans();
 
