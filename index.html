@@ -2196,35 +2196,6 @@ function nextReadingDay() {
   }
 }
 
-function previousReadingDay() {
-
-  const savedDayKey =
-  "readingDay-" + activePlan.title;
-
-  let currentDay =
-    parseInt(
-      localStorage.getItem(savedDayKey)
-    ) || 0;
-  
-  const activeIndex =
-    localStorage.getItem("activeReadingPlan");
-
-  const activePlan =
-    readingPlans[activeIndex];
-
-  if (currentDay > 0) {
-
-    currentDay--;
-
-  localStorage.setItem(
-    savedDayKey,
-    currentDay
-);
-
-    showReadingPlanScreen(activePlan);
-  }
-}  
-
 function backToReadingPlans() {
 
   loadReadingPlans();
