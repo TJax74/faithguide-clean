@@ -2214,7 +2214,7 @@ container.innerHTML = `
         class="nav-btn primary-btn"
         onclick="nextReadingDay()">
 
-        Next →
+        ✓ Complete Day
 
       </button>
 
@@ -2256,7 +2256,11 @@ function nextReadingDay() {
 
 }
 
+function completeReadingDay() {
 
+  nextReadingDay();
+
+}
 
 function previousReadingDay() {
 
