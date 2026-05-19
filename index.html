@@ -2198,9 +2198,14 @@ function nextReadingDay() {
 
 function previousReadingDay() {
 
-  let currentDay =
-    parseInt(localStorage.getItem("readingCurrentDay")) || 0;
+  const savedDayKey =
+  "readingDay-" + activePlan.title;
 
+  let currentDay =
+    parseInt(
+      localStorage.getItem(savedDayKey)
+    ) || 0;
+  
   const activeIndex =
     localStorage.getItem("activeReadingPlan");
 
@@ -2210,9 +2215,6 @@ function previousReadingDay() {
   if (currentDay > 0) {
 
     currentDay--;
-
-   const savedDayKey =
-  "readingDay-" + activePlan.title;
 
   localStorage.setItem(
     savedDayKey,
