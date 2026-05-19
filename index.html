@@ -2002,8 +2002,7 @@ if (savedEmotion) {
 }
 
 }
-    
-    
+        
 function selectEmotion(emotion, event) {
 
   if (event) {
@@ -2108,6 +2107,8 @@ function openReadingPlan(index) {
 
 }
 
+
+
 function showReadingPlanScreen(plan) {
 
   showScreen("readingPlans");
@@ -2123,64 +2124,70 @@ function showReadingPlanScreen(plan) {
       localStorage.getItem(savedDayKey)
     ) || 0;
 
-  const dayContent = plan.content[currentDay];
+  const dayContent =
+    plan.content[currentDay];
 
   container.innerHTML = `
 
-  <button class="back-btn"
-    onclick="backToReadingPlans()">
+    <button class="back-btn"
+      onclick="backToReadingPlans()">
 
-    ← Back to Reading Plans
-
-  </button>
-
-  <div class="plan-header">
-
-    <h2>${plan.title}</h2>
-
-    <p>Day ${currentDay + 1} of ${plan.days}</p>
-
-  </div>
-
-  <div class="verse-block">
-
-    <div class="verse-ref">
-      📖 ${dayContent.verse}
-    </div>
-
-    <div class="verse-text">
-      ${dayContent.text}
-    </div>
-
-  </div>
-
-  <div class="reflection-block">
-
-    <h4>REFLECTION</h4>
-
-    <p>${dayContent.reflection}</p>
-
-  </div>
-
-  <div class="plan-actions">
-
-    <button class="nav-btn"
-      onclick="previousReadingDay()">
-
-      ← Previous
+      ← Back to Reading Plans
 
     </button>
 
-    <button class="nav-btn primary-btn"
-      onclick="nextReadingDay()">
+    <div class="plan-header">
 
-      Next →
+      <h2>${plan.title}</h2>
 
-    </button>
+      <p>Day ${currentDay + 1} of ${plan.days}</p>
 
-  </div>
+    </div>
+
+    <div class="verse-block">
+
+      <div class="verse-ref">
+        📖 ${dayContent.verse}
+      </div>
+
+      <div class="verse-text">
+        ${dayContent.text}
+      </div>
+
+    </div>
+
+    <div class="reflection-block">
+
+      <h4>REFLECTION</h4>
+
+      <p>${dayContent.reflection}</p>
+
+    </div>
+
+    <div class="plan-actions">
+
+      <button
+        class="nav-btn"
+        onclick="previousReadingDay()">
+
+        ← Previous
+
+      </button>
+
+      <button
+        class="nav-btn primary-btn"
+        onclick="nextReadingDay()">
+
+        Next →
+
+      </button>
+
+    </div>
+
   `;
-} 
+}
+
+
 
 function nextReadingDay() {
 
@@ -2213,6 +2220,39 @@ function nextReadingDay() {
 
 }
 
+
+
+function previousReadingDay() {
+
+  const activeIndex =
+    localStorage.getItem("activeReadingPlan");
+
+  const activePlan =
+    readingPlans[activeIndex];
+
+  const savedDayKey =
+    "readingDay-" + activePlan.title;
+
+  let currentDay =
+    parseInt(
+      localStorage.getItem(savedDayKey)
+    ) || 0;
+
+  if (currentDay > 0) {
+
+    currentDay--;
+
+    localStorage.setItem(
+      savedDayKey,
+      currentDay
+    );
+
+    showReadingPlanScreen(activePlan);
+
+  }
+
+}
+  
 function backToReadingPlans() {
 
   loadReadingPlans();
