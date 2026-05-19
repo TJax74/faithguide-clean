@@ -2552,30 +2552,44 @@ const progressPercent =
   
 function updateContinueCard() {
 
-  const activePlan =
-    localStorage.getItem("activePlanTitle");
+  const activePlanIndex =
+  localStorage.getItem(
+    "activeReadingPlan"
+  );
 
-  const currentDay =
-    parseInt(localStorage.getItem("currentDay")) || 0;
-
-  const card =
-    document.getElementById("continueJourneyCard");
-
-  if (!activePlan) {
-    card.style.display = "none";
-    return;
-  }
-
-  card.style.display = "block";
-
+const card =
   document.getElementById(
-    "continuePlanTitle"
-  ).innerText = activePlan;
+    "continueJourneyCard"
+  );
+
+if (activePlanIndex === null) {
+
+  card.style.display = "none";
+
+  return;
+}
+
+const plan =
+  readingPlans[activePlanIndex];
+
+const savedDayKey =
+  "readingDay-" + plan.title;
+
+const currentDay =
+  parseInt(
+    localStorage.getItem(savedDayKey)
+  ) || 0;
+
+card.style.display = "block";
+
+document.getElementById(
+  "continuePlanTitle"
+).innerText = plan.title;
 
 document.getElementById(
   "continuePlanDay"
 ).innerText =
-  `Day ${currentDay + 1}`;
+  `Day ${currentDay + 1} of ${plan.days}`;
 
 }
 
