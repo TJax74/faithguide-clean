@@ -2087,9 +2087,22 @@ function openReadingPlan(index) {
 
   const plan = readingPlans[index];
 
-  localStorage.setItem("activeReadingPlan", index);
+  localStorage.setItem(
+    "activeReadingPlan",
+    index
+  );
 
-  localStorage.setItem("readingCurrentDay", 0);
+  const savedDayKey =
+    "readingDay-" + plan.title;
+
+  if (!localStorage.getItem(savedDayKey)) {
+
+    localStorage.setItem(
+      savedDayKey,
+      0
+    );
+
+  }
 
   showReadingPlanScreen(plan);
 
@@ -2171,29 +2184,33 @@ function showReadingPlanScreen(plan) {
 
 function nextReadingDay() {
 
-  let currentDay =
-    parseInt(localStorage.getItem("readingCurrentDay")) || 0;
-
   const activeIndex =
     localStorage.getItem("activeReadingPlan");
 
   const activePlan =
     readingPlans[activeIndex];
 
-  if (currentDay < activePlan.days - 1) {
+  const savedDayKey =
+    "readingDay-" + activePlan.title;
+
+  let currentDay =
+    parseInt(
+      localStorage.getItem(savedDayKey)
+    ) || 0;
+
+  if (currentDay < activePlan.content.length - 1) {
 
     currentDay++;
 
-    const savedDayKey =
-      "readingDay-" + activePlan.title;
-
     localStorage.setItem(
-    savedDayKey,
-    currentDay
-);
+      savedDayKey,
+      currentDay
+    );
 
     showReadingPlanScreen(activePlan);
+
   }
+
 }
 
 function backToReadingPlans() {
@@ -2216,28 +2233,6 @@ function openDevotional(index) {
 
 }
 
-function openReadingPlan(index) {
-
-  const plan = readingPlans[index];
-
-  localStorage.setItem(
-    "activeReadingPlan",
-    index
-  );
-
-  if (!localStorage.getItem("readingCurrentDay")) {
-
-    localStorage.setItem(
-      "readingCurrentDay",
-      0
-    );
-
-  }
-
-  showReadingPlanScreen(plan);
-
-}
-  
 function showPlanScreen(plan) {
 
   const container =
