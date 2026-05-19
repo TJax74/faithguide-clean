@@ -2127,13 +2127,6 @@ function showReadingPlanScreen(plan) {
   const dayContent =
   plan.content[currentDay];
 
-if (!container.dataset.original) {
-
-  container.dataset.original =
-    container.innerHTML;
-
-}
-
 container.innerHTML = `
 
   <button class="back-btn"
