@@ -2265,12 +2265,11 @@ function backToReadingPlans() {
   const screen =
     document.getElementById("plans");
 
-  if (screen.dataset.original) {
+  screen.innerHTML = `
 
-    screen.innerHTML =
-      screen.dataset.original;
+    <div id="readingPlansList"></div>
 
-  }
+  `;
 
   showScreen("plans");
 
