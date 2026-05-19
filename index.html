@@ -2255,9 +2255,18 @@ function previousReadingDay() {
   
 function backToReadingPlans() {
 
-  loadReadingPlans();
+  const screen =
+    document.getElementById("readingPlans");
 
-  showScreen("readingPlans");
+  screen.innerHTML = `
+    <h1 class="center">
+      Reading Plans
+    </h1>
+
+    <div id="readingPlansList"></div>
+  `;
+
+  loadReadingPlans();
 
 }
   
