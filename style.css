@@ -121,6 +121,15 @@ body.dark-mode .emotion-card {
   border: 1px solid rgba(255,255,255,0.05);
 }
 
+body.dark-mode .emotion-card p {
+  color: #94a3b8 !important;
+  opacity: 1 !important;
+}
+
+body.dark-mode .emotion-card {
+  background: #1e293b !important;
+}
+
 .app-card:hover {
   transform: translateY(-2px);
 
