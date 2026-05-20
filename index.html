@@ -2387,6 +2387,10 @@ function nextReadingDay() {
 
     showReadingPlanScreen(activePlan);
 
+  } else {
+
+    showCompletionPopup(activePlan.title);
+
   }
 
 }
@@ -2985,7 +2989,33 @@ setTimeout(() => {
   }, 2000);
 
 });
-                                                 
+
+function showCompletionPopup(planTitle) {
+
+  const popup =
+    document.getElementById("completionPopup");
+
+  const text =
+    document.getElementById("completionText");
+
+  text.innerHTML =
+    `✨ You completed <strong>${planTitle}</strong>. Take a moment to reflect on how far you’ve come.`;
+
+  popup.classList.add("show");
+
+}
+
+function closeCompletionPopup() {
+
+  const popup =
+    document.getElementById("completionPopup");
+
+  popup.classList.remove("show");
+
+  showScreen("plans");
+
+}
+    
 </script>
 
 <div id="completionPopup" class="completion-popup">
@@ -2998,9 +3028,15 @@ setTimeout(() => {
 
     <p id="completionText"></p>
 
+    <button
+      class="app-button app-btn mt-20"
+      onclick="closeCompletionPopup()"
+    >
+      Back to Reading Plans
+    </button>
+
   </div>
 
 </div>
-  
 </body>
 </html>
