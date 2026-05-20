@@ -2737,7 +2737,7 @@ const card =
 
 if (activePlanIndex === null) {
 
-  card.style.display = "none";
+  card.classList.add("hidden");
 
   return;
 }
@@ -2753,7 +2753,9 @@ const currentDay =
     localStorage.getItem(savedDayKey)
   ) || 0;
 
-card.style.display = "block";
+card.classList.remove("hidden");
+
+card.classList.add("resume-glow");  
 
 document.getElementById(
   "continuePlanTitle"
@@ -2762,8 +2764,7 @@ document.getElementById(
 document.getElementById(
   "continuePlanDay"
 ).innerText =
-  `Day ${currentDay + 1} of ${plan.days}`;
-
+  `Continue your journey • Day ${currentDay + 1} of ${plan.days}`;
 }
 
 function resumePlan() {
