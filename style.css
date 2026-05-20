@@ -499,3 +499,13 @@ body.dark-mode .theme-toggle-btn {
   }
 
 }
+
+body.dark-mode .emotion-card p {
+  color: #94a3b8 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
+}
+
+body.dark-mode .emotion-card {
+  background: #1e293b !important;
+}
