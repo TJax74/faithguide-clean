@@ -260,6 +260,19 @@ body.dark-mode .bottom-nav {
   color: #c9a94d;
 }
 
+.nav-item.active {
+  color: #c9a94d;
+}
+
+body.dark-mode .nav-item.active {
+  color: #ffffff;
+}
+
+.bottom-nav div.active-nav {
+  background: #f5f1e6;
+  color: #1f2b46;
+}
+
 .nav-item:hover {
   color: white;
 }
@@ -366,7 +379,7 @@ body.dark-mode .plan-progress {
 }
 
 body.dark-mode p {
-  color: #e5e7eb;
+  color: inherit;
 }
 
 /* ========================================
