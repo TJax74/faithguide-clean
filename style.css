@@ -306,3 +306,9 @@ body {
 .section-spacing {
   margin-bottom: 24px;
 }
+
+.screen-title {
+  text-align: center;
+  color: #c9a94d;
+  margin-bottom: 20px;
+}
