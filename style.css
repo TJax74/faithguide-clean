@@ -18,6 +18,11 @@ body {
     color 0.3s ease;
 }
 
+body.dark-mode {
+  background: #111827;
+  color: #f3f4f6;
+}
+
 * {
   box-sizing: border-box;
 }
@@ -64,6 +69,14 @@ body {
    
   transition: transform 0.2s ease,
             box-shadow 0.2s ease;  
+}
+
+body.dark-mode .app-card {
+  background: #1f2937;
+  border: 1px solid rgba(255,255,255,0.04);
+
+  box-shadow:
+    0 10px 30px rgba(0,0,0,0.35);
 }
 
 .app-card:hover {
@@ -194,6 +207,10 @@ body {
   z-index: 100;
 }
 
+body.dark-mode .bottom-nav {
+  background: #0f172a;
+}
+
 .nav-item {
   display: flex;
   flex-direction: column;
@@ -300,6 +317,17 @@ body {
   color: #c9a94d;
   margin-top: 12px;
   margin-bottom: 10px;
+}
+
+body.dark-mode .screen-subtitle,
+body.dark-mode .plan-desc,
+body.dark-mode .checkin-subtext,
+body.dark-mode .plan-progress {
+  color: #cbd5e1;
+}
+
+body.dark-mode p {
+  color: #e5e7eb;
 }
 
 /* ========================================
