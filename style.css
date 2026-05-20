@@ -79,6 +79,26 @@ body.dark-mode .app-card {
     0 10px 30px rgba(0,0,0,0.35);
 }
 
+body.dark-mode .emotion-card {
+  background: #1f2937;
+}
+
+body.dark-mode .emotion-card p {
+  color: #cbd5e1;
+}
+
+body.dark-mode #dailyVerseText {
+  color: #f3f4f6;
+}
+
+body.dark-mode #dailyDevotional {
+  color: #cbd5e1;
+}
+
+body.dark-mode .saved-verse-card {
+  background: #1f2937;
+}
+
 .app-card:hover {
   transform: translateY(-2px);
 
