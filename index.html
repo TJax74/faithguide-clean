@@ -2274,7 +2274,7 @@ function showReadingPlanScreen(plan) {
 
 container.innerHTML = `
 
-  <button class="back-btn"
+  <button class="back-btn app-btn"
     onclick="backToReadingPlans()">
 
       ← Back to Reading Plans
@@ -2470,7 +2470,7 @@ parseInt(localStorage.getItem(savedDayKey)) || 0;
 
   container.innerHTML = `
 
-    <button class="back-btn" onclick="backToDevotionals()">
+    <button class="back-btn app-btn" onclick="backToDevotionals()">
       ← Back to Devotionals
     </button>
   
@@ -2518,11 +2518,11 @@ ${localStorage.getItem("streak") || 0} Day Streak
   </div>
 
   <div class="plan-actions">
-    <button class="nav-btn" onclick="previousDay()">← Previous</button>
-    <button class="nav-btn primary-btn" onclick="nextDay()">Next →</button>
+    <button class="nav-btn app-btn" onclick="previousDay()">← Previous</button>
+    <button class="nav-btn primary-btn app-btn" onclick="nextDay()">Next →</button>
   </div>
 
-<button id="completeBtn" class="complete-btn" onclick="completeDay()">
+<button id="completeBtn" class="complete-btn app-btn" onclick="completeDay()">
   Mark Day as Complete
 </button>
   `;
@@ -2700,7 +2700,7 @@ const progressPercent =
       </div>
     </div>
 
-    <button class="start-btn"
+    <button class="start-btn app-btn"
       onclick="openReadingPlan(${index})">
 
      Start Plan →
