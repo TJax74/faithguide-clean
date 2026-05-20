@@ -2387,11 +2387,20 @@ function nextReadingDay() {
 
     showReadingPlanScreen(activePlan);
 
-  } else {
+  else {
 
-    showCompletionPopup(activePlan.title);
+  localStorage.setItem(
+    savedDayKey,
+    activePlan.content.length
+  );
 
-  }
+  showCompletionPopup(activePlan.title);
+
+  loadReadingPlans();
+
+  updateContinueCard();
+
+}
 
 }
 
