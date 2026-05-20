@@ -257,10 +257,6 @@ body {
   transition: width 0.35s ease;
 }
 
-.section-spacing {
-  margin-bottom: 24px;
-}
-
 .app-btn {
   border: none;
   cursor: pointer;
@@ -284,12 +280,6 @@ body {
   margin-top: 20px;
 }
 
-.centered-section {
-  text-align: center;
-  margin-top: 10px;
-}
-
-
 /* ========================================
    TYPOGRAPHY
 ======================================== */
@@ -303,8 +293,6 @@ body {
   letter-spacing: 1px;
   font-weight: 700;
 }
-
-
 
 /* ========================================
    BUTTONS
@@ -336,6 +324,15 @@ body {
 /* ========================================
    CARDS
 ======================================== */
+
+.section-spacing {
+  margin-bottom: 24px;
+}
+
+.centered-section {
+  text-align: center;
+  margin-top: 10px;
+}
 
 
 
