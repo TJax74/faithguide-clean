@@ -290,12 +290,6 @@ body {
   transform: translateY(-1px);
 }
 
-.label-text {
-  color: #c9a94d;
-  letter-spacing: 1px;
-  font-weight: 700;
-}
-
 /* ========================================
    GLOBAL UTILITIES
 ======================================== */
@@ -322,6 +316,15 @@ body {
    TYPOGRAPHY
 ======================================== */
 
+.gold-text {
+  color: #c9a94d;
+}
+
+.label-text {
+  color: #c9a94d;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
 
 
 
