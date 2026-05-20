@@ -320,6 +320,15 @@ body.dark-mode .bottom-nav {
   display: none;
 }
 
+.screen {
+  display: none;
+  min-height: 100vh;
+}
+
+.screen.active {
+  display: block;
+}
+
 .text-center {
   text-align: center;
 }
