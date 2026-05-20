@@ -328,3 +328,9 @@ body {
 .app-btn:hover {
   transform: translateY(-1px);
 }
+
+.label-text {
+  color: #c9a94d;
+  letter-spacing: 1px;
+  font-weight: 700;
+}
