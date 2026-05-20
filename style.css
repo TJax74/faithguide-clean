@@ -49,14 +49,6 @@ body {
   line-height: 1.2;
 }
 
-.screen-subtitle {
-  text-align: center;
-  color: #666;
-  font-size: 15px;
-  line-height: 1.7;
-  margin-bottom: 28px;
-}
-
 .app-card {
   background: white;
   border-radius: 18px;
@@ -283,30 +275,12 @@ body {
   transition: width 0.35s ease;
 }
 
-.section-title {
-  color: #c9a94d;
-}
-
-.gold-text {
-  color: #c9a94d;
-}
-
 .mt-20 {
   margin-top: 20px;
 }
 
-.text-center {
-  text-align: center;
-}
-
 .section-spacing {
   margin-bottom: 24px;
-}
-
-.screen-title {
-  text-align: center;
-  color: #c9a94d;
-  margin-bottom: 20px;
 }
 
 .centered-section {
@@ -331,13 +305,6 @@ body {
   font-weight: 700;
 }
 
-.screen-subtitle {
-  text-align: center;
-  color: #666;
-  margin-top: 8px;
-  line-height: 1.6;
-}
-
 /* ========================================
    GLOBAL UTILITIES
 ======================================== */
@@ -346,6 +313,9 @@ body {
   display: none;
 }
 
+.text-center {
+  text-align: center;
+}
 
 /* ========================================
    TYPOGRAPHY
