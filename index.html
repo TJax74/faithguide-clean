@@ -2232,7 +2232,7 @@ function openPlan(index) {
   
 }
 
-function openReadingPlan(index) {
+function startReadingPlan(index) {
 
   const plan = readingPlans[index];
 
@@ -2244,7 +2244,12 @@ function openReadingPlan(index) {
   const savedDayKey =
     "readingDay-" + plan.title;
 
-  if (!localStorage.getItem(savedDayKey)) {
+  let savedDay =
+    parseInt(
+      localStorage.getItem(savedDayKey)
+    ) || 0;
+
+  if (savedDay >= plan.days) {
 
     localStorage.setItem(
       savedDayKey,
@@ -2256,8 +2261,6 @@ function openReadingPlan(index) {
   showReadingPlanScreen(plan);
 
 }
-
-
 
 function showReadingPlanScreen(plan) {
 
@@ -2723,7 +2726,7 @@ const progressPercent =
     </div>
 
     <button class="start-btn app-btn"
-  onclick="openReadingPlan(${index})">
+      onclick="startReadingPlan(${index})">
 
   ${
     savedDay >= plan.days
