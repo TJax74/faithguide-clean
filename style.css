@@ -77,24 +77,6 @@ body {
   margin-bottom: 32px;
 }
 
-.app-button {
-  background: #c9a94d;
-  color: white;
-  border: none;
-  border-radius: 12px;
-  padding: 14px 20px;
-  font-size: 15px;
-  font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s ease;
-
-  width: fit-content;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 6px;
-}
-
 .app-button:hover {
   background: #b8933f;
 
@@ -286,10 +268,6 @@ body {
   font-weight: 500;
 }
 
-.app-btn:hover {
-  transform: translateY(-1px);
-}
-
 /* ========================================
    GLOBAL UTILITIES
 ======================================== */
@@ -332,7 +310,27 @@ body {
    BUTTONS
 ======================================== */
 
+.app-button {
+  background: #c9a94d;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s ease;
 
+  width: fit-content;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.app-btn:hover {
+  transform: translateY(-1px);
+}
 
 
 /* ========================================
