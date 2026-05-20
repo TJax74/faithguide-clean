@@ -356,6 +356,37 @@ body.dark-mode p {
   transform: translateY(-1px);
 }
 
+.theme-toggle-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.theme-toggle-btn {
+  background: #1f2b46;
+  color: white;
+
+  border: none;
+  border-radius: 999px;
+
+  padding: 10px 18px;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition: 0.25s ease;
+}
+
+.theme-toggle-btn:hover {
+  transform: translateY(-1px);
+}
+
+body.dark-mode .theme-toggle-btn {
+  background: #374151;
+}
+
 /* ========================================
    CARDS
 ======================================== */
