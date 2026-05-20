@@ -2378,16 +2378,16 @@ function nextReadingDay() {
 
   if (currentDay < activePlan.content.length - 1) {
 
-    currentDay++;
+  currentDay++;
 
-    localStorage.setItem(
-      savedDayKey,
-      currentDay
-    );
+  localStorage.setItem(
+    savedDayKey,
+    currentDay
+  );
 
-    showReadingPlanScreen(activePlan);
+  showReadingPlanScreen(activePlan);
 
-  { else {
+} else {
 
   localStorage.setItem(
     savedDayKey,
