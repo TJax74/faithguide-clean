@@ -282,3 +282,7 @@ body {
 
   transition: width 0.35s ease;
 }
+
+.section-title {
+  color: #c9a94d;
+}
