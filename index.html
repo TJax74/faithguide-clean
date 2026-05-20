@@ -2708,8 +2708,12 @@ const progressPercent =
       </p>
 
       <div class="plan-progress">
-        Day ${savedDay} of ${plan.days}
-      </div>
+  ${
+    savedDay >= plan.days
+      ? "✨ Journey Complete"
+      : `Day ${savedDay} of ${plan.days}`
+  }
+</div>
 
       <div class="plan-progress-bar">
        <div
@@ -2719,10 +2723,15 @@ const progressPercent =
     </div>
 
     <button class="start-btn app-btn"
-      onclick="openReadingPlan(${index})">
+  onclick="openReadingPlan(${index})">
 
-     Start Plan →
-    </button>
+  ${
+    savedDay >= plan.days
+      ? "Restart Journey →"
+      : "Continue Journey →"
+  }
+
+</button>
 
     `;
 
