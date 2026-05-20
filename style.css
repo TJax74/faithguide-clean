@@ -334,3 +334,10 @@ body {
   letter-spacing: 1px;
   font-weight: 700;
 }
+
+.screen-subtitle {
+  text-align: center;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.6;
+}
