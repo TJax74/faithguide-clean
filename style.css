@@ -109,6 +109,18 @@ body.dark-mode .emotion-card {
   color: #f3f4f6;
 }
 
+body.dark-mode .emotion-card p,
+body.dark-mode .emotion-card small,
+body.dark-mode .emotion-card .subtitle,
+body.dark-mode .emotion-card .emotion-desc {
+  color: #d1d5db !important;
+}
+
+body.dark-mode .emotion-card {
+  background: #1f2937;
+  border: 1px solid rgba(255,255,255,0.05);
+}
+
 .app-card:hover {
   transform: translateY(-2px);
 
