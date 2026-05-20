@@ -2241,15 +2241,14 @@ container.innerHTML = `
       </button>
 
       <button
-    <button
-  class="nav-btn primary-btn"
-  onclick="nextReadingDay()">
+        class="nav-btn primary-btn"
+        onclick="nextReadingDay()">
 
-  ${currentDay === plan.content.length - 1
+        ${currentDay === plan.content.length - 1
 
-    ? "✨ You finished this journey"
+        ? "✨ You finished this journey"
 
-    : "Continue to Day " + (currentDay + 2) + " →"
+        : "Continue to Day " + (currentDay + 2) + " →"
   }
 
 </button>
@@ -2739,8 +2738,7 @@ function savePlanDay() {
   }
 }
   
-  
-function saveDailyVerse() {
+  function saveDailyVerse() {
   const index = new Date().getDate() % dailyVerses.length;
 
   const verse = {
