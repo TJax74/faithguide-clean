@@ -340,3 +340,26 @@ body {
 /* ========================================
    READING PLANS
 ======================================== */
+
+.resume-glow {
+  animation: resumePulse 2.5s ease infinite;
+}
+
+@keyframes resumePulse {
+
+  0% {
+    transform: translateY(0px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  }
+
+  50% {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 30px rgba(201,169,77,0.18);
+  }
+
+  100% {
+    transform: translateY(0px);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.08);
+  }
+
+}
