@@ -317,3 +317,14 @@ body {
   text-align: center;
   margin-top: 10px;
 }
+
+.app-btn {
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-weight: 500;
+}
+
+.app-btn:hover {
+  transform: translateY(-1px);
+}
