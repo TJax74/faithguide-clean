@@ -295,6 +295,13 @@ body {
   font-weight: 700;
 }
 
+.streak-count {
+  font-size: 22px;
+  color: #c9a94d;
+  margin-top: 12px;
+  margin-bottom: 10px;
+}
+
 /* ========================================
    BUTTONS
 ======================================== */
@@ -333,9 +340,6 @@ body {
   text-align: center;
   margin-top: 10px;
 }
-
-
-
 
 /* ========================================
    READING PLANS
