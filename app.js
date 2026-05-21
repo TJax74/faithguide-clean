@@ -1,3 +1,5 @@
+console.log("APP.JS CONNECTED");
+
 <script>
 
 const guidance = {
