@@ -360,10 +360,6 @@ body.dark-mode .plan-progress {
   color: #cbd5e1;
 }
 
-body.dark-mode p {
-  color: inherit;
-}
-
 /* ========================================
    BUTTONS
 ======================================== */
@@ -476,4 +472,31 @@ body.dark-mode .card p {
   color: #5b6475 !important;
   opacity: 1 !important;
   visibility: visible !important;
+}
+
+/* GLOBAL DARK MODE TEXT FIX */
+
+body.dark-mode p {
+  color: #cbd5e1;
+}
+
+body.dark-mode .screen-subtitle {
+  color: #cbd5e1;
+}
+
+body.dark-mode .empty-state p {
+  color: #94a3b8;
+}
+
+body.dark-mode .plan-desc {
+  color: #cbd5e1;
+}
+
+body.dark-mode .plan-progress {
+  color: #cbd5e1;
+}
+
+body.dark-mode .saved-empty p,
+body.dark-mode .journal-empty p {
+  color: #94a3b8;
 }
