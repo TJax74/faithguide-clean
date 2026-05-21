@@ -545,3 +545,40 @@ body.dark-mode i {
   color: #c9a94d !important;
   stroke: #c9a94d !important;
 }
+
+/* FINAL DARK MODE TEXT FIX */
+
+/* Devotional cards */
+body.dark-mode .devotional-card p,
+body.dark-mode .devotional-card small,
+body.dark-mode .devotional-card .description,
+body.dark-mode .devotional-card .subtitle {
+  color: #64748b !important;
+}
+
+/* Reading plan cards */
+body.dark-mode .plan-card p,
+body.dark-mode .plan-card small,
+body.dark-mode .plan-card .description {
+  color: #64748b !important;
+}
+
+/* Prayer / reflection cards */
+body.dark-mode .prayer-card p,
+body.dark-mode .reflection-card p,
+body.dark-mode .verse-card p {
+  color: #64748b !important;
+}
+
+/* Light cards in dark mode */
+body.dark-mode .app-card {
+  background: #f8f6f1;
+  color: #1f2b46;
+}
+
+/* Fix muted labels */
+body.dark-mode .app-card small,
+body.dark-mode .app-card .muted,
+body.dark-mode .app-card .subtitle {
+  color: #94a3b8 !important;
+}
