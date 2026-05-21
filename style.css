@@ -512,10 +512,34 @@ body.dark-mode .card h3 {
 
 /* SAFE DARK MODE TEXT FIX */
 
-body.dark-mode p,
-body.dark-mode span,
-body.dark-mode small {
+/* ONLY affect dark sections */
+body.dark-mode .continue-card p,
+body.dark-mode .screen-subtitle,
+body.dark-mode .empty-state p,
+body.dark-mode .checkin-subtext {
   color: #d1d5db;
+}
+
+/* LIGHT CARDS KEEP DARK TEXT */
+body.dark-mode .daily-verse,
+body.dark-mode .plan-card,
+body.dark-mode .plan-card-item,
+body.dark-mode .verse-card,
+body.dark-mode .prayer-block,
+body.dark-mode .reflection-block {
+  color: #1f2b46 !important;
+}
+
+body.dark-mode .daily-verse p,
+body.dark-mode .plan-card p,
+body.dark-mode .plan-card-item p,
+body.dark-mode .verse-card p,
+body.dark-mode .prayer-block p,
+body.dark-mode .reflection-block p,
+body.dark-mode .daily-verse small,
+body.dark-mode .plan-card small,
+body.dark-mode .plan-card-item small {
+  color: #50627d !important;
 }
 
 /* KEEP GOLD TITLES */
