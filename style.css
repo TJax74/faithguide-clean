@@ -475,10 +475,6 @@ body.dark-mode .card p {
 
 /* GLOBAL DARK MODE TEXT FIX */
 
-body.dark-mode p {
-  color: #cbd5e1;
-}
-
 body.dark-mode .screen-subtitle {
   color: #cbd5e1;
 }
@@ -542,17 +538,6 @@ body.dark-mode .plan-card-item small {
   color: #50627d !important;
 }
 
-/* KEEP GOLD TITLES */
-
-body.dark-mode .screen-title,
-body.dark-mode .section-title,
-body.dark-mode .label-text,
-body.dark-mode .card h3,
-body.dark-mode .plan-title,
-body.dark-mode .devotional-title {
-  color: #c9a94d !important;
-}
-
 /* CARD DESCRIPTIONS */
 
 body.dark-mode .plan-desc,
@@ -591,12 +576,6 @@ body.dark-mode .prayer-card p,
 body.dark-mode .reflection-card p,
 body.dark-mode .verse-card p {
   color: #64748b !important;
-}
-
-/* Light cards in dark mode */
-body.dark-mode .app-card {
-  background: #f8f6f1;
-  color: #1f2b46;
 }
 
 /* Fix muted labels */
