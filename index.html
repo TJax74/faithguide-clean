@@ -2131,10 +2131,11 @@ function loadDailyVerse() {
 
   // Set verse + devotional
   document.getElementById("dailyVerseText").innerText = dailyVerses[index];
-const devotionalIndex = index % devotionals.length;
 
-document.getElementById("dailyDevotional").innerText =
-  devotionals[devotionalIndex].reflection;
+  const devotionalIndex = index % devotionals.length;
+
+  document.getElementById("dailyDevotional").innerText =
+    devotionals[devotionalIndex].reflection;
 
   // Prompt
   const promptIndex = index % dailyPrompts.length;
@@ -2147,7 +2148,7 @@ document.getElementById("dailyDevotional").innerText =
   // Save button state
   const saved = JSON.parse(localStorage.getItem("saved")) || [];
   const button = document.getElementById("dailySaveBtn");
-  
+
   if (saved.find(v => v.text === dailyVerses[index])) {
     button.innerText = "Saved ✓";
     button.disabled = true;
@@ -2156,16 +2157,16 @@ document.getElementById("dailyDevotional").innerText =
     button.disabled = false;
   }
 
-// Restore selected emotion
-const savedEmotion = localStorage.getItem("selectedEmotion");
+  // Restore selected emotion
+  const savedEmotion = localStorage.getItem("selectedEmotion");
 
-if (savedEmotion) {
-  document.querySelectorAll('.card').forEach(card => {
-    if (card.innerText.includes(savedEmotion)) {
-      card.classList.add('active');
-    }
-  });
-}
+  if (savedEmotion) {
+    document.querySelectorAll('.card').forEach(card => {
+      if (card.innerText.includes(savedEmotion)) {
+        card.classList.add('active');
+      }
+    });
+  }
 
 }
   
