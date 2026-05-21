@@ -79,14 +79,6 @@ body.dark-mode .app-card {
     0 10px 30px rgba(0,0,0,0.35);
 }
 
-body.dark-mode .emotion-card {
-  background: #1f2937;
-}
-
-body.dark-mode .emotion-card p {
-  color: #cbd5e1;
-}
-
 body.dark-mode #dailyVerseText {
   color: #f3f4f6;
 }
@@ -97,37 +89,6 @@ body.dark-mode #dailyDevotional {
 
 body.dark-mode .saved-verse-card {
   background: #1f2937;
-}
-
-body.dark-mode .emotion-card small,
-body.dark-mode .emotion-card .emotion-subtext,
-body.dark-mode .emotion-card span {
-  color: #cbd5e1;
-}
-
-body.dark-mode .emotion-card {
-  color: #f3f4f6;
-}
-
-body.dark-mode .emotion-card p,
-body.dark-mode .emotion-card small,
-body.dark-mode .emotion-card .subtitle,
-body.dark-mode .emotion-card .emotion-desc {
-  color: #d1d5db !important;
-}
-
-body.dark-mode .emotion-card {
-  background: #1f2937;
-  border: 1px solid rgba(255,255,255,0.05);
-}
-
-body.dark-mode .emotion-card p {
-  color: #94a3b8 !important;
-  opacity: 1 !important;
-}
-
-body.dark-mode .emotion-card {
-  background: #1e293b !important;
 }
 
 .app-card:hover {
@@ -500,12 +461,19 @@ body.dark-mode .theme-toggle-btn {
 
 }
 
-body.dark-mode .emotion-card p {
-  color: #94a3b8 !important;
-  opacity: 1 !important;
-  visibility: visible !important;
+/* DARK MODE CARD FIX */
+
+body.dark-mode .card {
+  background: #f8f6f1 !important;
+  border: 1px solid rgba(255,255,255,0.06);
 }
 
-body.dark-mode .emotion-card {
-  background: #1e293b !important;
+body.dark-mode .card h3 {
+  color: #c9a94d !important;
+}
+
+body.dark-mode .card p {
+  color: #5b6475 !important;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
