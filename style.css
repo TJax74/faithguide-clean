@@ -500,3 +500,26 @@ body.dark-mode .saved-empty p,
 body.dark-mode .journal-empty p {
   color: #94a3b8;
 }
+
+/* FORCE DARK MODE TEXT VISIBILITY */
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode p,
+body.dark-mode small,
+body.dark-mode span,
+body.dark-mode div {
+  color: #e5e7eb;
+}
+
+/* KEEP GOLD HEADINGS */
+
+body.dark-mode .screen-title,
+body.dark-mode .section-title,
+body.dark-mode .gold-text,
+body.dark-mode .label-text,
+body.dark-mode .card h3 {
+  color: #c9a94d !important;
+}
