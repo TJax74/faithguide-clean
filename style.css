@@ -71,12 +71,11 @@ body.dark-mode {
             box-shadow 0.2s ease;  
 }
 
-body.dark-mode .app-card {
-  background: #1f2937;
-  border: 1px solid rgba(255,255,255,0.04);
-
-  box-shadow:
-    0 10px 30px rgba(0,0,0,0.35);
+body.dark-mode .devotional-card,
+body.dark-mode .plan-card,
+body.dark-mode .saved-verse-card {
+  background: #f8f6f1;
+  color: #1f2b46;
 }
 
 body.dark-mode #dailyVerseText {
