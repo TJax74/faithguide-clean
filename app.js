@@ -1632,39 +1632,57 @@ function resumePlan() {
 }
   
 function nextDay() {
-  let currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
-  const activePlanIndex = localStorage.getItem("activePlan");
+
+  let currentDay =
+    parseInt(localStorage.getItem("currentDay")) || 0;
+
+  const activePlanIndex =
+    localStorage.getItem("activePlan");
 
   if (activePlanIndex === null) return;
 
   const plan = plans[activePlanIndex];
 
   if (currentDay < plan.content.length - 1) {
-    currentDay++;
-    const savedDayKey =
-"readingDay-" + activePlan.title;
 
-localStorage.setItem(
-savedDayKey,
-currentDay
-);
+    currentDay++;
+
+    localStorage.setItem(
+      "currentDay",
+      currentDay
+    );
+
     showPlanScreen(plan);
+
   }
+
 }
 
 function previousDay() {
-  let currentDay = parseInt(localStorage.getItem("currentDay")) || 0;
-  const activePlanIndex = localStorage.getItem("activePlan");
+
+  let currentDay =
+    parseInt(localStorage.getItem("currentDay")) || 0;
+
+  const activePlanIndex =
+    localStorage.getItem("activePlan");
 
   if (activePlanIndex === null) return;
 
   const plan = plans[activePlanIndex];
 
   if (currentDay > 0) {
+
     currentDay--;
-    localStorage.setItem("currentDay", currentDay);
+
+    localStorage.setItem(
+      "currentDay",
+      currentDay
+    );
+
     showPlanScreen(plan);
+
   }
+
 }
 
 function savePlanDay() {
