@@ -903,8 +903,6 @@ function loadDailyVerse() {
       checkinText.innerText = "";
     }
 }
-
-}
         
 function selectEmotion(emotion, event) {
 
