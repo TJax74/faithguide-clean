@@ -1828,27 +1828,26 @@ window.addEventListener("load", () => {
 
   const splash = document.getElementById("splash-screen");
 
-  if (sessionStorage.getItem("splashShown")) {
+if (!splash) return;
 
-    splash.style.display = "none";
-
-    return;
-
-  }
-
-  setTimeout(() => {
-
-   splash.classList.add("hide");
+if (sessionStorage.getItem("splashShown")) {
+  splash.style.display = "none";
+  return;
+}
 
 setTimeout(() => {
 
-  splash.remove();
+  splash.classList.add("hide");
 
-  sessionStorage.setItem("splashShown", "true");
+  setTimeout(() => {
 
-    }, 800);
+    splash.remove();
 
-  }, 2000);
+    sessionStorage.setItem("splashShown", "true");
+
+  }, 800);
+
+}, 2000);
 
 });
 
