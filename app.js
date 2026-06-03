@@ -1890,6 +1890,18 @@ function closeCompletionPopup() {
 
   popup.classList.remove("show");
 
+  const activePlanIndex =
+    localStorage.getItem("activePlan");
+
+  if (activePlanIndex !== null) {
+
+    const plan = plans[activePlanIndex];
+
+    showPlanScreen(plan);
+
+    return;
+  }
+
   showScreen("readingPlans");
 
 }
