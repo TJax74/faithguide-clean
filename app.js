@@ -1223,11 +1223,10 @@ function showPlanScreen(plan) {
   
   localStorage.setItem("activePlanTitle", plan.title);
   
-  const savedDayKey =
-"readingDay-" + plan.title;
-
-const currentDay =
-parseInt(localStorage.getItem(savedDayKey)) || 0;
+  const currentDay =
+  parseInt(
+    localStorage.getItem("currentDay")
+  ) || 0;
 
   const dayContent = plan.content[currentDay];
 
