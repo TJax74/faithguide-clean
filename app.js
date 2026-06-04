@@ -1,5 +1,13 @@
 console.log("APP.JS CONNECTED");
 
+function refreshIcons() {
+
+  if (window.lucide) {
+    lucide.createIcons();
+  }
+
+}
+
 const guidance = {
 
   Anxiety:
@@ -1839,7 +1847,7 @@ if (
 
 updateDailyStreak();  
 
-lucide.createIcons();
+refreshIcons();
 
 window.addEventListener("load", () => {
 
