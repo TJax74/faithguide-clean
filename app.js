@@ -611,7 +611,7 @@ const anxietyDevotionals = [
       "Jesus, fill my heart with Your peace today.",
     question:
       "What would change if you truly believed God was with you right now?"
-  }
+  },
 
   {
   verse: "Isaiah 26:3",
