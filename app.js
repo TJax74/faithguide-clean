@@ -978,9 +978,27 @@ const readingPlans = [
 
     question:
       "What burden do you need to release to God today?"
-  }
+ }, 
+
+{
+  title: "Safe in God's Care",
+
+  verse: "Psalm 91:1-2",
+
+  text:
+    "He that dwelleth in the secret place of the most High shall abide under the shadow of the Almighty. I will say of the Lord, He is my refuge and my fortress: my God; in him will I trust.",
+
+  reflection:
+    "When life feels uncertain, God offers more than temporary comfort. He offers His presence. The Psalms remind us that God is not distant from our fears—He is a refuge we can run to in every season.",
+
+  prayer:
+    "Father, help me rest in the safety of Your presence. Remind me that You are my refuge, my fortress, and my protector.",
+
+  question:
+    "What fear do you need to bring into God's presence today?"
+}      
 ]
-  },
+},
 
   {
     title: "Proverbs Wisdom Journey",
