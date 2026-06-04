@@ -627,6 +627,21 @@ const anxietyDevotionals = [
   question:
     "What anxious thought do you need to replace with trust in God today?"
 },
+
+{
+  verse: "Psalm 46:10",
+
+  text: "Be still, and know that I am God.",
+
+  reflection:
+    "Anxiety often convinces us that we must solve everything immediately. God invites us to pause. Being still is not giving up—it is choosing to trust that God is working even when we cannot see every answer.",
+
+  prayer:
+    "Father, teach me to slow down and rest in Your presence. Help me remember that You are God and I do not have to carry every burden alone.",
+
+  question:
+    "What would it look like for you to be still before God today?"
+}  
 ];
   
 const plans = [
