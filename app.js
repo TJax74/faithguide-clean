@@ -641,7 +641,22 @@ const anxietyDevotionals = [
 
   question:
     "What would it look like for you to be still before God today?"
-}  
+},
+
+  {
+  verse: "1 Peter 5:7",
+
+  text: "Casting all your care upon him; for he careth for you.",
+
+  reflection:
+    "God never asked you to carry every burden by yourself. Anxiety often grows when we try to hold things that were meant to be surrendered. God's invitation is simple: bring your worries to Him because He genuinely cares about what concerns you.",
+
+  prayer:
+    "Lord, I give You the worries that feel too heavy for me. Help me trust that You care about every detail of my life and that I do not have to carry these burdens alone.",
+
+  question:
+    "What burden have you been carrying that God may be asking you to surrender?"
+}
 ];
   
 const plans = [
