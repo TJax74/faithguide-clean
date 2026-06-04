@@ -671,6 +671,81 @@ const anxietyDevotionals = [
 
   question:
     "Where do you most need God's strength and help right now?"
+},
+
+  {
+  verse: "Matthew 6:8",
+
+  text: "Your Father knoweth what things ye have need of, before ye ask him.",
+
+  reflection:
+    "Anxiety often comes from feeling responsible for every outcome. Yet Jesus reminds us that our Heavenly Father already knows our needs before we even speak them. God is not surprised by your situation, your fears, or your future.",
+
+  prayer:
+    "Father, thank You for knowing my needs before I even ask. Help me trust Your care instead of carrying the weight of trying to control everything myself.",
+
+  question:
+    "What need are you struggling to trust God with today?"
+},
+
+  {
+  verse: "Psalm 55:22",
+
+  text: "Cast thy burden upon the Lord, and he shall sustain thee: he shall never suffer the righteous to be moved.",
+
+  reflection:
+    "Some burdens were never meant to be carried alone. God does not merely tell us to endure—He invites us to bring our struggles to Him. His strength becomes our support when our own strength begins to fail.",
+
+  prayer:
+    "Lord, help me release the burdens I keep trying to carry by myself. Sustain me with Your strength and remind me that You are always near.",
+
+  question:
+    "What burden feels heaviest right now?"
+},
+
+  {
+  verse: "Philippians 4:13",
+
+  text: "I can do all things through Christ which strengtheneth me.",
+
+  reflection:
+    "This verse is not a promise that life will always be easy. It is a reminder that Christ provides strength for whatever we face. The same God who walks with you also equips you.",
+
+  prayer:
+    "Jesus, strengthen me for the challenges before me. Help me rely on Your power instead of my own.",
+
+  question:
+    "Where do you need Christ's strength today?"
+},
+
+  {
+  verse: "Psalm 121:1-2",
+
+  text: "I will lift up mine eyes unto the hills, from whence cometh my help. My help cometh from the Lord, which made heaven and earth.",
+
+  reflection:
+    "Anxiety often causes us to focus on our problems. This Psalm gently redirects our attention to the One who is greater than every challenge we face.",
+
+  prayer:
+    "Father, help me lift my eyes above my circumstances and remember where my help truly comes from.",
+
+  question:
+    "What situation do you need to place into God's hands today?"
+},
+
+  {
+  verse: "Romans 15:13",
+
+  text: "Now the God of hope fill you with all joy and peace in believing, that ye may abound in hope, through the power of the Holy Ghost.",
+
+  reflection:
+    "Hope grows when we remember God's faithfulness. Even when circumstances remain uncertain, God can fill our hearts with peace and confidence in His promises.",
+
+  prayer:
+    "Lord, fill me with hope today. Help me trust Your promises more than my fears.",
+
+  question:
+    "What promise of God brings you hope right now?"
 }
 ];
   
