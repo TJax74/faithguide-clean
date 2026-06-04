@@ -612,6 +612,21 @@ const anxietyDevotionals = [
     question:
       "What would change if you truly believed God was with you right now?"
   }
+
+  {
+  verse: "Isaiah 26:3",
+
+  text: "Thou wilt keep him in perfect peace, whose mind is stayed on thee: because he trusteth in thee.",
+
+  reflection:
+    "Peace is not found in having every answer. God's perfect peace comes when we intentionally focus our minds on Him instead of our fears. The more we dwell on His faithfulness, the less power anxiety has over us.",
+
+  prayer:
+    "Lord, help me keep my mind fixed on You today. When anxious thoughts come, remind me of Your faithfulness and Your promises.",
+
+  question:
+    "What anxious thought do you need to replace with trust in God today?"
+},
 ];
   
 const plans = [
