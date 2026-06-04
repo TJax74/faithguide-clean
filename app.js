@@ -656,6 +656,21 @@ const anxietyDevotionals = [
 
   question:
     "What burden have you been carrying that God may be asking you to surrender?"
+},
+
+  {
+  verse: "Isaiah 41:10",
+
+  text: "Fear thou not; for I am with thee: be not dismayed; for I am thy God: I will strengthen thee; yea, I will help thee; yea, I will uphold thee with the right hand of my righteousness.",
+
+  reflection:
+    "Anxiety often whispers that you are facing life alone. God answers with a promise: 'I am with thee.' His strength is available even when your own feels exhausted. You do not have to be strong enough for everything because God has promised to help and uphold you.",
+
+  prayer:
+    "Father, thank You for being with me in every circumstance. When I feel weak, remind me that Your strength is greater than my fears and Your presence never leaves me.",
+
+  question:
+    "Where do you most need God's strength and help right now?"
 }
 ];
   
