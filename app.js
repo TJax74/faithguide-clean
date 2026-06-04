@@ -746,6 +746,36 @@ const anxietyDevotionals = [
 
   question:
     "What promise of God brings you hope right now?"
+},
+
+  {
+  verse: "Philippians 4:7",
+
+  text: "And the peace of God, which passeth all understanding, shall keep your hearts and minds through Christ Jesus.",
+
+  reflection:
+    "Sometimes God's peace arrives before our circumstances improve. It is a peace that doesn't depend on having every answer. Even when life feels uncertain, God can guard your heart and mind with His presence.",
+
+  prayer:
+    "Father, fill my heart with Your peace today. Help me trust You even when I do not understand everything happening around me.",
+
+  question:
+    "Where do you need God's peace to protect your heart right now?"
+},
+
+  {
+  verse: "Lamentations 3:22-23",
+
+  text: "It is of the Lord's mercies that we are not consumed, because his compassions fail not. They are new every morning: great is thy faithfulness.",
+
+  reflection:
+    "Anxiety often tries to make us live weeks or months ahead. God gives grace one day at a time. Every morning brings fresh mercy, fresh strength, and a new opportunity to trust Him.",
+
+  prayer:
+    "Lord, thank You for Your faithfulness. Help me focus on today's grace instead of tomorrow's worries.",
+
+  question:
+    "How have you seen God's faithfulness in your life recently?"
 }
 ];
   
@@ -754,8 +784,8 @@ const plans = [
     title: "Peace in the Storm",
     category: "Anxiety & Peace",
     accent: "#c9a94d",
-    days: 30,
-    description: "A 30-day journey to finding God's perfect peace when life feels overwhelming and chaotic.",
+    days: 14,
+    description: "A 14-day journey to finding God's perfect peace when life feels overwhelming and chaotic.",
     content: anxietyDevotionals
   },
   {
