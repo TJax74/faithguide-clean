@@ -51,12 +51,14 @@ body.dark-mode {
 .screen-title {
   text-align: center;
   color: #c9a94d;
-  font-size: 34px;
+  font-size: 52px;
   font-weight: 700;
-  margin-bottom: 12px;
+  margin-bottom: 16px;
 
-  letter-spacing: -0.5px;
-  line-height: 1.2;
+  font-family: Georgia, serif;
+
+  letter-spacing: -1px;
+  line-height: 1.1;
 }
 
 .app-card {
